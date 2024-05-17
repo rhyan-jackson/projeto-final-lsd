@@ -1,0 +1,233 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "cookEnable",
+					"strict" : false
+				},
+				{
+					"name" : "timerStart",
+					"strict" : false
+				},
+				{
+					"name" : "timeToExecute[0]",
+					"strict" : false
+				},
+				{
+					"name" : "timeToExecute[1]",
+					"strict" : false
+				},
+				{
+					"name" : "timeToExecute[2]",
+					"strict" : false
+				},
+				{
+					"name" : "timeToExecute[3]",
+					"strict" : false
+				},
+				{
+					"name" : "timeToExecute[4]",
+					"strict" : false
+				},
+				{
+					"name" : "timeToExecute[5]",
+					"strict" : false
+				},
+				{
+					"name" : "timeToExecute[6]",
+					"strict" : false
+				},
+				{
+					"name" : "timeToExecute[7]",
+					"strict" : false
+				},
+				{
+					"name" : "timeToExecute[8]",
+					"strict" : false
+				},
+				{
+					"name" : "timeToExecute[9]",
+					"strict" : false
+				},
+				{
+					"name" : "timeToExecute[10]",
+					"strict" : false
+				},
+				{
+					"name" : "timeToExecute[11]",
+					"strict" : false
+				},
+				{
+					"name" : "timeToExecute[12]",
+					"strict" : false
+				},
+				{
+					"name" : "timeToExecute[13]",
+					"strict" : false
+				},
+				{
+					"name" : "timeToExecute[14]",
+					"strict" : false
+				},
+				{
+					"name" : "timeToExecute[15]",
+					"strict" : false
+				},
+				{
+					"name" : "actualState[0]",
+					"strict" : false
+				},
+				{
+					"name" : "actualState[1]",
+					"strict" : false
+				},
+				{
+					"name" : "endTimer",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "leaveFinish",
+					"strict" : false
+				},
+				{
+					"name" : "timeMaxCooking[0]",
+					"strict" : false
+				},
+				{
+					"name" : "timeIdle[0]",
+					"strict" : false
+				},
+				{
+					"name" : "timeMaxCooking[1]",
+					"strict" : false
+				},
+				{
+					"name" : "timeIdle[1]",
+					"strict" : false
+				},
+				{
+					"name" : "timeMaxCooking[2]",
+					"strict" : false
+				},
+				{
+					"name" : "timeIdle[2]",
+					"strict" : false
+				},
+				{
+					"name" : "timeMaxCooking[3]",
+					"strict" : false
+				},
+				{
+					"name" : "timeIdle[3]",
+					"strict" : false
+				},
+				{
+					"name" : "timeMaxCooking[4]",
+					"strict" : false
+				},
+				{
+					"name" : "timeIdle[4]",
+					"strict" : false
+				},
+				{
+					"name" : "timeMaxCooking[5]",
+					"strict" : false
+				},
+				{
+					"name" : "timeIdle[5]",
+					"strict" : false
+				},
+				{
+					"name" : "timeMaxCooking[6]",
+					"strict" : false
+				},
+				{
+					"name" : "timeIdle[6]",
+					"strict" : false
+				},
+				{
+					"name" : "timeMaxCooking[7]",
+					"strict" : false
+				},
+				{
+					"name" : "timeIdle[7]",
+					"strict" : false
+				},
+				{
+					"name" : "timeMaxCooking[8]",
+					"strict" : false
+				},
+				{
+					"name" : "timeIdle[8]",
+					"strict" : false
+				},
+				{
+					"name" : "timeMaxCooking[9]",
+					"strict" : false
+				},
+				{
+					"name" : "timeIdle[9]",
+					"strict" : false
+				},
+				{
+					"name" : "timeMaxCooking[10]",
+					"strict" : false
+				},
+				{
+					"name" : "timeIdle[10]",
+					"strict" : false
+				},
+				{
+					"name" : "timeMaxCooking[11]",
+					"strict" : false
+				},
+				{
+					"name" : "timeIdle[11]",
+					"strict" : false
+				},
+				{
+					"name" : "timeMaxCooking[12]",
+					"strict" : false
+				},
+				{
+					"name" : "timeIdle[12]",
+					"strict" : false
+				},
+				{
+					"name" : "timeMaxCooking[13]",
+					"strict" : false
+				},
+				{
+					"name" : "timeIdle[13]",
+					"strict" : false
+				},
+				{
+					"name" : "timeMaxCooking[14]",
+					"strict" : false
+				},
+				{
+					"name" : "timeIdle[14]",
+					"strict" : false
+				},
+				{
+					"name" : "timeMaxCooking[15]",
+					"strict" : false
+				},
+				{
+					"name" : "timeIdle[15]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,118 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+R0
+R0
+!s11e vcom 2021.2 2021.04, Apr 14 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 d/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/simulation/qsim
+T_opt
+Z2 !s110 1715960546
+V8Bie8PaOfVP<3;JT:2I382
+04 20 13 work fornofsm_vhd_vec_tst fornofsm_arch 1
+=1-000ae431a4f1-66477ae2-28b64-5e39
+!s124 OEM10U2 
+o-quiet -auto_acc_if_foreign -work work -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim +acc
+tCvgOpt 0
+n@_opt
+OL;O;2021.2;73
+Efornofsm
+Z3 w1715960545
+Z4 DPx10 cycloneive 20 cycloneive_atom_pack 0 22 gn]m8U<PzXZH32IDQ4:hj3
+Z5 DPx10 cycloneive 21 cycloneive_components 0 22 cSe5`^NYM;IRV3WNS^Q7a2
+Z6 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z7 DPx6 altera 11 dffeas_pack 0 22 ^oS01<AhH<ZbI@CNcPk2V0
+Z8 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z9 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z10 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+Z11 DPx6 altera 28 altera_primitives_components 0 22 Y19K[Kjfb73Y`YfbP9Kf30
+!i122 6
+R1
+Z12 8Forno.vho
+Z13 FForno.vho
+l0
+L37 1
+VQGk=iDD92?QVIRK=>DjWN1
+!s100 8ClhVfiU@0oX6i1Rh3d[Z0
+Z14 OL;C;2021.2;73
+32
+R2
+!i10b 1
+Z15 !s108 1715960545.000000
+Z16 !s90 -work|work|Forno.vho|
+Z17 !s107 Forno.vho|
+!i113 0
+Z18 o-work work
+Z19 tExplicit 1 CvgOpt 0
+Astructure
+R4
+R5
+R6
+R7
+R8
+R9
+R10
+R11
+DEx4 work 8 fornofsm 0 22 QGk=iDD92?QVIRK=>DjWN1
+!i122 6
+l174
+L52 1426
+VT>S<7X:[3l2ca55N[<faH3
+!s100 5ARoa05B;@c9ngnz>h_Q:1
+R14
+32
+R2
+!i10b 1
+R15
+R16
+R17
+!i113 0
+R18
+R19
+Efornofsm_vhd_vec_tst
+Z20 w1715960544
+R9
+R10
+!i122 7
+R1
+Z21 8FornoFSM.vwf.vht
+Z22 FFornoFSM.vwf.vht
+l0
+L32 1
+VE2c6fHnS_5fO<NYi`NK9P1
+!s100 B]B>UI?LDT`[zB6M?1[]b1
+R14
+32
+R2
+!i10b 1
+Z23 !s108 1715960546.000000
+Z24 !s90 -work|work|FornoFSM.vwf.vht|
+Z25 !s107 FornoFSM.vwf.vht|
+!i113 0
+R18
+R19
+Afornofsm_arch
+R9
+R10
+DEx4 work 20 fornofsm_vhd_vec_tst 0 22 E2c6fHnS_5fO<NYi`NK9P1
+!i122 7
+l61
+L34 284
+VZ_m:WJ:LozBOiVW?>fkMQ0
+!s100 ]Gf7aiXI:[joR>H@cg2[50
+R14
+32
+R2
+!i10b 1
+R23
+R24
+R25
+!i113 0
+R18
+R19
