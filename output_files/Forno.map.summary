@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Fri May 17 16:48:52 2024
+Analysis & Synthesis Status : Successful - Sun May 19 20:46:34 2024
 Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 Revision Name : Forno
-Top-level Entity Name : FornoFSM
+Top-level Entity Name : RegisterTime
 Family : Cyclone IV E
-Total logic elements : 41
-    Total combinational functions : 41
-    Dedicated logic registers : 4
-Total registers : 4
-Total pins : 57
+Total logic elements : 91
+    Total combinational functions : 91
+    Dedicated logic registers : 33
+Total registers : 33
+Total pins : 42
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

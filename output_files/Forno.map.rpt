@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Forno
-Fri May 17 16:48:52 2024
+Sun May 19 20:46:34 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -13,14 +13,12 @@ Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |FornoFSM|s_currentState
-  9. User-Specified and Inferred Latches
- 10. Registers Removed During Synthesis
- 11. General Register Statistics
- 12. Inverted Register Statistics
- 13. Post-Synthesis Netlist Statistics for Top Partition
- 14. Elapsed Time Per Partition
- 15. Analysis & Synthesis Messages
+  8. General Register Statistics
+  9. Inverted Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Post-Synthesis Netlist Statistics for Top Partition
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -47,16 +45,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri May 17 16:48:52 2024          ;
+; Analysis & Synthesis Status        ; Successful - Sun May 19 20:46:34 2024          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; Forno                                          ;
-; Top-level Entity Name              ; FornoFSM                                       ;
+; Top-level Entity Name              ; RegisterTime                                   ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 41                                             ;
-;     Total combinational functions  ; 41                                             ;
-;     Dedicated logic registers      ; 4                                              ;
-; Total registers                    ; 4                                              ;
-; Total pins                         ; 57                                             ;
+; Total logic elements               ; 91                                             ;
+;     Total combinational functions  ; 91                                             ;
+;     Dedicated logic registers      ; 33                                             ;
+; Total registers                    ; 33                                             ;
+; Total pins                         ; 42                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
@@ -70,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE115F29C7      ;                    ;
-; Top-level entity name                                            ; FornoFSM           ; Forno              ;
+; Top-level entity name                                            ; RegisterTime       ; Forno              ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -167,104 +165,55 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                           ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                    ; Library ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------------------------+---------+
-; FornoFSM.vhd                     ; yes             ; User VHDL File  ; /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd ;         ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                               ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                        ; Library ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------+---------+
+; RegisterTime.vhd                 ; yes             ; User VHDL File  ; /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/RegisterTime.vhd ;         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------+---------+
 
 
-+-------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                       ;
-+---------------------------------------------+---------------------+
-; Resource                                    ; Usage               ;
-+---------------------------------------------+---------------------+
-; Estimated Total logic elements              ; 41                  ;
-;                                             ;                     ;
-; Total combinational functions               ; 41                  ;
-; Logic element usage by number of LUT inputs ;                     ;
-;     -- 4 input functions                    ; 4                   ;
-;     -- 3 input functions                    ; 33                  ;
-;     -- <=2 input functions                  ; 4                   ;
-;                                             ;                     ;
-; Logic elements by mode                      ;                     ;
-;     -- normal mode                          ; 41                  ;
-;     -- arithmetic mode                      ; 0                   ;
-;                                             ;                     ;
-; Total registers                             ; 4                   ;
-;     -- Dedicated logic registers            ; 4                   ;
-;     -- I/O registers                        ; 0                   ;
-;                                             ;                     ;
-; I/O pins                                    ; 57                  ;
-;                                             ;                     ;
-; Embedded Multiplier 9-bit elements          ; 0                   ;
-;                                             ;                     ;
-; Maximum fan-out node                        ; s_currentState.COOK ;
-; Maximum fan-out                             ; 21                  ;
-; Total fan-out                               ; 208                 ;
-; Average fan-out                             ; 1.31                ;
-+---------------------------------------------+---------------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 91        ;
+;                                             ;           ;
+; Total combinational functions               ; 91        ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 50        ;
+;     -- 3 input functions                    ; 35        ;
+;     -- <=2 input functions                  ; 6         ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 61        ;
+;     -- arithmetic mode                      ; 30        ;
+;                                             ;           ;
+; Total registers                             ; 33        ;
+;     -- Dedicated logic registers            ; 33        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 42        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 33        ;
+; Total fan-out                               ; 458       ;
+; Average fan-out                             ; 2.20      ;
++---------------------------------------------+-----------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; |FornoFSM                  ; 41 (41)             ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 57   ; 0            ; |FornoFSM           ; FornoFSM    ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                       ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name  ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+--------------+
+; |RegisterTime              ; 91 (91)             ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 42   ; 0            ; |RegisterTime       ; RegisterTime ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-Encoding Type:  One-Hot
-+------------------------------------------------------------------------------------------------------------------+
-; State Machine - |FornoFSM|s_currentState                                                                         ;
-+-----------------------+-----------------------+---------------------+----------------------+---------------------+
-; Name                  ; s_currentState.FINISH ; s_currentState.COOK ; s_currentState.START ; s_currentState.IDLE ;
-+-----------------------+-----------------------+---------------------+----------------------+---------------------+
-; s_currentState.IDLE   ; 0                     ; 0                   ; 0                    ; 0                   ;
-; s_currentState.START  ; 0                     ; 0                   ; 1                    ; 1                   ;
-; s_currentState.COOK   ; 0                     ; 1                   ; 0                    ; 1                   ;
-; s_currentState.FINISH ; 1                     ; 0                   ; 0                    ; 1                   ;
-+-----------------------+-----------------------+---------------------+----------------------+---------------------+
-
-
-+------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                  ;
-+-----------------------------------------------------+-----------------------+------------------------+
-; Latch Name                                          ; Latch Enable Signal   ; Free of Timing Hazards ;
-+-----------------------------------------------------+-----------------------+------------------------+
-; timeToExecute[0]$latch                              ; s_currentState.FINISH ; yes                    ;
-; timeToExecute[1]$latch                              ; s_currentState.FINISH ; yes                    ;
-; timeToExecute[2]$latch                              ; s_currentState.FINISH ; yes                    ;
-; timeToExecute[3]$latch                              ; s_currentState.FINISH ; yes                    ;
-; timeToExecute[4]$latch                              ; s_currentState.FINISH ; yes                    ;
-; timeToExecute[5]$latch                              ; s_currentState.FINISH ; yes                    ;
-; timeToExecute[6]$latch                              ; s_currentState.FINISH ; yes                    ;
-; timeToExecute[7]$latch                              ; s_currentState.FINISH ; yes                    ;
-; timeToExecute[8]$latch                              ; s_currentState.FINISH ; yes                    ;
-; timeToExecute[9]$latch                              ; s_currentState.FINISH ; yes                    ;
-; timeToExecute[10]$latch                             ; s_currentState.FINISH ; yes                    ;
-; timeToExecute[11]$latch                             ; s_currentState.FINISH ; yes                    ;
-; timeToExecute[12]$latch                             ; s_currentState.FINISH ; yes                    ;
-; timeToExecute[13]$latch                             ; s_currentState.FINISH ; yes                    ;
-; timeToExecute[14]$latch                             ; s_currentState.FINISH ; yes                    ;
-; timeToExecute[15]$latch                             ; s_currentState.FINISH ; yes                    ;
-; Number of user-specified and inferred latches = 16  ;                       ;                        ;
-+-----------------------------------------------------+-----------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
-
-
-+--------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                             ;
-+---------------------------------------+----------------------------------------+
-; Register name                         ; Reason for Removal                     ;
-+---------------------------------------+----------------------------------------+
-; s_currentState.START                  ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 1 ;                                        ;
-+---------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -272,7 +221,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 4     ;
+; Total registers                              ; 33    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -287,9 +236,24 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; s_stateChanged                         ; 1       ;
-; Total number of inverted registers = 1 ;         ;
+; s_actualIdle[1]                        ; 4       ;
+; s_actualIdle[3]                        ; 5       ;
+; s_actualCook[1]                        ; 4       ;
+; s_actualCook[3]                        ; 5       ;
+; Total number of inverted registers = 4 ;         ;
 +----------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
+; 7:1                ; 14 bits   ; 56 LEs        ; 28 LEs               ; 28 LEs                 ; Yes        ; |RegisterTime|s_actualIdle[8]  ;
+; 7:1                ; 14 bits   ; 56 LEs        ; 28 LEs               ; 28 LEs                 ; Yes        ; |RegisterTime|s_actualCook[11] ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RegisterTime|s_actualIdle[3]  ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RegisterTime|s_actualCook[3]  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
 
 
 +-----------------------------------------------------+
@@ -297,18 +261,21 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 57                          ;
-; cycloneiii_ff         ; 4                           ;
-;     plain             ; 4                           ;
-; cycloneiii_lcell_comb ; 42                          ;
-;     normal            ; 42                          ;
-;         1 data inputs ; 1                           ;
+; boundary_port         ; 42                          ;
+; cycloneiii_ff         ; 33                          ;
+;     plain             ; 33                          ;
+; cycloneiii_lcell_comb ; 95                          ;
+;     arith             ; 30                          ;
+;         2 data inputs ; 2                           ;
+;         3 data inputs ; 28                          ;
+;     normal            ; 65                          ;
+;         1 data inputs ; 4                           ;
 ;         2 data inputs ; 4                           ;
-;         3 data inputs ; 33                          ;
-;         4 data inputs ; 4                           ;
+;         3 data inputs ; 7                           ;
+;         4 data inputs ; 50                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 2.00                        ;
-; Average LUT depth     ; 1.78                        ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 4.31                        ;
 +-----------------------+-----------------------------+
 
 
@@ -327,53 +294,31 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Fri May 17 16:48:41 2024
+    Info: Processing started: Sun May 19 20:46:24 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Forno -c Forno
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file RegisterTime.vhd
+    Info (12022): Found design unit 1: RegisterTime-Synchronous File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/RegisterTime.vhd Line: 20
+    Info (12023): Found entity 1: RegisterTime File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/RegisterTime.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file RegisterTemperature.vhd
+    Info (12022): Found design unit 1: RegisterTemperature-Synchronous File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/RegisterTemperature.vhd Line: 16
+    Info (12023): Found entity 1: RegisterTemperature File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/RegisterTemperature.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file FornoFSM.vhd
-    Info (12022): Found design unit 1: FornoFSM-Behavioral File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 18
+    Info (12022): Found design unit 1: FornoFSM-Behavioral File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 10
     Info (12023): Found entity 1: FornoFSM File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 4
-Info (12127): Elaborating entity "FornoFSM" for the top level hierarchy
-Warning (10492): VHDL Process Statement warning at FornoFSM.vhd(46): signal "timeIdle" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 46
-Warning (10492): VHDL Process Statement warning at FornoFSM.vhd(49): signal "generalStart" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 49
-Warning (10492): VHDL Process Statement warning at FornoFSM.vhd(58): signal "timeIdle" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 58
-Warning (10492): VHDL Process Statement warning at FornoFSM.vhd(59): signal "s_stateChanged" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 59
-Warning (10492): VHDL Process Statement warning at FornoFSM.vhd(61): signal "endTimer" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 61
-Warning (10492): VHDL Process Statement warning at FornoFSM.vhd(70): signal "timeMaxCooking" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 70
-Warning (10492): VHDL Process Statement warning at FornoFSM.vhd(71): signal "s_stateChanged" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 71
-Warning (10492): VHDL Process Statement warning at FornoFSM.vhd(73): signal "endTimer" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 73
-Warning (10492): VHDL Process Statement warning at FornoFSM.vhd(84): signal "leaveFinish" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 84
-Warning (10631): VHDL Process Statement warning at FornoFSM.vhd(40): inferring latch(es) for signal or variable "timeToExecute", which holds its previous value in one or more paths through the process File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 40
-Info (10041): Inferred latch for "timeToExecute[0]" at FornoFSM.vhd(40) File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 40
-Info (10041): Inferred latch for "timeToExecute[1]" at FornoFSM.vhd(40) File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 40
-Info (10041): Inferred latch for "timeToExecute[2]" at FornoFSM.vhd(40) File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 40
-Info (10041): Inferred latch for "timeToExecute[3]" at FornoFSM.vhd(40) File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 40
-Info (10041): Inferred latch for "timeToExecute[4]" at FornoFSM.vhd(40) File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 40
-Info (10041): Inferred latch for "timeToExecute[5]" at FornoFSM.vhd(40) File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 40
-Info (10041): Inferred latch for "timeToExecute[6]" at FornoFSM.vhd(40) File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 40
-Info (10041): Inferred latch for "timeToExecute[7]" at FornoFSM.vhd(40) File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 40
-Info (10041): Inferred latch for "timeToExecute[8]" at FornoFSM.vhd(40) File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 40
-Info (10041): Inferred latch for "timeToExecute[9]" at FornoFSM.vhd(40) File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 40
-Info (10041): Inferred latch for "timeToExecute[10]" at FornoFSM.vhd(40) File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 40
-Info (10041): Inferred latch for "timeToExecute[11]" at FornoFSM.vhd(40) File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 40
-Info (10041): Inferred latch for "timeToExecute[12]" at FornoFSM.vhd(40) File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 40
-Info (10041): Inferred latch for "timeToExecute[13]" at FornoFSM.vhd(40) File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 40
-Info (10041): Inferred latch for "timeToExecute[14]" at FornoFSM.vhd(40) File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 40
-Info (10041): Inferred latch for "timeToExecute[15]" at FornoFSM.vhd(40) File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 40
+Info (12127): Elaborating entity "RegisterTime" for the top level hierarchy
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "generalStart" File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 7
-Info (21057): Implemented 98 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 37 input pins
-    Info (21059): Implemented 20 output pins
-    Info (21061): Implemented 41 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 13 warnings
-    Info: Peak virtual memory: 416 megabytes
-    Info: Processing ended: Fri May 17 16:48:52 2024
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:22
+Info (21057): Implemented 134 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 9 input pins
+    Info (21059): Implemented 33 output pins
+    Info (21061): Implemented 92 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 420 megabytes
+    Info: Processing ended: Sun May 19 20:46:34 2024
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:21
 
 

@@ -19,7 +19,7 @@
 -- the top level entity of the current Quartus project .The user can use this   
 -- testbench to simulate his design using a third-party simulation tool .       
 -- *****************************************************************************
--- Generated on "05/17/2024 16:42:24"
+-- Generated on "05/18/2024 21:34:08"
                                                              
 -- Vhdl Test Bench(with test vectors) for design  :          FornoFSM
 -- 
@@ -38,6 +38,7 @@ SIGNAL actualState : STD_LOGIC_VECTOR(1 DOWNTO 0);
 SIGNAL clk : STD_LOGIC;
 SIGNAL cookEnable : STD_LOGIC;
 SIGNAL endTimer : STD_LOGIC;
+SIGNAL generalStart : STD_LOGIC;
 SIGNAL leaveFinish : STD_LOGIC;
 SIGNAL reset : STD_LOGIC;
 SIGNAL timeIdle : STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -50,6 +51,7 @@ COMPONENT FornoFSM
 	clk : IN STD_LOGIC;
 	cookEnable : OUT STD_LOGIC;
 	endTimer : IN STD_LOGIC;
+	generalStart : IN STD_LOGIC;
 	leaveFinish : IN STD_LOGIC;
 	reset : IN STD_LOGIC;
 	timeIdle : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -66,6 +68,7 @@ BEGIN
 	clk => clk,
 	cookEnable => cookEnable,
 	endTimer => endTimer,
+	generalStart => generalStart,
 	leaveFinish => leaveFinish,
 	reset => reset,
 	timeIdle => timeIdle,
@@ -85,6 +88,17 @@ LOOP
 	IF (NOW >= 1000000 ps) THEN WAIT; END IF;
 END LOOP;
 END PROCESS t_prcs_clk;
+
+-- generalStart
+t_prcs_generalStart: PROCESS
+BEGIN
+	generalStart <= '0';
+	WAIT FOR 260000 ps;
+	generalStart <= '1';
+	WAIT FOR 30000 ps;
+	generalStart <= '0';
+WAIT;
+END PROCESS t_prcs_generalStart;
 
 -- endTimer
 t_prcs_endTimer: PROCESS
