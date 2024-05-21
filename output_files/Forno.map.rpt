@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Forno
-Sun May 19 20:46:34 2024
+Tue May 21 22:46:28 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -14,8 +14,8 @@ Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Inverted Register Statistics
- 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+  9. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
+ 10. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
  11. Post-Synthesis Netlist Statistics for Top Partition
  12. Elapsed Time Per Partition
  13. Analysis & Synthesis Messages
@@ -45,16 +45,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun May 19 20:46:34 2024          ;
+; Analysis & Synthesis Status        ; Successful - Tue May 21 22:46:28 2024          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; Forno                                          ;
-; Top-level Entity Name              ; RegisterTime                                   ;
+; Top-level Entity Name              ; Bin6toBCD                                      ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 91                                             ;
-;     Total combinational functions  ; 91                                             ;
-;     Dedicated logic registers      ; 33                                             ;
-; Total registers                    ; 33                                             ;
-; Total pins                         ; 42                                             ;
+; Total logic elements               ; 0                                              ;
+;     Total combinational functions  ; 0                                              ;
+;     Dedicated logic registers      ; 0                                              ;
+; Total registers                    ; 0                                              ;
+; Total pins                         ; 15                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE115F29C7      ;                    ;
-; Top-level entity name                                            ; RegisterTime       ; Forno              ;
+; Top-level entity name                                            ; Bin6toBCD          ; Forno              ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -153,66 +153,74 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 12          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 2           ;
+; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                               ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                        ; Library ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------+---------+
-; RegisterTime.vhd                 ; yes             ; User VHDL File  ; /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/RegisterTime.vhd ;         ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                               ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                           ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------+---------+
+; Bin6toBCD.vhd                    ; yes             ; User VHDL File               ; /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd                   ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; /home/tiago/intelFPGA_lite/22.1std/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; /home/tiago/intelFPGA_lite/22.1std/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; /home/tiago/intelFPGA_lite/22.1std/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; aglobal221.inc                   ; yes             ; Megafunction                 ; /home/tiago/intelFPGA_lite/22.1std/quartus/libraries/megafunctions/aglobal221.inc      ;         ;
+; db/lpm_divide_fhm.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/db/lpm_divide_fhm.tdf           ;         ;
+; db/sign_div_unsign_7kh.tdf       ; yes             ; Auto-Generated Megafunction  ; /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/db/sign_div_unsign_7kh.tdf      ;         ;
+; db/alt_u_div_24f.tdf             ; yes             ; Auto-Generated Megafunction  ; /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/db/alt_u_div_24f.tdf            ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/db/add_sub_7pc.tdf              ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/db/add_sub_8pc.tdf              ;         ;
+; db/lpm_divide_i9m.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/db/lpm_divide_i9m.tdf           ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 91        ;
-;                                             ;           ;
-; Total combinational functions               ; 91        ;
-; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 50        ;
-;     -- 3 input functions                    ; 35        ;
-;     -- <=2 input functions                  ; 6         ;
-;                                             ;           ;
-; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 61        ;
-;     -- arithmetic mode                      ; 30        ;
-;                                             ;           ;
-; Total registers                             ; 33        ;
-;     -- Dedicated logic registers            ; 33        ;
-;     -- I/O registers                        ; 0         ;
-;                                             ;           ;
-; I/O pins                                    ; 42        ;
-;                                             ;           ;
-; Embedded Multiplier 9-bit elements          ; 0         ;
-;                                             ;           ;
-; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 33        ;
-; Total fan-out                               ; 458       ;
-; Average fan-out                             ; 2.20      ;
-+---------------------------------------------+-----------+
++--------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary            ;
++---------------------------------------------+----------+
+; Resource                                    ; Usage    ;
++---------------------------------------------+----------+
+;                                             ;          ;
+; Total combinational functions               ; 0        ;
+; Logic element usage by number of LUT inputs ;          ;
+;     -- 4 input functions                    ; 0        ;
+;     -- 3 input functions                    ; 0        ;
+;     -- <=2 input functions                  ; 0        ;
+;                                             ;          ;
+; Logic elements by mode                      ;          ;
+;     -- normal mode                          ; 0        ;
+;     -- arithmetic mode                      ; 0        ;
+;                                             ;          ;
+; Total registers                             ; 0        ;
+;     -- Dedicated logic registers            ; 0        ;
+;     -- I/O registers                        ; 0        ;
+;                                             ;          ;
+; I/O pins                                    ; 15       ;
+;                                             ;          ;
+; Embedded Multiplier 9-bit elements          ; 0        ;
+;                                             ;          ;
+; Maximum fan-out node                        ; binIn[0] ;
+; Maximum fan-out                             ; 1        ;
+; Total fan-out                               ; 15       ;
+; Average fan-out                             ; 0.50     ;
++---------------------------------------------+----------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                       ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name  ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+--------------+
-; |RegisterTime              ; 91 (91)             ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 42   ; 0            ; |RegisterTime       ; RegisterTime ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; |Bin6toBCD                 ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 15   ; 0            ; |Bin6toBCD          ; Bin6toBCD   ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -221,7 +229,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 33    ;
+; Total registers                              ; 0     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -231,29 +239,50 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; s_actualIdle[1]                        ; 4       ;
-; s_actualIdle[3]                        ; 5       ;
-; s_actualCook[1]                        ; 4       ;
-; s_actualCook[3]                        ; 5       ;
-; Total number of inverted registers = 4 ;         ;
-+----------------------------------------+---------+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 4              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_fhm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
-; 7:1                ; 14 bits   ; 56 LEs        ; 28 LEs               ; 28 LEs                 ; Yes        ; |RegisterTime|s_actualIdle[8]  ;
-; 7:1                ; 14 bits   ; 56 LEs        ; 28 LEs               ; 28 LEs                 ; Yes        ; |RegisterTime|s_actualCook[11] ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RegisterTime|s_actualIdle[3]  ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RegisterTime|s_actualCook[3]  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 4              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_i9m ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-----------------------------------------------------+
@@ -261,21 +290,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 42                          ;
-; cycloneiii_ff         ; 33                          ;
-;     plain             ; 33                          ;
-; cycloneiii_lcell_comb ; 95                          ;
-;     arith             ; 30                          ;
-;         2 data inputs ; 2                           ;
-;         3 data inputs ; 28                          ;
-;     normal            ; 65                          ;
-;         1 data inputs ; 4                           ;
-;         2 data inputs ; 4                           ;
-;         3 data inputs ; 7                           ;
-;         4 data inputs ; 50                          ;
+; boundary_port         ; 15                          ;
+; cycloneiii_lcell_comb ; 1                           ;
+;     normal            ; 1                           ;
+;         0 data inputs ; 1                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 4.31                        ;
+; Max LUT depth         ; 0.00                        ;
+; Average LUT depth     ; 0.00                        ;
 +-----------------------+-----------------------------+
 
 
@@ -294,31 +315,113 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Sun May 19 20:46:24 2024
+    Info: Processing started: Tue May 21 22:46:17 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Forno -c Forno
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file Bin6toBCD.vhd
+    Info (12022): Found design unit 1: Bin6toBCD-Behavioral File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 19
+    Info (12023): Found entity 1: Bin6toBCD File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file Bin16ToBCD.vhd
+    Info (12022): Found design unit 1: Bin16ToBCD-Behavioral File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin16ToBCD.vhd Line: 17
+    Info (12023): Found entity 1: Bin16ToBCD File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin16ToBCD.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file Forno.vhd
+    Info (12022): Found design unit 1: Forno-main File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Forno.vhd Line: 16
+    Info (12023): Found entity 1: Forno File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Forno.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file DisplayTime.vhd
+    Info (12022): Found design unit 1: DisplayTime-Shell File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/DisplayTime.vhd Line: 22
+    Info (12023): Found entity 1: DisplayTime File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/DisplayTime.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file TimerN.vhd
+    Info (12022): Found design unit 1: TimerN-Sequential File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/TimerN.vhd Line: 15
+    Info (12023): Found entity 1: TimerN File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/TimerN.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file Bin7SegDecoder.vhd
+    Info (12022): Found design unit 1: Bin7SegDecoder-Behavioral File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin7SegDecoder.vhd Line: 9
+    Info (12023): Found entity 1: Bin7SegDecoder File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin7SegDecoder.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file RegisterTime.vhd
-    Info (12022): Found design unit 1: RegisterTime-Synchronous File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/RegisterTime.vhd Line: 20
-    Info (12023): Found entity 1: RegisterTime File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/RegisterTime.vhd Line: 5
+    Info (12022): Found design unit 1: RegisterTime-Synchronous File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/RegisterTime.vhd Line: 20
+    Info (12023): Found entity 1: RegisterTime File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/RegisterTime.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file RegisterTemperature.vhd
-    Info (12022): Found design unit 1: RegisterTemperature-Synchronous File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/RegisterTemperature.vhd Line: 16
-    Info (12023): Found entity 1: RegisterTemperature File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/RegisterTemperature.vhd Line: 5
+    Info (12022): Found design unit 1: RegisterTemperature-Synchronous File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/RegisterTemperature.vhd Line: 16
+    Info (12023): Found entity 1: RegisterTemperature File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/RegisterTemperature.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file FornoFSM.vhd
-    Info (12022): Found design unit 1: FornoFSM-Behavioral File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 10
-    Info (12023): Found entity 1: FornoFSM File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 4
-Info (12127): Elaborating entity "RegisterTime" for the top level hierarchy
-Info (286030): Timing-Driven Synthesis is running
+    Info (12022): Found design unit 1: FornoFSM-Behavioral File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/FornoFSM.vhd Line: 13
+    Info (12023): Found entity 1: FornoFSM File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/FornoFSM.vhd Line: 4
+Info (12127): Elaborating entity "Bin6toBCD" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at Bin6toBCD.vhd(21): used implicit default value for signal "b_in" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 21
+Warning (10492): VHDL Process Statement warning at Bin6toBCD.vhd(30): signal "b_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 30
+Warning (10492): VHDL Process Statement warning at Bin6toBCD.vhd(30): signal "b_dez" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 30
+Warning (10492): VHDL Process Statement warning at Bin6toBCD.vhd(31): signal "b_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 31
+Warning (10492): VHDL Process Statement warning at Bin6toBCD.vhd(31): signal "b_dez" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 31
+Warning (10492): VHDL Process Statement warning at Bin6toBCD.vhd(36): signal "b_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 36
+Warning (10492): VHDL Process Statement warning at Bin6toBCD.vhd(37): signal "b_rem" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 37
+Warning (10631): VHDL Process Statement warning at Bin6toBCD.vhd(25): inferring latch(es) for signal or variable "b_dez", which holds its previous value in one or more paths through the process File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 25
+Warning (10631): VHDL Process Statement warning at Bin6toBCD.vhd(25): inferring latch(es) for signal or variable "b_int", which holds its previous value in one or more paths through the process File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 25
+Warning (10631): VHDL Process Statement warning at Bin6toBCD.vhd(25): inferring latch(es) for signal or variable "b_rem", which holds its previous value in one or more paths through the process File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 25
+Info (10041): Inferred latch for "b_rem[0]" at Bin6toBCD.vhd(25) File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 25
+Info (10041): Inferred latch for "b_rem[1]" at Bin6toBCD.vhd(25) File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 25
+Info (10041): Inferred latch for "b_rem[2]" at Bin6toBCD.vhd(25) File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 25
+Info (10041): Inferred latch for "b_rem[3]" at Bin6toBCD.vhd(25) File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 25
+Info (10041): Inferred latch for "b_int[0]" at Bin6toBCD.vhd(25) File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 25
+Info (10041): Inferred latch for "b_int[1]" at Bin6toBCD.vhd(25) File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 25
+Info (10041): Inferred latch for "b_int[2]" at Bin6toBCD.vhd(25) File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 25
+Info (10041): Inferred latch for "b_int[3]" at Bin6toBCD.vhd(25) File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 25
+Info (10041): Inferred latch for "b_dez[0]" at Bin6toBCD.vhd(25) File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 25
+Info (10041): Inferred latch for "b_dez[1]" at Bin6toBCD.vhd(25) File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 25
+Info (10041): Inferred latch for "b_dez[2]" at Bin6toBCD.vhd(25) File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 25
+Info (10041): Inferred latch for "b_dez[3]" at Bin6toBCD.vhd(25) File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 25
+Info (278001): Inferred 2 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0" File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 30
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 31
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0" File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 30
+Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter: File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 30
+    Info (12134): Parameter "LPM_WIDTHN" = "4"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_fhm.tdf
+    Info (12023): Found entity 1: lpm_divide_fhm File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/db/lpm_divide_fhm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_7kh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_7kh File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/db/sign_div_unsign_7kh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_24f.tdf
+    Info (12023): Found entity 1: alt_u_div_24f File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/db/alt_u_div_24f.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/db/add_sub_7pc.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/db/add_sub_8pc.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 31
+Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 31
+    Info (12134): Parameter "LPM_WIDTHN" = "4"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_i9m.tdf
+    Info (12023): Found entity 1: lpm_divide_i9m File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/db/lpm_divide_i9m.tdf Line: 25
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "bcd1[0]" is stuck at GND File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 11
+    Warning (13410): Pin "bcd1[1]" is stuck at GND File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 11
+    Warning (13410): Pin "bcd1[2]" is stuck at GND File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 11
+    Warning (13410): Pin "bcd1[3]" is stuck at GND File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 11
+    Warning (13410): Pin "bcd0[0]" is stuck at GND File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 12
+    Warning (13410): Pin "bcd0[1]" is stuck at GND File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 12
+    Warning (13410): Pin "bcd0[2]" is stuck at GND File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 12
+    Warning (13410): Pin "bcd0[3]" is stuck at GND File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 12
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 134 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 9 input pins
-    Info (21059): Implemented 33 output pins
-    Info (21061): Implemented 92 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 420 megabytes
-    Info: Processing ended: Sun May 19 20:46:34 2024
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:21
+Warning (21074): Design contains 7 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "binIn[0]" File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 10
+    Warning (15610): No output dependent on input pin "binIn[1]" File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 10
+    Warning (15610): No output dependent on input pin "binIn[2]" File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 10
+    Warning (15610): No output dependent on input pin "binIn[3]" File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 10
+    Warning (15610): No output dependent on input pin "binIn[4]" File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 10
+    Warning (15610): No output dependent on input pin "binIn[5]" File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 10
+    Warning (15610): No output dependent on input pin "enable" File: /home/tiago/Desktop/LSD/ProjetoFinal/projeto-final-lsd/Bin6toBCD.vhd Line: 9
+Info (21057): Implemented 15 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 7 input pins
+    Info (21059): Implemented 8 output pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 28 warnings
+    Info: Peak virtual memory: 426 megabytes
+    Info: Processing ended: Tue May 21 22:46:28 2024
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:39
 
 

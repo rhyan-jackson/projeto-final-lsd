@@ -1,5 +1,5 @@
 Flow report for Forno
-Sun May 19 20:51:59 2024
+Tue May 21 22:46:28 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -41,18 +41,18 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Flow Summary                                                                        ;
 +------------------------------------+------------------------------------------------+
-; Flow Status                        ; Successful - Sun May 19 20:51:59 2024          ;
+; Flow Status                        ; Successful - Tue May 21 22:46:28 2024          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; Forno                                          ;
-; Top-level Entity Name              ; RegisterTime                                   ;
+; Top-level Entity Name              ; Bin6toBCD                                      ;
 ; Family                             ; Cyclone IV E                                   ;
 ; Device                             ; EP4CE115F29C7                                  ;
 ; Timing Models                      ; Final                                          ;
-; Total logic elements               ; 91                                             ;
-;     Total combinational functions  ; 91                                             ;
-;     Dedicated logic registers      ; 33                                             ;
-; Total registers                    ; 33                                             ;
-; Total pins                         ; 42                                             ;
+; Total logic elements               ; 0                                              ;
+;     Total combinational functions  ; 0                                              ;
+;     Dedicated logic registers      ; 0                                              ;
+; Total registers                    ; 0                                              ;
+; Total pins                         ; 15                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
@@ -65,36 +65,36 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/19/2024 20:46:24 ;
+; Start date & time ; 05/21/2024 22:46:18 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Forno               ;
 +-------------------+---------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                                ;
-+-------------------------------------+----------------------------------------+---------------+--------------+-----------------------------------+
-; Assignment Name                     ; Value                                  ; Default Value ; Entity Name  ; Section Id                        ;
-+-------------------------------------+----------------------------------------+---------------+--------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 48858631904451.171614798449666         ; --            ; --           ; --                                ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --           ; eda_board_design_timing           ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --           ; eda_board_design_boundary_scan    ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --           ; eda_board_design_signal_integrity ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --           ; eda_board_design_symbol           ;
-; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                            ; --            ; --           ; eda_simulation                    ;
-; EDA_SIMULATION_TOOL                 ; Questa Intel FPGA (Verilog)            ; <None>        ; --           ; --                                ;
-; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --           ; eda_simulation                    ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --           ; --                                ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --           ; --                                ;
-; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                   ; --            ; --           ; --                                ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; RegisterTime ; Top                               ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; RegisterTime ; Top                               ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; RegisterTime ; Top                               ;
-; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --           ; --                                ;
-; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --           ; --                                ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --           ; --                                ;
-; TOP_LEVEL_ENTITY                    ; RegisterTime                           ; Forno         ; --           ; --                                ;
-+-------------------------------------+----------------------------------------+---------------+--------------+-----------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                               ;
++-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
+; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
++-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
+; COMPILER_SIGNATURE_ID               ; 234025586084501.171632797813589        ; --            ; --          ; --                                ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_symbol           ;
+; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                            ; --            ; --          ; eda_simulation                    ;
+; EDA_SIMULATION_TOOL                 ; Questa Intel FPGA (Verilog)            ; <None>        ; --          ; --                                ;
+; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --          ; eda_simulation                    ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --                                ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --                                ;
+; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                   ; --            ; --          ; --                                ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; Bin6toBCD   ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; Bin6toBCD   ; Top                               ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; Bin6toBCD   ; Top                               ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --                                ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --                                ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --                                ;
+; TOP_LEVEL_ENTITY                    ; Bin6toBCD                              ; Forno         ; --          ; --                                ;
++-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -102,60 +102,24 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:10     ; 1.0                     ; 420 MB              ; 00:00:21                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 612 MB              ; 00:00:00                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 615 MB              ; 00:00:00                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 603 MB              ; 00:00:00                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 615 MB              ; 00:00:00                           ;
-; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 603 MB              ; 00:00:00                           ;
-; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 615 MB              ; 00:00:00                           ;
-; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 603 MB              ; 00:00:00                           ;
-; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 615 MB              ; 00:00:01                           ;
-; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 603 MB              ; 00:00:00                           ;
-; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 615 MB              ; 00:00:00                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 603 MB              ; 00:00:00                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 615 MB              ; 00:00:01                           ;
-; Total                ; 00:00:16     ; --                      ; --                  ; 00:00:23                           ;
+; Analysis & Synthesis ; 00:00:11     ; 1.0                     ; 426 MB              ; 00:00:38                           ;
+; Total                ; 00:00:11     ; --                      ; --                  ; 00:00:38                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+--------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                      ;
-+----------------------+------------------+--------------+------------+----------------+
-; Module Name          ; Machine Hostname ; OS Name      ; OS Version ; Processor type ;
-+----------------------+------------------+--------------+------------+----------------+
-; Analysis & Synthesis ; rhyan-ubuntu     ; Ubuntu 23.10 ; 23         ; x86_64         ;
-; EDA Netlist Writer   ; rhyan-ubuntu     ; Ubuntu 23.10 ; 23         ; x86_64         ;
-; EDA Netlist Writer   ; rhyan-ubuntu     ; Ubuntu 23.10 ; 23         ; x86_64         ;
-; EDA Netlist Writer   ; rhyan-ubuntu     ; Ubuntu 23.10 ; 23         ; x86_64         ;
-; EDA Netlist Writer   ; rhyan-ubuntu     ; Ubuntu 23.10 ; 23         ; x86_64         ;
-; EDA Netlist Writer   ; rhyan-ubuntu     ; Ubuntu 23.10 ; 23         ; x86_64         ;
-; EDA Netlist Writer   ; rhyan-ubuntu     ; Ubuntu 23.10 ; 23         ; x86_64         ;
-; EDA Netlist Writer   ; rhyan-ubuntu     ; Ubuntu 23.10 ; 23         ; x86_64         ;
-; EDA Netlist Writer   ; rhyan-ubuntu     ; Ubuntu 23.10 ; 23         ; x86_64         ;
-; EDA Netlist Writer   ; rhyan-ubuntu     ; Ubuntu 23.10 ; 23         ; x86_64         ;
-; EDA Netlist Writer   ; rhyan-ubuntu     ; Ubuntu 23.10 ; 23         ; x86_64         ;
-; EDA Netlist Writer   ; rhyan-ubuntu     ; Ubuntu 23.10 ; 23         ; x86_64         ;
-; EDA Netlist Writer   ; rhyan-ubuntu     ; Ubuntu 23.10 ; 23         ; x86_64         ;
-+----------------------+------------------+--------------+------------+----------------+
++----------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                        ;
++----------------------+------------------+----------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name        ; OS Version ; Processor type ;
++----------------------+------------------+----------------+------------+----------------+
+; Analysis & Synthesis ; TIAGO-PC         ; Ubuntu 22.04.3 ; 22         ; x86_64         ;
++----------------------+------------------+----------------+------------+----------------+
 
 
 ------------
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off Forno -c Forno
-quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Forno -c Forno --vector_source=/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FinishTime.vwf --testbench_file=/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/simulation/qsim/FinishTime.vwf.vht
-quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/simulation/qsim/ Forno -c Forno
-quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Forno -c Forno --vector_source=/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FinishTime.vwf --testbench_file=/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/simulation/qsim/FinishTime.vwf.vht
-quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/simulation/qsim/ Forno -c Forno
-quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Forno -c Forno --vector_source=/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FinishTime.vwf --testbench_file=/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/simulation/qsim/FinishTime.vwf.vht
-quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/simulation/qsim/ Forno -c Forno
-quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Forno -c Forno --vector_source=/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FinishTime.vwf --testbench_file=/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/simulation/qsim/FinishTime.vwf.vht
-quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/simulation/qsim/ Forno -c Forno
-quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Forno -c Forno --vector_source=/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FinishTime.vwf --testbench_file=/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/simulation/qsim/FinishTime.vwf.vht
-quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/simulation/qsim/ Forno -c Forno
-quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Forno -c Forno --vector_source=/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FinishTime.vwf --testbench_file=/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/simulation/qsim/FinishTime.vwf.vht
-quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/simulation/qsim/ Forno -c Forno
 
 
 

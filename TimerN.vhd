@@ -3,7 +3,8 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity TimerN is
-	port(clk		:  in std_logic;
+	port(clk		   :  in std_logic;
+		  K         :  in unsigned;          -- TEMPORARIO PQ NAO TINHA NADA PARA K
 		  reset    	:  in std_logic;
 		  enable   	:  in std_logic;
 		  start    	:  in std_logic;
