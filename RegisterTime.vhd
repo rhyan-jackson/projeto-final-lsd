@@ -53,14 +53,14 @@ begin
             end if;
          end if;
 
-         if (s_actualCook <= 0) then
+         if (s_actualCook <= 0 and runCook = '1') then
             finishTime <= '1';
             s_actualCook <= x"000A";
          else
             finishTime <= '0';
          end if;
 
-         if (s_actualIdle <= 0) then
+         if (s_actualIdle <= 0 and runIdle = '1') then
             finishTime <= '1';
             s_actualIdle <= x"000A";
          else

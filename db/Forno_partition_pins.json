@@ -4,135 +4,63 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "finishTime",
+					"name" : "actualTemperature[1]",
 					"strict" : false
 				},
 				{
-					"name" : "timeOutIdle[0]",
+					"name" : "actualTemperature[2]",
 					"strict" : false
 				},
 				{
-					"name" : "timeOutIdle[1]",
+					"name" : "actualTemperature[3]",
 					"strict" : false
 				},
 				{
-					"name" : "timeOutIdle[2]",
+					"name" : "actualTemperature[4]",
 					"strict" : false
 				},
 				{
-					"name" : "timeOutIdle[3]",
+					"name" : "actualTemperature[5]",
 					"strict" : false
 				},
 				{
-					"name" : "timeOutIdle[4]",
+					"name" : "actualTemperature[6]",
 					"strict" : false
 				},
 				{
-					"name" : "timeOutIdle[5]",
+					"name" : "actualTemperature[7]",
 					"strict" : false
 				},
 				{
-					"name" : "timeOutIdle[6]",
+					"name" : "actualTemperature[8]",
 					"strict" : false
 				},
 				{
-					"name" : "timeOutIdle[7]",
+					"name" : "actualTemperature[9]",
 					"strict" : false
 				},
 				{
-					"name" : "timeOutIdle[8]",
+					"name" : "actualTemperature[10]",
 					"strict" : false
 				},
 				{
-					"name" : "timeOutIdle[9]",
+					"name" : "actualTemperature[11]",
 					"strict" : false
 				},
 				{
-					"name" : "timeOutIdle[10]",
+					"name" : "actualTemperature[12]",
 					"strict" : false
 				},
 				{
-					"name" : "timeOutIdle[11]",
+					"name" : "actualTemperature[13]",
 					"strict" : false
 				},
 				{
-					"name" : "timeOutIdle[12]",
+					"name" : "actualTemperature[14]",
 					"strict" : false
 				},
 				{
-					"name" : "timeOutIdle[13]",
-					"strict" : false
-				},
-				{
-					"name" : "timeOutIdle[14]",
-					"strict" : false
-				},
-				{
-					"name" : "timeOutIdle[15]",
-					"strict" : false
-				},
-				{
-					"name" : "timeOutCook[0]",
-					"strict" : false
-				},
-				{
-					"name" : "timeOutCook[1]",
-					"strict" : false
-				},
-				{
-					"name" : "timeOutCook[2]",
-					"strict" : false
-				},
-				{
-					"name" : "timeOutCook[3]",
-					"strict" : false
-				},
-				{
-					"name" : "timeOutCook[4]",
-					"strict" : false
-				},
-				{
-					"name" : "timeOutCook[5]",
-					"strict" : false
-				},
-				{
-					"name" : "timeOutCook[6]",
-					"strict" : false
-				},
-				{
-					"name" : "timeOutCook[7]",
-					"strict" : false
-				},
-				{
-					"name" : "timeOutCook[8]",
-					"strict" : false
-				},
-				{
-					"name" : "timeOutCook[9]",
-					"strict" : false
-				},
-				{
-					"name" : "timeOutCook[10]",
-					"strict" : false
-				},
-				{
-					"name" : "timeOutCook[11]",
-					"strict" : false
-				},
-				{
-					"name" : "timeOutCook[12]",
-					"strict" : false
-				},
-				{
-					"name" : "timeOutCook[13]",
-					"strict" : false
-				},
-				{
-					"name" : "timeOutCook[14]",
-					"strict" : false
-				},
-				{
-					"name" : "timeOutCook[15]",
+					"name" : "actualTemperature[15]",
 					"strict" : false
 				},
 				{
@@ -140,35 +68,79 @@
 					"strict" : false
 				},
 				{
-					"name" : "enable",
-					"strict" : false
-				},
-				{
-					"name" : "runIdle",
-					"strict" : false
-				},
-				{
-					"name" : "incrementIdle",
-					"strict" : false
-				},
-				{
-					"name" : "decrementIdle",
-					"strict" : false
-				},
-				{
 					"name" : "reset",
 					"strict" : false
 				},
 				{
-					"name" : "runCook",
+					"name" : "enable",
 					"strict" : false
 				},
 				{
-					"name" : "incrementCook",
+					"name" : "heatOn",
 					"strict" : false
 				},
 				{
-					"name" : "decrementCook",
+					"name" : "averageTemperature[15]",
+					"strict" : false
+				},
+				{
+					"name" : "averageTemperature[14]",
+					"strict" : false
+				},
+				{
+					"name" : "averageTemperature[13]",
+					"strict" : false
+				},
+				{
+					"name" : "averageTemperature[12]",
+					"strict" : false
+				},
+				{
+					"name" : "averageTemperature[11]",
+					"strict" : false
+				},
+				{
+					"name" : "averageTemperature[10]",
+					"strict" : false
+				},
+				{
+					"name" : "averageTemperature[9]",
+					"strict" : false
+				},
+				{
+					"name" : "averageTemperature[8]",
+					"strict" : false
+				},
+				{
+					"name" : "averageTemperature[7]",
+					"strict" : false
+				},
+				{
+					"name" : "averageTemperature[6]",
+					"strict" : false
+				},
+				{
+					"name" : "averageTemperature[5]",
+					"strict" : false
+				},
+				{
+					"name" : "averageTemperature[4]",
+					"strict" : false
+				},
+				{
+					"name" : "averageTemperature[3]",
+					"strict" : false
+				},
+				{
+					"name" : "averageTemperature[2]",
+					"strict" : false
+				},
+				{
+					"name" : "averageTemperature[1]",
+					"strict" : false
+				},
+				{
+					"name" : "averageTemperature[0]",
 					"strict" : false
 				}
 			]

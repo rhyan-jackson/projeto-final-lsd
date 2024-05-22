@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Forno
-Sun May 19 20:46:34 2024
+Wed May 22 17:01:45 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -13,12 +13,13 @@ Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Inverted Register Statistics
- 10. Multiplexer Restructuring Statistics (Restructuring Performed)
- 11. Post-Synthesis Netlist Statistics for Top Partition
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Inverted Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Post-Synthesis Netlist Statistics for Top Partition
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
 
 
 
@@ -45,16 +46,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun May 19 20:46:34 2024          ;
+; Analysis & Synthesis Status        ; Successful - Wed May 22 17:01:45 2024          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; Forno                                          ;
-; Top-level Entity Name              ; RegisterTime                                   ;
+; Top-level Entity Name              ; Heater                                         ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 91                                             ;
-;     Total combinational functions  ; 91                                             ;
-;     Dedicated logic registers      ; 33                                             ;
-; Total registers                    ; 33                                             ;
-; Total pins                         ; 42                                             ;
+; Total logic elements               ; 35                                             ;
+;     Total combinational functions  ; 35                                             ;
+;     Dedicated logic registers      ; 15                                             ;
+; Total registers                    ; 15                                             ;
+; Total pins                         ; 36                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
@@ -68,7 +69,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE115F29C7      ;                    ;
-; Top-level entity name                                            ; RegisterTime       ; Forno              ;
+; Top-level entity name                                            ; Heater             ; Forno              ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -165,55 +166,65 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                               ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                        ; Library ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------+---------+
-; RegisterTime.vhd                 ; yes             ; User VHDL File  ; /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/RegisterTime.vhd ;         ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                  ; Library ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------+---------+
+; Heater.vhd                       ; yes             ; User VHDL File  ; /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Heater.vhd ;         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 91        ;
-;                                             ;           ;
-; Total combinational functions               ; 91        ;
-; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 50        ;
-;     -- 3 input functions                    ; 35        ;
-;     -- <=2 input functions                  ; 6         ;
-;                                             ;           ;
-; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 61        ;
-;     -- arithmetic mode                      ; 30        ;
-;                                             ;           ;
-; Total registers                             ; 33        ;
-;     -- Dedicated logic registers            ; 33        ;
-;     -- I/O registers                        ; 0         ;
-;                                             ;           ;
-; I/O pins                                    ; 42        ;
-;                                             ;           ;
-; Embedded Multiplier 9-bit elements          ; 0         ;
-;                                             ;           ;
-; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 33        ;
-; Total fan-out                               ; 458       ;
-; Average fan-out                             ; 2.20      ;
-+---------------------------------------------+-----------+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 35          ;
+;                                             ;             ;
+; Total combinational functions               ; 35          ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 0           ;
+;     -- 3 input functions                    ; 27          ;
+;     -- <=2 input functions                  ; 8           ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 6           ;
+;     -- arithmetic mode                      ; 29          ;
+;                                             ;             ;
+; Total registers                             ; 15          ;
+;     -- Dedicated logic registers            ; 15          ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 36          ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; reset~input ;
+; Maximum fan-out                             ; 16          ;
+; Total fan-out                               ; 206         ;
+; Average fan-out                             ; 1.69        ;
++---------------------------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                       ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name  ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+--------------+
-; |RegisterTime              ; 91 (91)             ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 42   ; 0            ; |RegisterTime       ; RegisterTime ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; |Heater                    ; 35 (35)             ; 15 (15)                   ; 0           ; 0            ; 0       ; 0         ; 36   ; 0            ; |Heater             ; Heater      ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; s_actualTemperature[0]                ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 1 ;                                        ;
++---------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -221,12 +232,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 33    ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 15    ;
+; Number of registers using Synchronous Clear  ; 13    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 15    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -236,11 +247,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; s_actualIdle[1]                        ; 4       ;
-; s_actualIdle[3]                        ; 5       ;
-; s_actualCook[1]                        ; 4       ;
-; s_actualCook[3]                        ; 5       ;
-; Total number of inverted registers = 4 ;         ;
+; s_actualTemperature[2]                 ; 3       ;
+; s_actualTemperature[4]                 ; 3       ;
+; Total number of inverted registers = 2 ;         ;
 +----------------------------------------+---------+
 
 
@@ -249,10 +258,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output     ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
-; 7:1                ; 14 bits   ; 56 LEs        ; 28 LEs               ; 28 LEs                 ; Yes        ; |RegisterTime|s_actualIdle[8]  ;
-; 7:1                ; 14 bits   ; 56 LEs        ; 28 LEs               ; 28 LEs                 ; Yes        ; |RegisterTime|s_actualCook[11] ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RegisterTime|s_actualIdle[3]  ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RegisterTime|s_actualCook[3]  ;
+; 4:1                ; 13 bits   ; 26 LEs        ; 26 LEs               ; 0 LEs                  ; Yes        ; |Heater|s_actualTemperature[1] ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |Heater|s_actualTemperature[2] ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
 
 
@@ -261,21 +268,21 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 42                          ;
-; cycloneiii_ff         ; 33                          ;
-;     plain             ; 33                          ;
-; cycloneiii_lcell_comb ; 95                          ;
-;     arith             ; 30                          ;
+; boundary_port         ; 36                          ;
+; cycloneiii_ff         ; 15                          ;
+;     ENA               ; 2                           ;
+;     ENA SCLR          ; 13                          ;
+; cycloneiii_lcell_comb ; 38                          ;
+;     arith             ; 29                          ;
 ;         2 data inputs ; 2                           ;
-;         3 data inputs ; 28                          ;
-;     normal            ; 65                          ;
-;         1 data inputs ; 4                           ;
-;         2 data inputs ; 4                           ;
-;         3 data inputs ; 7                           ;
-;         4 data inputs ; 50                          ;
+;         3 data inputs ; 27                          ;
+;     normal            ; 9                           ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 6                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 4.31                        ;
+; Max LUT depth         ; 5.80                        ;
+; Average LUT depth     ; 4.91                        ;
 +-----------------------+-----------------------------+
 
 
@@ -294,10 +301,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Sun May 19 20:46:24 2024
+    Info: Processing started: Wed May 22 17:01:35 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Forno -c Forno
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file Heater.vhd
+    Info (12022): Found design unit 1: Heater-Behavioral File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Heater.vhd Line: 16
+    Info (12023): Found entity 1: Heater File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Heater.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file SinglePulseGenerator.vhd
+    Info (12022): Found design unit 1: SinglePulseGenerator-Synchronous File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/SinglePulseGenerator.vhd Line: 15
+    Info (12023): Found entity 1: SinglePulseGenerator File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/SinglePulseGenerator.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file RegisterTime.vhd
     Info (12022): Found design unit 1: RegisterTime-Synchronous File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/RegisterTime.vhd Line: 20
     Info (12023): Found entity 1: RegisterTime File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/RegisterTime.vhd Line: 5
@@ -305,19 +318,21 @@ Info (12021): Found 2 design units, including 1 entities, in source file Registe
     Info (12022): Found design unit 1: RegisterTemperature-Synchronous File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/RegisterTemperature.vhd Line: 16
     Info (12023): Found entity 1: RegisterTemperature File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/RegisterTemperature.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file FornoFSM.vhd
-    Info (12022): Found design unit 1: FornoFSM-Behavioral File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 10
-    Info (12023): Found entity 1: FornoFSM File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 4
-Info (12127): Elaborating entity "RegisterTime" for the top level hierarchy
+    Info (12022): Found design unit 1: FornoFSM-Behavioral File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 17
+    Info (12023): Found entity 1: FornoFSM File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/FornoFSM.vhd Line: 6
+Info (12127): Elaborating entity "Heater" for the top level hierarchy
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "actualTemperature[0]" is stuck at GND File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Heater.vhd Line: 13
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 134 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 9 input pins
-    Info (21059): Implemented 33 output pins
-    Info (21061): Implemented 92 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 420 megabytes
-    Info: Processing ended: Sun May 19 20:46:34 2024
+Info (21057): Implemented 71 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 20 input pins
+    Info (21059): Implemented 16 output pins
+    Info (21061): Implemented 35 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 422 megabytes
+    Info: Processing ended: Wed May 22 17:01:45 2024
     Info: Elapsed time: 00:00:10
     Info: Total CPU time (on all processors): 00:00:21
 

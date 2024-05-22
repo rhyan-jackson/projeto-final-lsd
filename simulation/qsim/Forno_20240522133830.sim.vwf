@@ -1,0 +1,469 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+
+/*
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+*/
+
+HEADER
+{
+	VERSION = 1;
+	TIME_UNIT = ns;
+	DATA_OFFSET = 0.0;
+	DATA_DURATION = 1000.0;
+	SIMULATION_TIME = 0.0;
+	GRID_PHASE = 0.0;
+	GRID_PERIOD = 10.0;
+	GRID_DUTY_CYCLE = 50;
+}
+
+SIGNAL("clk")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("actualState")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = BUS;
+	WIDTH = 3;
+	LSB_INDEX = 0;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("actualState[2]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "actualState";
+}
+
+SIGNAL("actualState[1]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "actualState";
+}
+
+SIGNAL("actualState[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "actualState";
+}
+
+SIGNAL("reset")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("finishTime")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("pauseOrResume")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("runIdle")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("runCook")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("resetTime")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+TRANSITION_LIST("clk")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 15.0;
+			LEVEL 1 FOR 15.0;
+			LEVEL 0 FOR 10.0;
+		}
+	}
+}
+
+TRANSITION_LIST("actualState[2]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 225.0;
+			LEVEL 1 FOR 775.0;
+		}
+	}
+}
+
+TRANSITION_LIST("actualState[1]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
+	}
+}
+
+TRANSITION_LIST("actualState[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 105.0;
+			LEVEL 1 FOR 120.0;
+			LEVEL 0 FOR 775.0;
+		}
+	}
+}
+
+TRANSITION_LIST("reset")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
+	}
+}
+
+TRANSITION_LIST("finishTime")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 40.0;
+			LEVEL 0 FOR 150.0;
+			LEVEL 1 FOR 30.0;
+			LEVEL 0 FOR 130.0;
+			LEVEL 1 FOR 20.0;
+			LEVEL 0 FOR 80.0;
+			LEVEL 1 FOR 30.0;
+			LEVEL 0 FOR 190.0;
+			LEVEL 1 FOR 30.0;
+			LEVEL 0 FOR 280.0;
+		}
+	}
+}
+
+TRANSITION_LIST("pauseOrResume")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 90.0;
+			LEVEL 1 FOR 30.0;
+			LEVEL 0 FOR 880.0;
+		}
+	}
+}
+
+TRANSITION_LIST("runIdle")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 105.0;
+			LEVEL 1 FOR 120.0;
+			LEVEL 0 FOR 775.0;
+		}
+	}
+}
+
+TRANSITION_LIST("runCook")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 1000.0;
+		}
+	}
+}
+
+TRANSITION_LIST("resetTime")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 1 FOR 105.0;
+			LEVEL 0 FOR 105.0;
+			LEVEL 1 FOR 790.0;
+		}
+	}
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "clk";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 0;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "actualState";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 1;
+	TREE_LEVEL = 0;
+	CHILDREN = 2, 3, 4;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "actualState[2]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 2;
+	TREE_LEVEL = 1;
+	PARENT = 1;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "actualState[1]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 3;
+	TREE_LEVEL = 1;
+	PARENT = 1;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "actualState[0]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 4;
+	TREE_LEVEL = 1;
+	PARENT = 1;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "reset";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 5;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "finishTime";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 6;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "pauseOrResume";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 7;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "runIdle";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 8;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "runCook";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 9;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "resetTime";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 10;
+	TREE_LEVEL = 0;
+}
+
+TIME_BAR
+{
+	TIME = 0;
+	MASTER = TRUE;
+}
+;

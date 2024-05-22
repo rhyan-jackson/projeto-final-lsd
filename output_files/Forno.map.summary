@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Sun May 19 20:46:34 2024
+Analysis & Synthesis Status : Successful - Wed May 22 17:01:45 2024
 Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 Revision Name : Forno
-Top-level Entity Name : RegisterTime
+Top-level Entity Name : Heater
 Family : Cyclone IV E
-Total logic elements : 91
-    Total combinational functions : 91
-    Dedicated logic registers : 33
-Total registers : 33
-Total pins : 42
+Total logic elements : 35
+    Total combinational functions : 35
+    Dedicated logic registers : 15
+Total registers : 15
+Total pins : 36
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

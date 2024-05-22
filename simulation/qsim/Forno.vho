@@ -17,7 +17,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition"
 
--- DATE "05/19/2024 20:51:59"
+-- DATE "05/22/2024 17:01:58"
 
 -- 
 -- Device: Altera EP4CE115F29C7 Package FBGA780
@@ -34,24 +34,18 @@ USE ALTERA.ALTERA_PRIMITIVES_COMPONENTS.ALL;
 USE CYCLONEIVE.CYCLONEIVE_COMPONENTS.ALL;
 USE IEEE.STD_LOGIC_1164.ALL;
 
-ENTITY 	RegisterTime IS
+ENTITY 	Heater IS
     PORT (
 	clk : IN std_logic;
 	reset : IN std_logic;
 	enable : IN std_logic;
-	runCook : IN std_logic;
-	runIdle : IN std_logic;
-	incrementIdle : IN std_logic;
-	decrementIdle : IN std_logic;
-	incrementCook : IN std_logic;
-	decrementCook : IN std_logic;
-	finishTime : OUT std_logic;
-	timeOutIdle : OUT std_logic_vector(15 DOWNTO 0);
-	timeOutCook : OUT std_logic_vector(15 DOWNTO 0)
+	heatOn : IN std_logic;
+	averageTemperature : IN std_logic_vector(15 DOWNTO 0);
+	actualTemperature : BUFFER std_logic_vector(15 DOWNTO 0)
 	);
-END RegisterTime;
+END Heater;
 
-ARCHITECTURE structure OF RegisterTime IS
+ARCHITECTURE structure OF Heater IS
 SIGNAL gnd : std_logic := '0';
 SIGNAL vcc : std_logic := '1';
 SIGNAL unknown : std_logic := 'X';
@@ -64,568 +58,286 @@ SIGNAL ww_devpor : std_logic;
 SIGNAL ww_clk : std_logic;
 SIGNAL ww_reset : std_logic;
 SIGNAL ww_enable : std_logic;
-SIGNAL ww_runCook : std_logic;
-SIGNAL ww_runIdle : std_logic;
-SIGNAL ww_incrementIdle : std_logic;
-SIGNAL ww_decrementIdle : std_logic;
-SIGNAL ww_incrementCook : std_logic;
-SIGNAL ww_decrementCook : std_logic;
-SIGNAL ww_finishTime : std_logic;
-SIGNAL ww_timeOutIdle : std_logic_vector(15 DOWNTO 0);
-SIGNAL ww_timeOutCook : std_logic_vector(15 DOWNTO 0);
-SIGNAL \finishTime~output_o\ : std_logic;
-SIGNAL \timeOutIdle[0]~output_o\ : std_logic;
-SIGNAL \timeOutIdle[1]~output_o\ : std_logic;
-SIGNAL \timeOutIdle[2]~output_o\ : std_logic;
-SIGNAL \timeOutIdle[3]~output_o\ : std_logic;
-SIGNAL \timeOutIdle[4]~output_o\ : std_logic;
-SIGNAL \timeOutIdle[5]~output_o\ : std_logic;
-SIGNAL \timeOutIdle[6]~output_o\ : std_logic;
-SIGNAL \timeOutIdle[7]~output_o\ : std_logic;
-SIGNAL \timeOutIdle[8]~output_o\ : std_logic;
-SIGNAL \timeOutIdle[9]~output_o\ : std_logic;
-SIGNAL \timeOutIdle[10]~output_o\ : std_logic;
-SIGNAL \timeOutIdle[11]~output_o\ : std_logic;
-SIGNAL \timeOutIdle[12]~output_o\ : std_logic;
-SIGNAL \timeOutIdle[13]~output_o\ : std_logic;
-SIGNAL \timeOutIdle[14]~output_o\ : std_logic;
-SIGNAL \timeOutIdle[15]~output_o\ : std_logic;
-SIGNAL \timeOutCook[0]~output_o\ : std_logic;
-SIGNAL \timeOutCook[1]~output_o\ : std_logic;
-SIGNAL \timeOutCook[2]~output_o\ : std_logic;
-SIGNAL \timeOutCook[3]~output_o\ : std_logic;
-SIGNAL \timeOutCook[4]~output_o\ : std_logic;
-SIGNAL \timeOutCook[5]~output_o\ : std_logic;
-SIGNAL \timeOutCook[6]~output_o\ : std_logic;
-SIGNAL \timeOutCook[7]~output_o\ : std_logic;
-SIGNAL \timeOutCook[8]~output_o\ : std_logic;
-SIGNAL \timeOutCook[9]~output_o\ : std_logic;
-SIGNAL \timeOutCook[10]~output_o\ : std_logic;
-SIGNAL \timeOutCook[11]~output_o\ : std_logic;
-SIGNAL \timeOutCook[12]~output_o\ : std_logic;
-SIGNAL \timeOutCook[13]~output_o\ : std_logic;
-SIGNAL \timeOutCook[14]~output_o\ : std_logic;
-SIGNAL \timeOutCook[15]~output_o\ : std_logic;
+SIGNAL ww_heatOn : std_logic;
+SIGNAL ww_averageTemperature : std_logic_vector(15 DOWNTO 0);
+SIGNAL ww_actualTemperature : std_logic_vector(15 DOWNTO 0);
+SIGNAL \actualTemperature[0]~output_o\ : std_logic;
+SIGNAL \actualTemperature[1]~output_o\ : std_logic;
+SIGNAL \actualTemperature[2]~output_o\ : std_logic;
+SIGNAL \actualTemperature[3]~output_o\ : std_logic;
+SIGNAL \actualTemperature[4]~output_o\ : std_logic;
+SIGNAL \actualTemperature[5]~output_o\ : std_logic;
+SIGNAL \actualTemperature[6]~output_o\ : std_logic;
+SIGNAL \actualTemperature[7]~output_o\ : std_logic;
+SIGNAL \actualTemperature[8]~output_o\ : std_logic;
+SIGNAL \actualTemperature[9]~output_o\ : std_logic;
+SIGNAL \actualTemperature[10]~output_o\ : std_logic;
+SIGNAL \actualTemperature[11]~output_o\ : std_logic;
+SIGNAL \actualTemperature[12]~output_o\ : std_logic;
+SIGNAL \actualTemperature[13]~output_o\ : std_logic;
+SIGNAL \actualTemperature[14]~output_o\ : std_logic;
+SIGNAL \actualTemperature[15]~output_o\ : std_logic;
 SIGNAL \clk~input_o\ : std_logic;
-SIGNAL \Add1~0_combout\ : std_logic;
+SIGNAL \Add0~0_combout\ : std_logic;
 SIGNAL \reset~input_o\ : std_logic;
-SIGNAL \s_actualIdle[15]~3_combout\ : std_logic;
-SIGNAL \s_actualIdle[8]~4_combout\ : std_logic;
-SIGNAL \s_actualIdle[0]~5_combout\ : std_logic;
-SIGNAL \runIdle~input_o\ : std_logic;
-SIGNAL \incrementIdle~input_o\ : std_logic;
-SIGNAL \s_actualIdle[8]~6_combout\ : std_logic;
-SIGNAL \Add1~1\ : std_logic;
-SIGNAL \Add1~2_combout\ : std_logic;
-SIGNAL \Add1~5\ : std_logic;
-SIGNAL \Add1~6_combout\ : std_logic;
-SIGNAL \s_actualIdle[3]~10_combout\ : std_logic;
-SIGNAL \Add1~7\ : std_logic;
-SIGNAL \Add1~8_combout\ : std_logic;
-SIGNAL \s_actualIdle[4]~11_combout\ : std_logic;
-SIGNAL \Add1~9\ : std_logic;
-SIGNAL \Add1~10_combout\ : std_logic;
-SIGNAL \s_actualIdle[5]~12_combout\ : std_logic;
-SIGNAL \Add1~11\ : std_logic;
-SIGNAL \Add1~12_combout\ : std_logic;
-SIGNAL \s_actualIdle[6]~13_combout\ : std_logic;
-SIGNAL \Add1~13\ : std_logic;
-SIGNAL \Add1~14_combout\ : std_logic;
-SIGNAL \s_actualIdle[7]~14_combout\ : std_logic;
-SIGNAL \Add1~15\ : std_logic;
-SIGNAL \Add1~16_combout\ : std_logic;
-SIGNAL \s_actualIdle[8]~15_combout\ : std_logic;
-SIGNAL \Add1~17\ : std_logic;
-SIGNAL \Add1~18_combout\ : std_logic;
-SIGNAL \s_actualIdle[9]~16_combout\ : std_logic;
-SIGNAL \Add1~19\ : std_logic;
-SIGNAL \Add1~20_combout\ : std_logic;
-SIGNAL \s_actualIdle[10]~17_combout\ : std_logic;
-SIGNAL \Add1~21\ : std_logic;
-SIGNAL \Add1~22_combout\ : std_logic;
-SIGNAL \s_actualIdle[11]~18_combout\ : std_logic;
-SIGNAL \Add1~23\ : std_logic;
-SIGNAL \Add1~24_combout\ : std_logic;
-SIGNAL \s_actualIdle[12]~19_combout\ : std_logic;
-SIGNAL \Add1~25\ : std_logic;
-SIGNAL \Add1~26_combout\ : std_logic;
-SIGNAL \s_actualIdle[13]~20_combout\ : std_logic;
-SIGNAL \Add1~27\ : std_logic;
-SIGNAL \Add1~29\ : std_logic;
-SIGNAL \Add1~30_combout\ : std_logic;
-SIGNAL \s_actualIdle[15]~22_combout\ : std_logic;
-SIGNAL \LessThan5~4_combout\ : std_logic;
-SIGNAL \s_actualIdle[8]~7_combout\ : std_logic;
-SIGNAL \s_actualIdle[1]~8_combout\ : std_logic;
-SIGNAL \Add1~3\ : std_logic;
-SIGNAL \Add1~4_combout\ : std_logic;
-SIGNAL \s_actualIdle[2]~9_combout\ : std_logic;
-SIGNAL \LessThan5~0_combout\ : std_logic;
-SIGNAL \LessThan5~1_combout\ : std_logic;
-SIGNAL \LessThan5~2_combout\ : std_logic;
-SIGNAL \LessThan5~3_combout\ : std_logic;
-SIGNAL \LessThan1~0_combout\ : std_logic;
-SIGNAL \s_actualIdle[14]~0_combout\ : std_logic;
 SIGNAL \enable~input_o\ : std_logic;
-SIGNAL \decrementIdle~input_o\ : std_logic;
-SIGNAL \s_actualIdle[14]~1_combout\ : std_logic;
-SIGNAL \s_actualIdle[14]~2_combout\ : std_logic;
-SIGNAL \Add1~28_combout\ : std_logic;
-SIGNAL \s_actualIdle[14]~21_combout\ : std_logic;
-SIGNAL \LessThan5~5_combout\ : std_logic;
-SIGNAL \finishTime~reg0_q\ : std_logic;
-SIGNAL \Add3~0_combout\ : std_logic;
-SIGNAL \runCook~input_o\ : std_logic;
-SIGNAL \incrementCook~input_o\ : std_logic;
-SIGNAL \s_actualCook[11]~7_combout\ : std_logic;
-SIGNAL \Add3~1\ : std_logic;
-SIGNAL \Add3~2_combout\ : std_logic;
-SIGNAL \Add3~17\ : std_logic;
-SIGNAL \Add3~18_combout\ : std_logic;
-SIGNAL \s_actualCook[11]~5_combout\ : std_logic;
-SIGNAL \s_actualCook[9]~16_combout\ : std_logic;
-SIGNAL \Add3~19\ : std_logic;
-SIGNAL \Add3~20_combout\ : std_logic;
-SIGNAL \s_actualCook[10]~17_combout\ : std_logic;
-SIGNAL \Add3~21\ : std_logic;
-SIGNAL \Add3~22_combout\ : std_logic;
-SIGNAL \s_actualCook[11]~18_combout\ : std_logic;
-SIGNAL \Add3~23\ : std_logic;
-SIGNAL \Add3~24_combout\ : std_logic;
-SIGNAL \s_actualCook[12]~19_combout\ : std_logic;
-SIGNAL \Add3~25\ : std_logic;
-SIGNAL \Add3~26_combout\ : std_logic;
-SIGNAL \s_actualCook[13]~20_combout\ : std_logic;
-SIGNAL \Add3~27\ : std_logic;
-SIGNAL \Add3~28_combout\ : std_logic;
-SIGNAL \s_actualCook[14]~21_combout\ : std_logic;
-SIGNAL \LessThan2~2_combout\ : std_logic;
-SIGNAL \LessThan2~3_combout\ : std_logic;
-SIGNAL \LessThan2~4_combout\ : std_logic;
-SIGNAL \Add3~29\ : std_logic;
-SIGNAL \Add3~30_combout\ : std_logic;
-SIGNAL \s_actualCook[15]~22_combout\ : std_logic;
-SIGNAL \LessThan2~1_combout\ : std_logic;
-SIGNAL \s_actualCook[11]~3_combout\ : std_logic;
-SIGNAL \s_actualCook[1]~8_combout\ : std_logic;
-SIGNAL \Add3~3\ : std_logic;
-SIGNAL \Add3~4_combout\ : std_logic;
-SIGNAL \s_actualCook[2]~9_combout\ : std_logic;
-SIGNAL \Add3~5\ : std_logic;
-SIGNAL \Add3~6_combout\ : std_logic;
-SIGNAL \s_actualCook[3]~10_combout\ : std_logic;
-SIGNAL \Add3~7\ : std_logic;
-SIGNAL \Add3~8_combout\ : std_logic;
-SIGNAL \s_actualCook[4]~11_combout\ : std_logic;
-SIGNAL \Add3~9\ : std_logic;
-SIGNAL \Add3~10_combout\ : std_logic;
-SIGNAL \s_actualCook[5]~12_combout\ : std_logic;
-SIGNAL \Add3~11\ : std_logic;
-SIGNAL \Add3~12_combout\ : std_logic;
-SIGNAL \s_actualCook[6]~13_combout\ : std_logic;
-SIGNAL \Add3~13\ : std_logic;
-SIGNAL \Add3~14_combout\ : std_logic;
-SIGNAL \s_actualCook[7]~14_combout\ : std_logic;
-SIGNAL \Add3~15\ : std_logic;
-SIGNAL \Add3~16_combout\ : std_logic;
-SIGNAL \s_actualCook[8]~15_combout\ : std_logic;
-SIGNAL \LessThan2~0_combout\ : std_logic;
-SIGNAL \LessThan3~0_combout\ : std_logic;
-SIGNAL \s_actualCook[14]~0_combout\ : std_logic;
-SIGNAL \decrementCook~input_o\ : std_logic;
-SIGNAL \s_actualCook[14]~1_combout\ : std_logic;
-SIGNAL \s_actualCook[14]~2_combout\ : std_logic;
-SIGNAL \s_actualCook[15]~4_combout\ : std_logic;
-SIGNAL \s_actualCook[0]~6_combout\ : std_logic;
-SIGNAL s_actualCook : std_logic_vector(15 DOWNTO 0);
-SIGNAL s_actualIdle : std_logic_vector(15 DOWNTO 0);
-SIGNAL ALT_INV_s_actualCook : std_logic_vector(3 DOWNTO 1);
-SIGNAL ALT_INV_s_actualIdle : std_logic_vector(3 DOWNTO 1);
+SIGNAL \s_actualTemperature[1]~0_combout\ : std_logic;
+SIGNAL \heatOn~input_o\ : std_logic;
+SIGNAL \Add0~1\ : std_logic;
+SIGNAL \Add0~3\ : std_logic;
+SIGNAL \Add0~4_combout\ : std_logic;
+SIGNAL \Add0~5\ : std_logic;
+SIGNAL \Add0~6_combout\ : std_logic;
+SIGNAL \s_actualTemperature~3_combout\ : std_logic;
+SIGNAL \Add0~7\ : std_logic;
+SIGNAL \Add0~8_combout\ : std_logic;
+SIGNAL \Add0~9\ : std_logic;
+SIGNAL \Add0~10_combout\ : std_logic;
+SIGNAL \Add0~11\ : std_logic;
+SIGNAL \Add0~12_combout\ : std_logic;
+SIGNAL \Add0~13\ : std_logic;
+SIGNAL \Add0~14_combout\ : std_logic;
+SIGNAL \Add0~15\ : std_logic;
+SIGNAL \Add0~16_combout\ : std_logic;
+SIGNAL \Add0~17\ : std_logic;
+SIGNAL \Add0~18_combout\ : std_logic;
+SIGNAL \Add0~19\ : std_logic;
+SIGNAL \Add0~20_combout\ : std_logic;
+SIGNAL \Add0~21\ : std_logic;
+SIGNAL \Add0~22_combout\ : std_logic;
+SIGNAL \Add0~23\ : std_logic;
+SIGNAL \Add0~24_combout\ : std_logic;
+SIGNAL \Add0~25\ : std_logic;
+SIGNAL \Add0~26_combout\ : std_logic;
+SIGNAL \Add0~27\ : std_logic;
+SIGNAL \Add0~28_combout\ : std_logic;
+SIGNAL \averageTemperature[15]~input_o\ : std_logic;
+SIGNAL \averageTemperature[14]~input_o\ : std_logic;
+SIGNAL \averageTemperature[13]~input_o\ : std_logic;
+SIGNAL \averageTemperature[12]~input_o\ : std_logic;
+SIGNAL \averageTemperature[11]~input_o\ : std_logic;
+SIGNAL \averageTemperature[10]~input_o\ : std_logic;
+SIGNAL \averageTemperature[9]~input_o\ : std_logic;
+SIGNAL \averageTemperature[8]~input_o\ : std_logic;
+SIGNAL \averageTemperature[7]~input_o\ : std_logic;
+SIGNAL \averageTemperature[6]~input_o\ : std_logic;
+SIGNAL \averageTemperature[5]~input_o\ : std_logic;
+SIGNAL \averageTemperature[4]~input_o\ : std_logic;
+SIGNAL \averageTemperature[3]~input_o\ : std_logic;
+SIGNAL \averageTemperature[2]~input_o\ : std_logic;
+SIGNAL \averageTemperature[1]~input_o\ : std_logic;
+SIGNAL \averageTemperature[0]~input_o\ : std_logic;
+SIGNAL \LessThan0~1_cout\ : std_logic;
+SIGNAL \LessThan0~3_cout\ : std_logic;
+SIGNAL \LessThan0~5_cout\ : std_logic;
+SIGNAL \LessThan0~7_cout\ : std_logic;
+SIGNAL \LessThan0~9_cout\ : std_logic;
+SIGNAL \LessThan0~11_cout\ : std_logic;
+SIGNAL \LessThan0~13_cout\ : std_logic;
+SIGNAL \LessThan0~15_cout\ : std_logic;
+SIGNAL \LessThan0~17_cout\ : std_logic;
+SIGNAL \LessThan0~19_cout\ : std_logic;
+SIGNAL \LessThan0~21_cout\ : std_logic;
+SIGNAL \LessThan0~23_cout\ : std_logic;
+SIGNAL \LessThan0~25_cout\ : std_logic;
+SIGNAL \LessThan0~27_cout\ : std_logic;
+SIGNAL \LessThan0~29_cout\ : std_logic;
+SIGNAL \LessThan0~30_combout\ : std_logic;
+SIGNAL \s_actualTemperature~1_combout\ : std_logic;
+SIGNAL \Add0~2_combout\ : std_logic;
+SIGNAL \s_actualTemperature~2_combout\ : std_logic;
+SIGNAL s_actualTemperature : std_logic_vector(15 DOWNTO 0);
+SIGNAL ALT_INV_s_actualTemperature : std_logic_vector(4 DOWNTO 2);
 
 BEGIN
 
 ww_clk <= clk;
 ww_reset <= reset;
 ww_enable <= enable;
-ww_runCook <= runCook;
-ww_runIdle <= runIdle;
-ww_incrementIdle <= incrementIdle;
-ww_decrementIdle <= decrementIdle;
-ww_incrementCook <= incrementCook;
-ww_decrementCook <= decrementCook;
-finishTime <= ww_finishTime;
-timeOutIdle <= ww_timeOutIdle;
-timeOutCook <= ww_timeOutCook;
+ww_heatOn <= heatOn;
+ww_averageTemperature <= averageTemperature;
+actualTemperature <= ww_actualTemperature;
 ww_devoe <= devoe;
 ww_devclrn <= devclrn;
 ww_devpor <= devpor;
-ALT_INV_s_actualCook(1) <= NOT s_actualCook(1);
-ALT_INV_s_actualCook(3) <= NOT s_actualCook(3);
-ALT_INV_s_actualIdle(3) <= NOT s_actualIdle(3);
-ALT_INV_s_actualIdle(1) <= NOT s_actualIdle(1);
+ALT_INV_s_actualTemperature(4) <= NOT s_actualTemperature(4);
+ALT_INV_s_actualTemperature(2) <= NOT s_actualTemperature(2);
 
-\finishTime~output\ : cycloneive_io_obuf
+\actualTemperature[0]~output\ : cycloneive_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \finishTime~reg0_q\,
+	i => GND,
 	devoe => ww_devoe,
-	o => \finishTime~output_o\);
+	o => \actualTemperature[0]~output_o\);
 
-\timeOutIdle[0]~output\ : cycloneive_io_obuf
+\actualTemperature[1]~output\ : cycloneive_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => s_actualIdle(0),
+	i => s_actualTemperature(1),
 	devoe => ww_devoe,
-	o => \timeOutIdle[0]~output_o\);
+	o => \actualTemperature[1]~output_o\);
 
-\timeOutIdle[1]~output\ : cycloneive_io_obuf
+\actualTemperature[2]~output\ : cycloneive_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => ALT_INV_s_actualIdle(1),
+	i => ALT_INV_s_actualTemperature(2),
 	devoe => ww_devoe,
-	o => \timeOutIdle[1]~output_o\);
+	o => \actualTemperature[2]~output_o\);
 
-\timeOutIdle[2]~output\ : cycloneive_io_obuf
+\actualTemperature[3]~output\ : cycloneive_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => s_actualIdle(2),
+	i => s_actualTemperature(3),
 	devoe => ww_devoe,
-	o => \timeOutIdle[2]~output_o\);
+	o => \actualTemperature[3]~output_o\);
 
-\timeOutIdle[3]~output\ : cycloneive_io_obuf
+\actualTemperature[4]~output\ : cycloneive_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => ALT_INV_s_actualIdle(3),
+	i => ALT_INV_s_actualTemperature(4),
 	devoe => ww_devoe,
-	o => \timeOutIdle[3]~output_o\);
+	o => \actualTemperature[4]~output_o\);
 
-\timeOutIdle[4]~output\ : cycloneive_io_obuf
+\actualTemperature[5]~output\ : cycloneive_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => s_actualIdle(4),
+	i => s_actualTemperature(5),
 	devoe => ww_devoe,
-	o => \timeOutIdle[4]~output_o\);
+	o => \actualTemperature[5]~output_o\);
 
-\timeOutIdle[5]~output\ : cycloneive_io_obuf
+\actualTemperature[6]~output\ : cycloneive_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => s_actualIdle(5),
+	i => s_actualTemperature(6),
 	devoe => ww_devoe,
-	o => \timeOutIdle[5]~output_o\);
+	o => \actualTemperature[6]~output_o\);
 
-\timeOutIdle[6]~output\ : cycloneive_io_obuf
+\actualTemperature[7]~output\ : cycloneive_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => s_actualIdle(6),
+	i => s_actualTemperature(7),
 	devoe => ww_devoe,
-	o => \timeOutIdle[6]~output_o\);
+	o => \actualTemperature[7]~output_o\);
 
-\timeOutIdle[7]~output\ : cycloneive_io_obuf
+\actualTemperature[8]~output\ : cycloneive_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => s_actualIdle(7),
+	i => s_actualTemperature(8),
 	devoe => ww_devoe,
-	o => \timeOutIdle[7]~output_o\);
+	o => \actualTemperature[8]~output_o\);
 
-\timeOutIdle[8]~output\ : cycloneive_io_obuf
+\actualTemperature[9]~output\ : cycloneive_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => s_actualIdle(8),
+	i => s_actualTemperature(9),
 	devoe => ww_devoe,
-	o => \timeOutIdle[8]~output_o\);
+	o => \actualTemperature[9]~output_o\);
 
-\timeOutIdle[9]~output\ : cycloneive_io_obuf
+\actualTemperature[10]~output\ : cycloneive_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => s_actualIdle(9),
+	i => s_actualTemperature(10),
 	devoe => ww_devoe,
-	o => \timeOutIdle[9]~output_o\);
+	o => \actualTemperature[10]~output_o\);
 
-\timeOutIdle[10]~output\ : cycloneive_io_obuf
+\actualTemperature[11]~output\ : cycloneive_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => s_actualIdle(10),
+	i => s_actualTemperature(11),
 	devoe => ww_devoe,
-	o => \timeOutIdle[10]~output_o\);
+	o => \actualTemperature[11]~output_o\);
 
-\timeOutIdle[11]~output\ : cycloneive_io_obuf
+\actualTemperature[12]~output\ : cycloneive_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => s_actualIdle(11),
+	i => s_actualTemperature(12),
 	devoe => ww_devoe,
-	o => \timeOutIdle[11]~output_o\);
+	o => \actualTemperature[12]~output_o\);
 
-\timeOutIdle[12]~output\ : cycloneive_io_obuf
+\actualTemperature[13]~output\ : cycloneive_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => s_actualIdle(12),
+	i => s_actualTemperature(13),
 	devoe => ww_devoe,
-	o => \timeOutIdle[12]~output_o\);
+	o => \actualTemperature[13]~output_o\);
 
-\timeOutIdle[13]~output\ : cycloneive_io_obuf
+\actualTemperature[14]~output\ : cycloneive_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => s_actualIdle(13),
+	i => s_actualTemperature(14),
 	devoe => ww_devoe,
-	o => \timeOutIdle[13]~output_o\);
+	o => \actualTemperature[14]~output_o\);
 
-\timeOutIdle[14]~output\ : cycloneive_io_obuf
+\actualTemperature[15]~output\ : cycloneive_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => s_actualIdle(14),
+	i => s_actualTemperature(15),
 	devoe => ww_devoe,
-	o => \timeOutIdle[14]~output_o\);
-
-\timeOutIdle[15]~output\ : cycloneive_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => s_actualIdle(15),
-	devoe => ww_devoe,
-	o => \timeOutIdle[15]~output_o\);
-
-\timeOutCook[0]~output\ : cycloneive_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => s_actualCook(0),
-	devoe => ww_devoe,
-	o => \timeOutCook[0]~output_o\);
-
-\timeOutCook[1]~output\ : cycloneive_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => ALT_INV_s_actualCook(1),
-	devoe => ww_devoe,
-	o => \timeOutCook[1]~output_o\);
-
-\timeOutCook[2]~output\ : cycloneive_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => s_actualCook(2),
-	devoe => ww_devoe,
-	o => \timeOutCook[2]~output_o\);
-
-\timeOutCook[3]~output\ : cycloneive_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => ALT_INV_s_actualCook(3),
-	devoe => ww_devoe,
-	o => \timeOutCook[3]~output_o\);
-
-\timeOutCook[4]~output\ : cycloneive_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => s_actualCook(4),
-	devoe => ww_devoe,
-	o => \timeOutCook[4]~output_o\);
-
-\timeOutCook[5]~output\ : cycloneive_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => s_actualCook(5),
-	devoe => ww_devoe,
-	o => \timeOutCook[5]~output_o\);
-
-\timeOutCook[6]~output\ : cycloneive_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => s_actualCook(6),
-	devoe => ww_devoe,
-	o => \timeOutCook[6]~output_o\);
-
-\timeOutCook[7]~output\ : cycloneive_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => s_actualCook(7),
-	devoe => ww_devoe,
-	o => \timeOutCook[7]~output_o\);
-
-\timeOutCook[8]~output\ : cycloneive_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => s_actualCook(8),
-	devoe => ww_devoe,
-	o => \timeOutCook[8]~output_o\);
-
-\timeOutCook[9]~output\ : cycloneive_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => s_actualCook(9),
-	devoe => ww_devoe,
-	o => \timeOutCook[9]~output_o\);
-
-\timeOutCook[10]~output\ : cycloneive_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => s_actualCook(10),
-	devoe => ww_devoe,
-	o => \timeOutCook[10]~output_o\);
-
-\timeOutCook[11]~output\ : cycloneive_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => s_actualCook(11),
-	devoe => ww_devoe,
-	o => \timeOutCook[11]~output_o\);
-
-\timeOutCook[12]~output\ : cycloneive_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => s_actualCook(12),
-	devoe => ww_devoe,
-	o => \timeOutCook[12]~output_o\);
-
-\timeOutCook[13]~output\ : cycloneive_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => s_actualCook(13),
-	devoe => ww_devoe,
-	o => \timeOutCook[13]~output_o\);
-
-\timeOutCook[14]~output\ : cycloneive_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => s_actualCook(14),
-	devoe => ww_devoe,
-	o => \timeOutCook[14]~output_o\);
-
-\timeOutCook[15]~output\ : cycloneive_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false")
--- pragma translate_on
-PORT MAP (
-	i => s_actualCook(15),
-	devoe => ww_devoe,
-	o => \timeOutCook[15]~output_o\);
+	o => \actualTemperature[15]~output_o\);
 
 \clk~input\ : cycloneive_io_ibuf
 -- pragma translate_off
@@ -637,10 +349,10 @@ PORT MAP (
 	i => ww_clk,
 	o => \clk~input_o\);
 
-\Add1~0\ : cycloneive_lcell_comb
+\Add0~0\ : cycloneive_lcell_comb
 -- Equation(s):
--- \Add1~0_combout\ = s_actualIdle(0) $ (VCC)
--- \Add1~1\ = CARRY(s_actualIdle(0))
+-- \Add0~0_combout\ = s_actualTemperature(1) $ (VCC)
+-- \Add0~1\ = CARRY(s_actualTemperature(1))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -648,10 +360,10 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => s_actualIdle(0),
+	dataa => s_actualTemperature(1),
 	datad => VCC,
-	combout => \Add1~0_combout\,
-	cout => \Add1~1\);
+	combout => \Add0~0_combout\,
+	cout => \Add0~1\);
 
 \reset~input\ : cycloneive_io_ibuf
 -- pragma translate_off
@@ -663,900 +375,6 @@ PORT MAP (
 	i => ww_reset,
 	o => \reset~input_o\);
 
-\s_actualIdle[15]~3\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualIdle[15]~3_combout\ = (!\LessThan5~5_combout\ & (\s_actualIdle[14]~2_combout\ & (!s_actualIdle(14) & !\reset~input_o\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000000100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \LessThan5~5_combout\,
-	datab => \s_actualIdle[14]~2_combout\,
-	datac => s_actualIdle(14),
-	datad => \reset~input_o\,
-	combout => \s_actualIdle[15]~3_combout\);
-
-\s_actualIdle[8]~4\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualIdle[8]~4_combout\ = (!\LessThan5~5_combout\ & (!\reset~input_o\ & ((s_actualIdle(14)) # (!\s_actualIdle[14]~2_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000001000101",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \LessThan5~5_combout\,
-	datab => s_actualIdle(14),
-	datac => \s_actualIdle[14]~2_combout\,
-	datad => \reset~input_o\,
-	combout => \s_actualIdle[8]~4_combout\);
-
-\s_actualIdle[0]~5\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualIdle[0]~5_combout\ = (s_actualIdle(0) & ((\s_actualIdle[8]~4_combout\) # ((\Add1~0_combout\ & \s_actualIdle[15]~3_combout\)))) # (!s_actualIdle(0) & (\Add1~0_combout\ & (\s_actualIdle[15]~3_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110101011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualIdle(0),
-	datab => \Add1~0_combout\,
-	datac => \s_actualIdle[15]~3_combout\,
-	datad => \s_actualIdle[8]~4_combout\,
-	combout => \s_actualIdle[0]~5_combout\);
-
-\s_actualIdle[0]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~input_o\,
-	d => \s_actualIdle[0]~5_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => s_actualIdle(0));
-
-\runIdle~input\ : cycloneive_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_runIdle,
-	o => \runIdle~input_o\);
-
-\incrementIdle~input\ : cycloneive_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_incrementIdle,
-	o => \incrementIdle~input_o\);
-
-\s_actualIdle[8]~6\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualIdle[8]~6_combout\ = (\runIdle~input_o\) # (!\incrementIdle~input_o\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010101011111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \runIdle~input_o\,
-	datad => \incrementIdle~input_o\,
-	combout => \s_actualIdle[8]~6_combout\);
-
-\Add1~2\ : cycloneive_lcell_comb
--- Equation(s):
--- \Add1~2_combout\ = (\s_actualIdle[8]~6_combout\ & ((s_actualIdle(1) & (!\Add1~1\)) # (!s_actualIdle(1) & (\Add1~1\ & VCC)))) # (!\s_actualIdle[8]~6_combout\ & ((s_actualIdle(1) & ((\Add1~1\) # (GND))) # (!s_actualIdle(1) & (!\Add1~1\))))
--- \Add1~3\ = CARRY((\s_actualIdle[8]~6_combout\ & (s_actualIdle(1) & !\Add1~1\)) # (!\s_actualIdle[8]~6_combout\ & ((s_actualIdle(1)) # (!\Add1~1\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110100101001101",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \s_actualIdle[8]~6_combout\,
-	datab => s_actualIdle(1),
-	datad => VCC,
-	cin => \Add1~1\,
-	combout => \Add1~2_combout\,
-	cout => \Add1~3\);
-
-\Add1~4\ : cycloneive_lcell_comb
--- Equation(s):
--- \Add1~4_combout\ = ((\s_actualIdle[8]~6_combout\ $ (s_actualIdle(2) $ (!\Add1~3\)))) # (GND)
--- \Add1~5\ = CARRY((\s_actualIdle[8]~6_combout\ & ((s_actualIdle(2)) # (!\Add1~3\))) # (!\s_actualIdle[8]~6_combout\ & (s_actualIdle(2) & !\Add1~3\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110100110001110",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \s_actualIdle[8]~6_combout\,
-	datab => s_actualIdle(2),
-	datad => VCC,
-	cin => \Add1~3\,
-	combout => \Add1~4_combout\,
-	cout => \Add1~5\);
-
-\Add1~6\ : cycloneive_lcell_comb
--- Equation(s):
--- \Add1~6_combout\ = (\s_actualIdle[8]~6_combout\ & ((s_actualIdle(3) & (!\Add1~5\)) # (!s_actualIdle(3) & (\Add1~5\ & VCC)))) # (!\s_actualIdle[8]~6_combout\ & ((s_actualIdle(3) & ((\Add1~5\) # (GND))) # (!s_actualIdle(3) & (!\Add1~5\))))
--- \Add1~7\ = CARRY((\s_actualIdle[8]~6_combout\ & (s_actualIdle(3) & !\Add1~5\)) # (!\s_actualIdle[8]~6_combout\ & ((s_actualIdle(3)) # (!\Add1~5\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110100101001101",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \s_actualIdle[8]~6_combout\,
-	datab => s_actualIdle(3),
-	datad => VCC,
-	cin => \Add1~5\,
-	combout => \Add1~6_combout\,
-	cout => \Add1~7\);
-
-\s_actualIdle[3]~10\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualIdle[3]~10_combout\ = (\s_actualIdle[8]~4_combout\ & (((s_actualIdle(3))))) # (!\s_actualIdle[8]~4_combout\ & (!\Add1~6_combout\ & (\s_actualIdle[8]~7_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111010000000100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \Add1~6_combout\,
-	datab => \s_actualIdle[8]~7_combout\,
-	datac => \s_actualIdle[8]~4_combout\,
-	datad => s_actualIdle(3),
-	combout => \s_actualIdle[3]~10_combout\);
-
-\s_actualIdle[3]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~input_o\,
-	d => \s_actualIdle[3]~10_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => s_actualIdle(3));
-
-\Add1~8\ : cycloneive_lcell_comb
--- Equation(s):
--- \Add1~8_combout\ = ((\s_actualIdle[8]~6_combout\ $ (s_actualIdle(4) $ (!\Add1~7\)))) # (GND)
--- \Add1~9\ = CARRY((\s_actualIdle[8]~6_combout\ & ((s_actualIdle(4)) # (!\Add1~7\))) # (!\s_actualIdle[8]~6_combout\ & (s_actualIdle(4) & !\Add1~7\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110100110001110",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \s_actualIdle[8]~6_combout\,
-	datab => s_actualIdle(4),
-	datad => VCC,
-	cin => \Add1~7\,
-	combout => \Add1~8_combout\,
-	cout => \Add1~9\);
-
-\s_actualIdle[4]~11\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualIdle[4]~11_combout\ = (s_actualIdle(4) & ((\s_actualIdle[8]~4_combout\) # ((\s_actualIdle[15]~3_combout\ & \Add1~8_combout\)))) # (!s_actualIdle(4) & (\s_actualIdle[15]~3_combout\ & (\Add1~8_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110101011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualIdle(4),
-	datab => \s_actualIdle[15]~3_combout\,
-	datac => \Add1~8_combout\,
-	datad => \s_actualIdle[8]~4_combout\,
-	combout => \s_actualIdle[4]~11_combout\);
-
-\s_actualIdle[4]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~input_o\,
-	d => \s_actualIdle[4]~11_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => s_actualIdle(4));
-
-\Add1~10\ : cycloneive_lcell_comb
--- Equation(s):
--- \Add1~10_combout\ = (\s_actualIdle[8]~6_combout\ & ((s_actualIdle(5) & (\Add1~9\ & VCC)) # (!s_actualIdle(5) & (!\Add1~9\)))) # (!\s_actualIdle[8]~6_combout\ & ((s_actualIdle(5) & (!\Add1~9\)) # (!s_actualIdle(5) & ((\Add1~9\) # (GND)))))
--- \Add1~11\ = CARRY((\s_actualIdle[8]~6_combout\ & (!s_actualIdle(5) & !\Add1~9\)) # (!\s_actualIdle[8]~6_combout\ & ((!\Add1~9\) # (!s_actualIdle(5)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1001011000010111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \s_actualIdle[8]~6_combout\,
-	datab => s_actualIdle(5),
-	datad => VCC,
-	cin => \Add1~9\,
-	combout => \Add1~10_combout\,
-	cout => \Add1~11\);
-
-\s_actualIdle[5]~12\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualIdle[5]~12_combout\ = (s_actualIdle(5) & ((\s_actualIdle[8]~4_combout\) # ((\s_actualIdle[15]~3_combout\ & \Add1~10_combout\)))) # (!s_actualIdle(5) & (\s_actualIdle[15]~3_combout\ & (\Add1~10_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110101011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualIdle(5),
-	datab => \s_actualIdle[15]~3_combout\,
-	datac => \Add1~10_combout\,
-	datad => \s_actualIdle[8]~4_combout\,
-	combout => \s_actualIdle[5]~12_combout\);
-
-\s_actualIdle[5]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~input_o\,
-	d => \s_actualIdle[5]~12_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => s_actualIdle(5));
-
-\Add1~12\ : cycloneive_lcell_comb
--- Equation(s):
--- \Add1~12_combout\ = ((\s_actualIdle[8]~6_combout\ $ (s_actualIdle(6) $ (!\Add1~11\)))) # (GND)
--- \Add1~13\ = CARRY((\s_actualIdle[8]~6_combout\ & ((s_actualIdle(6)) # (!\Add1~11\))) # (!\s_actualIdle[8]~6_combout\ & (s_actualIdle(6) & !\Add1~11\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110100110001110",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \s_actualIdle[8]~6_combout\,
-	datab => s_actualIdle(6),
-	datad => VCC,
-	cin => \Add1~11\,
-	combout => \Add1~12_combout\,
-	cout => \Add1~13\);
-
-\s_actualIdle[6]~13\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualIdle[6]~13_combout\ = (s_actualIdle(6) & ((\s_actualIdle[8]~4_combout\) # ((\s_actualIdle[15]~3_combout\ & \Add1~12_combout\)))) # (!s_actualIdle(6) & (\s_actualIdle[15]~3_combout\ & (\Add1~12_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110101011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualIdle(6),
-	datab => \s_actualIdle[15]~3_combout\,
-	datac => \Add1~12_combout\,
-	datad => \s_actualIdle[8]~4_combout\,
-	combout => \s_actualIdle[6]~13_combout\);
-
-\s_actualIdle[6]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~input_o\,
-	d => \s_actualIdle[6]~13_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => s_actualIdle(6));
-
-\Add1~14\ : cycloneive_lcell_comb
--- Equation(s):
--- \Add1~14_combout\ = (\s_actualIdle[8]~6_combout\ & ((s_actualIdle(7) & (\Add1~13\ & VCC)) # (!s_actualIdle(7) & (!\Add1~13\)))) # (!\s_actualIdle[8]~6_combout\ & ((s_actualIdle(7) & (!\Add1~13\)) # (!s_actualIdle(7) & ((\Add1~13\) # (GND)))))
--- \Add1~15\ = CARRY((\s_actualIdle[8]~6_combout\ & (!s_actualIdle(7) & !\Add1~13\)) # (!\s_actualIdle[8]~6_combout\ & ((!\Add1~13\) # (!s_actualIdle(7)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1001011000010111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \s_actualIdle[8]~6_combout\,
-	datab => s_actualIdle(7),
-	datad => VCC,
-	cin => \Add1~13\,
-	combout => \Add1~14_combout\,
-	cout => \Add1~15\);
-
-\s_actualIdle[7]~14\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualIdle[7]~14_combout\ = (s_actualIdle(7) & ((\s_actualIdle[8]~4_combout\) # ((\s_actualIdle[15]~3_combout\ & \Add1~14_combout\)))) # (!s_actualIdle(7) & (\s_actualIdle[15]~3_combout\ & (\Add1~14_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110101011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualIdle(7),
-	datab => \s_actualIdle[15]~3_combout\,
-	datac => \Add1~14_combout\,
-	datad => \s_actualIdle[8]~4_combout\,
-	combout => \s_actualIdle[7]~14_combout\);
-
-\s_actualIdle[7]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~input_o\,
-	d => \s_actualIdle[7]~14_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => s_actualIdle(7));
-
-\Add1~16\ : cycloneive_lcell_comb
--- Equation(s):
--- \Add1~16_combout\ = ((\s_actualIdle[8]~6_combout\ $ (s_actualIdle(8) $ (!\Add1~15\)))) # (GND)
--- \Add1~17\ = CARRY((\s_actualIdle[8]~6_combout\ & ((s_actualIdle(8)) # (!\Add1~15\))) # (!\s_actualIdle[8]~6_combout\ & (s_actualIdle(8) & !\Add1~15\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110100110001110",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \s_actualIdle[8]~6_combout\,
-	datab => s_actualIdle(8),
-	datad => VCC,
-	cin => \Add1~15\,
-	combout => \Add1~16_combout\,
-	cout => \Add1~17\);
-
-\s_actualIdle[8]~15\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualIdle[8]~15_combout\ = (s_actualIdle(8) & ((\s_actualIdle[8]~4_combout\) # ((\s_actualIdle[15]~3_combout\ & \Add1~16_combout\)))) # (!s_actualIdle(8) & (\s_actualIdle[15]~3_combout\ & (\Add1~16_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110101011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualIdle(8),
-	datab => \s_actualIdle[15]~3_combout\,
-	datac => \Add1~16_combout\,
-	datad => \s_actualIdle[8]~4_combout\,
-	combout => \s_actualIdle[8]~15_combout\);
-
-\s_actualIdle[8]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~input_o\,
-	d => \s_actualIdle[8]~15_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => s_actualIdle(8));
-
-\Add1~18\ : cycloneive_lcell_comb
--- Equation(s):
--- \Add1~18_combout\ = (\s_actualIdle[8]~6_combout\ & ((s_actualIdle(9) & (\Add1~17\ & VCC)) # (!s_actualIdle(9) & (!\Add1~17\)))) # (!\s_actualIdle[8]~6_combout\ & ((s_actualIdle(9) & (!\Add1~17\)) # (!s_actualIdle(9) & ((\Add1~17\) # (GND)))))
--- \Add1~19\ = CARRY((\s_actualIdle[8]~6_combout\ & (!s_actualIdle(9) & !\Add1~17\)) # (!\s_actualIdle[8]~6_combout\ & ((!\Add1~17\) # (!s_actualIdle(9)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1001011000010111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \s_actualIdle[8]~6_combout\,
-	datab => s_actualIdle(9),
-	datad => VCC,
-	cin => \Add1~17\,
-	combout => \Add1~18_combout\,
-	cout => \Add1~19\);
-
-\s_actualIdle[9]~16\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualIdle[9]~16_combout\ = (s_actualIdle(9) & ((\s_actualIdle[8]~4_combout\) # ((\s_actualIdle[15]~3_combout\ & \Add1~18_combout\)))) # (!s_actualIdle(9) & (\s_actualIdle[15]~3_combout\ & (\Add1~18_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110101011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualIdle(9),
-	datab => \s_actualIdle[15]~3_combout\,
-	datac => \Add1~18_combout\,
-	datad => \s_actualIdle[8]~4_combout\,
-	combout => \s_actualIdle[9]~16_combout\);
-
-\s_actualIdle[9]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~input_o\,
-	d => \s_actualIdle[9]~16_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => s_actualIdle(9));
-
-\Add1~20\ : cycloneive_lcell_comb
--- Equation(s):
--- \Add1~20_combout\ = ((\s_actualIdle[8]~6_combout\ $ (s_actualIdle(10) $ (!\Add1~19\)))) # (GND)
--- \Add1~21\ = CARRY((\s_actualIdle[8]~6_combout\ & ((s_actualIdle(10)) # (!\Add1~19\))) # (!\s_actualIdle[8]~6_combout\ & (s_actualIdle(10) & !\Add1~19\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110100110001110",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \s_actualIdle[8]~6_combout\,
-	datab => s_actualIdle(10),
-	datad => VCC,
-	cin => \Add1~19\,
-	combout => \Add1~20_combout\,
-	cout => \Add1~21\);
-
-\s_actualIdle[10]~17\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualIdle[10]~17_combout\ = (s_actualIdle(10) & ((\s_actualIdle[8]~4_combout\) # ((\s_actualIdle[15]~3_combout\ & \Add1~20_combout\)))) # (!s_actualIdle(10) & (\s_actualIdle[15]~3_combout\ & (\Add1~20_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110101011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualIdle(10),
-	datab => \s_actualIdle[15]~3_combout\,
-	datac => \Add1~20_combout\,
-	datad => \s_actualIdle[8]~4_combout\,
-	combout => \s_actualIdle[10]~17_combout\);
-
-\s_actualIdle[10]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~input_o\,
-	d => \s_actualIdle[10]~17_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => s_actualIdle(10));
-
-\Add1~22\ : cycloneive_lcell_comb
--- Equation(s):
--- \Add1~22_combout\ = (\s_actualIdle[8]~6_combout\ & ((s_actualIdle(11) & (\Add1~21\ & VCC)) # (!s_actualIdle(11) & (!\Add1~21\)))) # (!\s_actualIdle[8]~6_combout\ & ((s_actualIdle(11) & (!\Add1~21\)) # (!s_actualIdle(11) & ((\Add1~21\) # (GND)))))
--- \Add1~23\ = CARRY((\s_actualIdle[8]~6_combout\ & (!s_actualIdle(11) & !\Add1~21\)) # (!\s_actualIdle[8]~6_combout\ & ((!\Add1~21\) # (!s_actualIdle(11)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1001011000010111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \s_actualIdle[8]~6_combout\,
-	datab => s_actualIdle(11),
-	datad => VCC,
-	cin => \Add1~21\,
-	combout => \Add1~22_combout\,
-	cout => \Add1~23\);
-
-\s_actualIdle[11]~18\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualIdle[11]~18_combout\ = (s_actualIdle(11) & ((\s_actualIdle[8]~4_combout\) # ((\s_actualIdle[15]~3_combout\ & \Add1~22_combout\)))) # (!s_actualIdle(11) & (\s_actualIdle[15]~3_combout\ & (\Add1~22_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110101011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualIdle(11),
-	datab => \s_actualIdle[15]~3_combout\,
-	datac => \Add1~22_combout\,
-	datad => \s_actualIdle[8]~4_combout\,
-	combout => \s_actualIdle[11]~18_combout\);
-
-\s_actualIdle[11]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~input_o\,
-	d => \s_actualIdle[11]~18_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => s_actualIdle(11));
-
-\Add1~24\ : cycloneive_lcell_comb
--- Equation(s):
--- \Add1~24_combout\ = ((\s_actualIdle[8]~6_combout\ $ (s_actualIdle(12) $ (!\Add1~23\)))) # (GND)
--- \Add1~25\ = CARRY((\s_actualIdle[8]~6_combout\ & ((s_actualIdle(12)) # (!\Add1~23\))) # (!\s_actualIdle[8]~6_combout\ & (s_actualIdle(12) & !\Add1~23\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110100110001110",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \s_actualIdle[8]~6_combout\,
-	datab => s_actualIdle(12),
-	datad => VCC,
-	cin => \Add1~23\,
-	combout => \Add1~24_combout\,
-	cout => \Add1~25\);
-
-\s_actualIdle[12]~19\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualIdle[12]~19_combout\ = (s_actualIdle(12) & ((\s_actualIdle[8]~4_combout\) # ((\s_actualIdle[15]~3_combout\ & \Add1~24_combout\)))) # (!s_actualIdle(12) & (\s_actualIdle[15]~3_combout\ & (\Add1~24_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110101011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualIdle(12),
-	datab => \s_actualIdle[15]~3_combout\,
-	datac => \Add1~24_combout\,
-	datad => \s_actualIdle[8]~4_combout\,
-	combout => \s_actualIdle[12]~19_combout\);
-
-\s_actualIdle[12]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~input_o\,
-	d => \s_actualIdle[12]~19_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => s_actualIdle(12));
-
-\Add1~26\ : cycloneive_lcell_comb
--- Equation(s):
--- \Add1~26_combout\ = (\s_actualIdle[8]~6_combout\ & ((s_actualIdle(13) & (\Add1~25\ & VCC)) # (!s_actualIdle(13) & (!\Add1~25\)))) # (!\s_actualIdle[8]~6_combout\ & ((s_actualIdle(13) & (!\Add1~25\)) # (!s_actualIdle(13) & ((\Add1~25\) # (GND)))))
--- \Add1~27\ = CARRY((\s_actualIdle[8]~6_combout\ & (!s_actualIdle(13) & !\Add1~25\)) # (!\s_actualIdle[8]~6_combout\ & ((!\Add1~25\) # (!s_actualIdle(13)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1001011000010111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \s_actualIdle[8]~6_combout\,
-	datab => s_actualIdle(13),
-	datad => VCC,
-	cin => \Add1~25\,
-	combout => \Add1~26_combout\,
-	cout => \Add1~27\);
-
-\s_actualIdle[13]~20\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualIdle[13]~20_combout\ = (s_actualIdle(13) & ((\s_actualIdle[8]~4_combout\) # ((\s_actualIdle[15]~3_combout\ & \Add1~26_combout\)))) # (!s_actualIdle(13) & (\s_actualIdle[15]~3_combout\ & (\Add1~26_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110101011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualIdle(13),
-	datab => \s_actualIdle[15]~3_combout\,
-	datac => \Add1~26_combout\,
-	datad => \s_actualIdle[8]~4_combout\,
-	combout => \s_actualIdle[13]~20_combout\);
-
-\s_actualIdle[13]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~input_o\,
-	d => \s_actualIdle[13]~20_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => s_actualIdle(13));
-
-\Add1~28\ : cycloneive_lcell_comb
--- Equation(s):
--- \Add1~28_combout\ = ((\s_actualIdle[8]~6_combout\ $ (s_actualIdle(14) $ (!\Add1~27\)))) # (GND)
--- \Add1~29\ = CARRY((\s_actualIdle[8]~6_combout\ & ((s_actualIdle(14)) # (!\Add1~27\))) # (!\s_actualIdle[8]~6_combout\ & (s_actualIdle(14) & !\Add1~27\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110100110001110",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \s_actualIdle[8]~6_combout\,
-	datab => s_actualIdle(14),
-	datad => VCC,
-	cin => \Add1~27\,
-	combout => \Add1~28_combout\,
-	cout => \Add1~29\);
-
-\Add1~30\ : cycloneive_lcell_comb
--- Equation(s):
--- \Add1~30_combout\ = \s_actualIdle[8]~6_combout\ $ (s_actualIdle(15) $ (\Add1~29\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1001011010010110",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \s_actualIdle[8]~6_combout\,
-	datab => s_actualIdle(15),
-	cin => \Add1~29\,
-	combout => \Add1~30_combout\);
-
-\s_actualIdle[15]~22\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualIdle[15]~22_combout\ = (\s_actualIdle[8]~4_combout\ & (s_actualIdle(15))) # (!\s_actualIdle[8]~4_combout\ & (((\s_actualIdle[8]~7_combout\ & \Add1~30_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010101011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualIdle(15),
-	datab => \s_actualIdle[8]~7_combout\,
-	datac => \Add1~30_combout\,
-	datad => \s_actualIdle[8]~4_combout\,
-	combout => \s_actualIdle[15]~22_combout\);
-
-\s_actualIdle[15]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~input_o\,
-	d => \s_actualIdle[15]~22_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => s_actualIdle(15));
-
-\LessThan5~4\ : cycloneive_lcell_comb
--- Equation(s):
--- \LessThan5~4_combout\ = (!s_actualIdle(12) & (!s_actualIdle(13) & !s_actualIdle(15)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000000011",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => s_actualIdle(12),
-	datac => s_actualIdle(13),
-	datad => s_actualIdle(15),
-	combout => \LessThan5~4_combout\);
-
-\s_actualIdle[8]~7\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualIdle[8]~7_combout\ = (!\reset~input_o\ & ((s_actualIdle(14)) # ((\LessThan5~3_combout\) # (!\LessThan5~4_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000011101111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualIdle(14),
-	datab => \LessThan5~3_combout\,
-	datac => \LessThan5~4_combout\,
-	datad => \reset~input_o\,
-	combout => \s_actualIdle[8]~7_combout\);
-
-\s_actualIdle[1]~8\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualIdle[1]~8_combout\ = (\s_actualIdle[8]~4_combout\ & (((s_actualIdle(1))))) # (!\s_actualIdle[8]~4_combout\ & (!\Add1~2_combout\ & (\s_actualIdle[8]~7_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111010000000100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \Add1~2_combout\,
-	datab => \s_actualIdle[8]~7_combout\,
-	datac => \s_actualIdle[8]~4_combout\,
-	datad => s_actualIdle(1),
-	combout => \s_actualIdle[1]~8_combout\);
-
-\s_actualIdle[1]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~input_o\,
-	d => \s_actualIdle[1]~8_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => s_actualIdle(1));
-
-\s_actualIdle[2]~9\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualIdle[2]~9_combout\ = (s_actualIdle(2) & ((\s_actualIdle[8]~4_combout\) # ((\s_actualIdle[15]~3_combout\ & \Add1~4_combout\)))) # (!s_actualIdle(2) & (\s_actualIdle[15]~3_combout\ & (\Add1~4_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110101011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualIdle(2),
-	datab => \s_actualIdle[15]~3_combout\,
-	datac => \Add1~4_combout\,
-	datad => \s_actualIdle[8]~4_combout\,
-	combout => \s_actualIdle[2]~9_combout\);
-
-\s_actualIdle[2]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~input_o\,
-	d => \s_actualIdle[2]~9_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => s_actualIdle(2));
-
-\LessThan5~0\ : cycloneive_lcell_comb
--- Equation(s):
--- \LessThan5~0_combout\ = (s_actualIdle(0)) # ((s_actualIdle(2)) # ((!s_actualIdle(3)) # (!s_actualIdle(1))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110111111111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualIdle(0),
-	datab => s_actualIdle(2),
-	datac => s_actualIdle(1),
-	datad => s_actualIdle(3),
-	combout => \LessThan5~0_combout\);
-
-\LessThan5~1\ : cycloneive_lcell_comb
--- Equation(s):
--- \LessThan5~1_combout\ = (s_actualIdle(4)) # ((s_actualIdle(5)) # ((s_actualIdle(6)) # (s_actualIdle(7))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111111111110",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualIdle(4),
-	datab => s_actualIdle(5),
-	datac => s_actualIdle(6),
-	datad => s_actualIdle(7),
-	combout => \LessThan5~1_combout\);
-
-\LessThan5~2\ : cycloneive_lcell_comb
--- Equation(s):
--- \LessThan5~2_combout\ = (!s_actualIdle(8) & (!s_actualIdle(9) & (!s_actualIdle(10) & !s_actualIdle(11))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000000001",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualIdle(8),
-	datab => s_actualIdle(9),
-	datac => s_actualIdle(10),
-	datad => s_actualIdle(11),
-	combout => \LessThan5~2_combout\);
-
-\LessThan5~3\ : cycloneive_lcell_comb
--- Equation(s):
--- \LessThan5~3_combout\ = (\LessThan5~0_combout\) # ((\LessThan5~1_combout\) # (!\LessThan5~2_combout\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110111011111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \LessThan5~0_combout\,
-	datab => \LessThan5~1_combout\,
-	datad => \LessThan5~2_combout\,
-	combout => \LessThan5~3_combout\);
-
-\LessThan1~0\ : cycloneive_lcell_comb
--- Equation(s):
--- \LessThan1~0_combout\ = (((s_actualIdle(3) & !s_actualIdle(2))) # (!s_actualIdle(5))) # (!s_actualIdle(4))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0010111111111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualIdle(3),
-	datab => s_actualIdle(2),
-	datac => s_actualIdle(4),
-	datad => s_actualIdle(5),
-	combout => \LessThan1~0_combout\);
-
-\s_actualIdle[14]~0\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualIdle[14]~0_combout\ = (\LessThan5~2_combout\ & (((\LessThan1~0_combout\ & !s_actualIdle(6))) # (!s_actualIdle(7))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000100010101010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \LessThan5~2_combout\,
-	datab => \LessThan1~0_combout\,
-	datac => s_actualIdle(6),
-	datad => s_actualIdle(7),
-	combout => \s_actualIdle[14]~0_combout\);
-
 \enable~input\ : cycloneive_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1567,177 +385,68 @@ PORT MAP (
 	i => ww_enable,
 	o => \enable~input_o\);
 
-\decrementIdle~input\ : cycloneive_io_ibuf
+\s_actualTemperature[1]~0\ : cycloneive_lcell_comb
+-- Equation(s):
+-- \s_actualTemperature[1]~0_combout\ = (\reset~input_o\) # (\enable~input_o\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110111011101110",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \reset~input_o\,
+	datab => \enable~input_o\,
+	combout => \s_actualTemperature[1]~0_combout\);
+
+\s_actualTemperature[1]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \clk~input_o\,
+	d => \Add0~0_combout\,
+	sclr => \reset~input_o\,
+	ena => \s_actualTemperature[1]~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => s_actualTemperature(1));
+
+\heatOn~input\ : cycloneive_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_decrementIdle,
-	o => \decrementIdle~input_o\);
+	i => ww_heatOn,
+	o => \heatOn~input_o\);
 
-\s_actualIdle[14]~1\ : cycloneive_lcell_comb
+\Add0~2\ : cycloneive_lcell_comb
 -- Equation(s):
--- \s_actualIdle[14]~1_combout\ = (\enable~input_o\ & ((\runIdle~input_o\) # ((\incrementIdle~input_o\) # (\decrementIdle~input_o\))))
+-- \Add0~2_combout\ = (\s_actualTemperature~1_combout\ & ((s_actualTemperature(2) & ((\Add0~1\) # (GND))) # (!s_actualTemperature(2) & (!\Add0~1\)))) # (!\s_actualTemperature~1_combout\ & ((s_actualTemperature(2) & (!\Add0~1\)) # (!s_actualTemperature(2) & 
+-- (\Add0~1\ & VCC))))
+-- \Add0~3\ = CARRY((\s_actualTemperature~1_combout\ & ((s_actualTemperature(2)) # (!\Add0~1\))) # (!\s_actualTemperature~1_combout\ & (s_actualTemperature(2) & !\Add0~1\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010101010101000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \enable~input_o\,
-	datab => \runIdle~input_o\,
-	datac => \incrementIdle~input_o\,
-	datad => \decrementIdle~input_o\,
-	combout => \s_actualIdle[14]~1_combout\);
-
-\s_actualIdle[14]~2\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualIdle[14]~2_combout\ = (\LessThan5~3_combout\ & (\LessThan5~4_combout\ & (\s_actualIdle[14]~0_combout\ & \s_actualIdle[14]~1_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1000000000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \LessThan5~3_combout\,
-	datab => \LessThan5~4_combout\,
-	datac => \s_actualIdle[14]~0_combout\,
-	datad => \s_actualIdle[14]~1_combout\,
-	combout => \s_actualIdle[14]~2_combout\);
-
-\s_actualIdle[14]~21\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualIdle[14]~21_combout\ = (!\reset~input_o\ & ((s_actualIdle(14)) # ((\s_actualIdle[14]~2_combout\ & \Add1~28_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000011101010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualIdle(14),
-	datab => \s_actualIdle[14]~2_combout\,
-	datac => \Add1~28_combout\,
-	datad => \reset~input_o\,
-	combout => \s_actualIdle[14]~21_combout\);
-
-\s_actualIdle[14]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~input_o\,
-	d => \s_actualIdle[14]~21_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => s_actualIdle(14));
-
-\LessThan5~5\ : cycloneive_lcell_comb
--- Equation(s):
--- \LessThan5~5_combout\ = (!s_actualIdle(14) & (!\LessThan5~3_combout\ & \LessThan5~4_combout\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0001000100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualIdle(14),
-	datab => \LessThan5~3_combout\,
-	datad => \LessThan5~4_combout\,
-	combout => \LessThan5~5_combout\);
-
-\finishTime~reg0\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~input_o\,
-	d => \LessThan5~5_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \finishTime~reg0_q\);
-
-\Add3~0\ : cycloneive_lcell_comb
--- Equation(s):
--- \Add3~0_combout\ = s_actualCook(0) $ (VCC)
--- \Add3~1\ = CARRY(s_actualCook(0))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101010110101010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualCook(0),
-	datad => VCC,
-	combout => \Add3~0_combout\,
-	cout => \Add3~1\);
-
-\runCook~input\ : cycloneive_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_runCook,
-	o => \runCook~input_o\);
-
-\incrementCook~input\ : cycloneive_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_incrementCook,
-	o => \incrementCook~input_o\);
-
-\s_actualCook[11]~7\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualCook[11]~7_combout\ = (\runCook~input_o\) # (!\incrementCook~input_o\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010101011111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \runCook~input_o\,
-	datad => \incrementCook~input_o\,
-	combout => \s_actualCook[11]~7_combout\);
-
-\Add3~2\ : cycloneive_lcell_comb
--- Equation(s):
--- \Add3~2_combout\ = (\s_actualCook[11]~7_combout\ & ((s_actualCook(1) & (!\Add3~1\)) # (!s_actualCook(1) & (\Add3~1\ & VCC)))) # (!\s_actualCook[11]~7_combout\ & ((s_actualCook(1) & ((\Add3~1\) # (GND))) # (!s_actualCook(1) & (!\Add3~1\))))
--- \Add3~3\ = CARRY((\s_actualCook[11]~7_combout\ & (s_actualCook(1) & !\Add3~1\)) # (!\s_actualCook[11]~7_combout\ & ((s_actualCook(1)) # (!\Add3~1\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110100101001101",
+	lut_mask => "1001011010001110",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \s_actualCook[11]~7_combout\,
-	datab => s_actualCook(1),
+	dataa => \s_actualTemperature~1_combout\,
+	datab => s_actualTemperature(2),
 	datad => VCC,
-	cin => \Add3~1\,
-	combout => \Add3~2_combout\,
-	cout => \Add3~3\);
+	cin => \Add0~1\,
+	combout => \Add0~2_combout\,
+	cout => \Add0~3\);
 
-\Add3~16\ : cycloneive_lcell_comb
+\Add0~4\ : cycloneive_lcell_comb
 -- Equation(s):
--- \Add3~16_combout\ = ((\s_actualCook[11]~7_combout\ $ (s_actualCook(8) $ (!\Add3~15\)))) # (GND)
--- \Add3~17\ = CARRY((\s_actualCook[11]~7_combout\ & ((s_actualCook(8)) # (!\Add3~15\))) # (!\s_actualCook[11]~7_combout\ & (s_actualCook(8) & !\Add3~15\)))
+-- \Add0~4_combout\ = ((\s_actualTemperature~1_combout\ $ (s_actualTemperature(3) $ (!\Add0~3\)))) # (GND)
+-- \Add0~5\ = CARRY((\s_actualTemperature~1_combout\ & ((s_actualTemperature(3)) # (!\Add0~3\))) # (!\s_actualTemperature~1_combout\ & (s_actualTemperature(3) & !\Add0~3\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1745,63 +454,14 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \s_actualCook[11]~7_combout\,
-	datab => s_actualCook(8),
+	dataa => \s_actualTemperature~1_combout\,
+	datab => s_actualTemperature(3),
 	datad => VCC,
-	cin => \Add3~15\,
-	combout => \Add3~16_combout\,
-	cout => \Add3~17\);
+	cin => \Add0~3\,
+	combout => \Add0~4_combout\,
+	cout => \Add0~5\);
 
-\Add3~18\ : cycloneive_lcell_comb
--- Equation(s):
--- \Add3~18_combout\ = (\s_actualCook[11]~7_combout\ & ((s_actualCook(9) & (\Add3~17\ & VCC)) # (!s_actualCook(9) & (!\Add3~17\)))) # (!\s_actualCook[11]~7_combout\ & ((s_actualCook(9) & (!\Add3~17\)) # (!s_actualCook(9) & ((\Add3~17\) # (GND)))))
--- \Add3~19\ = CARRY((\s_actualCook[11]~7_combout\ & (!s_actualCook(9) & !\Add3~17\)) # (!\s_actualCook[11]~7_combout\ & ((!\Add3~17\) # (!s_actualCook(9)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1001011000010111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \s_actualCook[11]~7_combout\,
-	datab => s_actualCook(9),
-	datad => VCC,
-	cin => \Add3~17\,
-	combout => \Add3~18_combout\,
-	cout => \Add3~19\);
-
-\s_actualCook[11]~5\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualCook[11]~5_combout\ = (\s_actualCook[11]~3_combout\ & ((s_actualCook(14)) # (!\s_actualCook[14]~2_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1000100010101010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \s_actualCook[11]~3_combout\,
-	datab => s_actualCook(14),
-	datad => \s_actualCook[14]~2_combout\,
-	combout => \s_actualCook[11]~5_combout\);
-
-\s_actualCook[9]~16\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualCook[9]~16_combout\ = (s_actualCook(9) & ((\s_actualCook[11]~5_combout\) # ((\s_actualCook[15]~4_combout\ & \Add3~18_combout\)))) # (!s_actualCook(9) & (\s_actualCook[15]~4_combout\ & (\Add3~18_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110101011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualCook(9),
-	datab => \s_actualCook[15]~4_combout\,
-	datac => \Add3~18_combout\,
-	datad => \s_actualCook[11]~5_combout\,
-	combout => \s_actualCook[9]~16_combout\);
-
-\s_actualCook[9]\ : dffeas
+\s_actualTemperature[3]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -1809,46 +469,47 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \clk~input_o\,
-	d => \s_actualCook[9]~16_combout\,
+	d => \Add0~4_combout\,
+	sclr => \reset~input_o\,
+	ena => \s_actualTemperature[1]~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => s_actualCook(9));
+	q => s_actualTemperature(3));
 
-\Add3~20\ : cycloneive_lcell_comb
+\Add0~6\ : cycloneive_lcell_comb
 -- Equation(s):
--- \Add3~20_combout\ = ((\s_actualCook[11]~7_combout\ $ (s_actualCook(10) $ (!\Add3~19\)))) # (GND)
--- \Add3~21\ = CARRY((\s_actualCook[11]~7_combout\ & ((s_actualCook(10)) # (!\Add3~19\))) # (!\s_actualCook[11]~7_combout\ & (s_actualCook(10) & !\Add3~19\)))
+-- \Add0~6_combout\ = (\s_actualTemperature~1_combout\ & ((s_actualTemperature(4) & ((\Add0~5\) # (GND))) # (!s_actualTemperature(4) & (!\Add0~5\)))) # (!\s_actualTemperature~1_combout\ & ((s_actualTemperature(4) & (!\Add0~5\)) # (!s_actualTemperature(4) & 
+-- (\Add0~5\ & VCC))))
+-- \Add0~7\ = CARRY((\s_actualTemperature~1_combout\ & ((s_actualTemperature(4)) # (!\Add0~5\))) # (!\s_actualTemperature~1_combout\ & (s_actualTemperature(4) & !\Add0~5\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0110100110001110",
+	lut_mask => "1001011010001110",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \s_actualCook[11]~7_combout\,
-	datab => s_actualCook(10),
+	dataa => \s_actualTemperature~1_combout\,
+	datab => s_actualTemperature(4),
 	datad => VCC,
-	cin => \Add3~19\,
-	combout => \Add3~20_combout\,
-	cout => \Add3~21\);
+	cin => \Add0~5\,
+	combout => \Add0~6_combout\,
+	cout => \Add0~7\);
 
-\s_actualCook[10]~17\ : cycloneive_lcell_comb
+\s_actualTemperature~3\ : cycloneive_lcell_comb
 -- Equation(s):
--- \s_actualCook[10]~17_combout\ = (s_actualCook(10) & ((\s_actualCook[11]~5_combout\) # ((\s_actualCook[15]~4_combout\ & \Add3~20_combout\)))) # (!s_actualCook(10) & (\s_actualCook[15]~4_combout\ & (\Add3~20_combout\)))
+-- \s_actualTemperature~3_combout\ = (!\reset~input_o\ & !\Add0~6_combout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1110101011000000",
+	lut_mask => "0001000100010001",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => s_actualCook(10),
-	datab => \s_actualCook[15]~4_combout\,
-	datac => \Add3~20_combout\,
-	datad => \s_actualCook[11]~5_combout\,
-	combout => \s_actualCook[10]~17_combout\);
+	dataa => \reset~input_o\,
+	datab => \Add0~6_combout\,
+	combout => \s_actualTemperature~3_combout\);
 
-\s_actualCook[10]\ : dffeas
+\s_actualTemperature[4]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -1856,46 +517,31 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \clk~input_o\,
-	d => \s_actualCook[10]~17_combout\,
+	d => \s_actualTemperature~3_combout\,
+	ena => \s_actualTemperature[1]~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => s_actualCook(10));
+	q => s_actualTemperature(4));
 
-\Add3~22\ : cycloneive_lcell_comb
+\Add0~8\ : cycloneive_lcell_comb
 -- Equation(s):
--- \Add3~22_combout\ = (\s_actualCook[11]~7_combout\ & ((s_actualCook(11) & (\Add3~21\ & VCC)) # (!s_actualCook(11) & (!\Add3~21\)))) # (!\s_actualCook[11]~7_combout\ & ((s_actualCook(11) & (!\Add3~21\)) # (!s_actualCook(11) & ((\Add3~21\) # (GND)))))
--- \Add3~23\ = CARRY((\s_actualCook[11]~7_combout\ & (!s_actualCook(11) & !\Add3~21\)) # (!\s_actualCook[11]~7_combout\ & ((!\Add3~21\) # (!s_actualCook(11)))))
+-- \Add0~8_combout\ = ((\s_actualTemperature~1_combout\ $ (s_actualTemperature(5) $ (\Add0~7\)))) # (GND)
+-- \Add0~9\ = CARRY((\s_actualTemperature~1_combout\ & (s_actualTemperature(5) & !\Add0~7\)) # (!\s_actualTemperature~1_combout\ & ((s_actualTemperature(5)) # (!\Add0~7\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1001011000010111",
+	lut_mask => "1001011001001101",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \s_actualCook[11]~7_combout\,
-	datab => s_actualCook(11),
+	dataa => \s_actualTemperature~1_combout\,
+	datab => s_actualTemperature(5),
 	datad => VCC,
-	cin => \Add3~21\,
-	combout => \Add3~22_combout\,
-	cout => \Add3~23\);
+	cin => \Add0~7\,
+	combout => \Add0~8_combout\,
+	cout => \Add0~9\);
 
-\s_actualCook[11]~18\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualCook[11]~18_combout\ = (s_actualCook(11) & ((\s_actualCook[11]~5_combout\) # ((\s_actualCook[15]~4_combout\ & \Add3~22_combout\)))) # (!s_actualCook(11) & (\s_actualCook[15]~4_combout\ & (\Add3~22_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110101011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualCook(11),
-	datab => \s_actualCook[15]~4_combout\,
-	datac => \Add3~22_combout\,
-	datad => \s_actualCook[11]~5_combout\,
-	combout => \s_actualCook[11]~18_combout\);
-
-\s_actualCook[11]\ : dffeas
+\s_actualTemperature[5]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -1903,46 +549,33 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \clk~input_o\,
-	d => \s_actualCook[11]~18_combout\,
+	d => \Add0~8_combout\,
+	sclr => \reset~input_o\,
+	ena => \s_actualTemperature[1]~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => s_actualCook(11));
+	q => s_actualTemperature(5));
 
-\Add3~24\ : cycloneive_lcell_comb
+\Add0~10\ : cycloneive_lcell_comb
 -- Equation(s):
--- \Add3~24_combout\ = ((\s_actualCook[11]~7_combout\ $ (s_actualCook(12) $ (!\Add3~23\)))) # (GND)
--- \Add3~25\ = CARRY((\s_actualCook[11]~7_combout\ & ((s_actualCook(12)) # (!\Add3~23\))) # (!\s_actualCook[11]~7_combout\ & (s_actualCook(12) & !\Add3~23\)))
+-- \Add0~10_combout\ = (\s_actualTemperature~1_combout\ & ((s_actualTemperature(6) & (!\Add0~9\)) # (!s_actualTemperature(6) & ((\Add0~9\) # (GND))))) # (!\s_actualTemperature~1_combout\ & ((s_actualTemperature(6) & (\Add0~9\ & VCC)) # 
+-- (!s_actualTemperature(6) & (!\Add0~9\))))
+-- \Add0~11\ = CARRY((\s_actualTemperature~1_combout\ & ((!\Add0~9\) # (!s_actualTemperature(6)))) # (!\s_actualTemperature~1_combout\ & (!s_actualTemperature(6) & !\Add0~9\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0110100110001110",
+	lut_mask => "0110100100101011",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \s_actualCook[11]~7_combout\,
-	datab => s_actualCook(12),
+	dataa => \s_actualTemperature~1_combout\,
+	datab => s_actualTemperature(6),
 	datad => VCC,
-	cin => \Add3~23\,
-	combout => \Add3~24_combout\,
-	cout => \Add3~25\);
+	cin => \Add0~9\,
+	combout => \Add0~10_combout\,
+	cout => \Add0~11\);
 
-\s_actualCook[12]~19\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualCook[12]~19_combout\ = (s_actualCook(12) & ((\s_actualCook[11]~5_combout\) # ((\s_actualCook[15]~4_combout\ & \Add3~24_combout\)))) # (!s_actualCook(12) & (\s_actualCook[15]~4_combout\ & (\Add3~24_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110101011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualCook(12),
-	datab => \s_actualCook[15]~4_combout\,
-	datac => \Add3~24_combout\,
-	datad => \s_actualCook[11]~5_combout\,
-	combout => \s_actualCook[12]~19_combout\);
-
-\s_actualCook[12]\ : dffeas
+\s_actualTemperature[6]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -1950,46 +583,32 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \clk~input_o\,
-	d => \s_actualCook[12]~19_combout\,
+	d => \Add0~10_combout\,
+	sclr => \reset~input_o\,
+	ena => \s_actualTemperature[1]~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => s_actualCook(12));
+	q => s_actualTemperature(6));
 
-\Add3~26\ : cycloneive_lcell_comb
+\Add0~12\ : cycloneive_lcell_comb
 -- Equation(s):
--- \Add3~26_combout\ = (\s_actualCook[11]~7_combout\ & ((s_actualCook(13) & (\Add3~25\ & VCC)) # (!s_actualCook(13) & (!\Add3~25\)))) # (!\s_actualCook[11]~7_combout\ & ((s_actualCook(13) & (!\Add3~25\)) # (!s_actualCook(13) & ((\Add3~25\) # (GND)))))
--- \Add3~27\ = CARRY((\s_actualCook[11]~7_combout\ & (!s_actualCook(13) & !\Add3~25\)) # (!\s_actualCook[11]~7_combout\ & ((!\Add3~25\) # (!s_actualCook(13)))))
+-- \Add0~12_combout\ = ((\s_actualTemperature~1_combout\ $ (s_actualTemperature(7) $ (\Add0~11\)))) # (GND)
+-- \Add0~13\ = CARRY((\s_actualTemperature~1_combout\ & (s_actualTemperature(7) & !\Add0~11\)) # (!\s_actualTemperature~1_combout\ & ((s_actualTemperature(7)) # (!\Add0~11\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1001011000010111",
+	lut_mask => "1001011001001101",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \s_actualCook[11]~7_combout\,
-	datab => s_actualCook(13),
+	dataa => \s_actualTemperature~1_combout\,
+	datab => s_actualTemperature(7),
 	datad => VCC,
-	cin => \Add3~25\,
-	combout => \Add3~26_combout\,
-	cout => \Add3~27\);
+	cin => \Add0~11\,
+	combout => \Add0~12_combout\,
+	cout => \Add0~13\);
 
-\s_actualCook[13]~20\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualCook[13]~20_combout\ = (s_actualCook(13) & ((\s_actualCook[11]~5_combout\) # ((\s_actualCook[15]~4_combout\ & \Add3~26_combout\)))) # (!s_actualCook(13) & (\s_actualCook[15]~4_combout\ & (\Add3~26_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110101011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualCook(13),
-	datab => \s_actualCook[15]~4_combout\,
-	datac => \Add3~26_combout\,
-	datad => \s_actualCook[11]~5_combout\,
-	combout => \s_actualCook[13]~20_combout\);
-
-\s_actualCook[13]\ : dffeas
+\s_actualTemperature[7]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -1997,46 +616,33 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \clk~input_o\,
-	d => \s_actualCook[13]~20_combout\,
+	d => \Add0~12_combout\,
+	sclr => \reset~input_o\,
+	ena => \s_actualTemperature[1]~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => s_actualCook(13));
+	q => s_actualTemperature(7));
 
-\Add3~28\ : cycloneive_lcell_comb
+\Add0~14\ : cycloneive_lcell_comb
 -- Equation(s):
--- \Add3~28_combout\ = ((\s_actualCook[11]~7_combout\ $ (s_actualCook(14) $ (!\Add3~27\)))) # (GND)
--- \Add3~29\ = CARRY((\s_actualCook[11]~7_combout\ & ((s_actualCook(14)) # (!\Add3~27\))) # (!\s_actualCook[11]~7_combout\ & (s_actualCook(14) & !\Add3~27\)))
+-- \Add0~14_combout\ = (\s_actualTemperature~1_combout\ & ((s_actualTemperature(8) & (!\Add0~13\)) # (!s_actualTemperature(8) & ((\Add0~13\) # (GND))))) # (!\s_actualTemperature~1_combout\ & ((s_actualTemperature(8) & (\Add0~13\ & VCC)) # 
+-- (!s_actualTemperature(8) & (!\Add0~13\))))
+-- \Add0~15\ = CARRY((\s_actualTemperature~1_combout\ & ((!\Add0~13\) # (!s_actualTemperature(8)))) # (!\s_actualTemperature~1_combout\ & (!s_actualTemperature(8) & !\Add0~13\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0110100110001110",
+	lut_mask => "0110100100101011",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \s_actualCook[11]~7_combout\,
-	datab => s_actualCook(14),
+	dataa => \s_actualTemperature~1_combout\,
+	datab => s_actualTemperature(8),
 	datad => VCC,
-	cin => \Add3~27\,
-	combout => \Add3~28_combout\,
-	cout => \Add3~29\);
+	cin => \Add0~13\,
+	combout => \Add0~14_combout\,
+	cout => \Add0~15\);
 
-\s_actualCook[14]~21\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualCook[14]~21_combout\ = (!\reset~input_o\ & ((s_actualCook(14)) # ((\s_actualCook[14]~2_combout\ & \Add3~28_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000011101010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualCook(14),
-	datab => \s_actualCook[14]~2_combout\,
-	datac => \Add3~28_combout\,
-	datad => \reset~input_o\,
-	combout => \s_actualCook[14]~21_combout\);
-
-\s_actualCook[14]\ : dffeas
+\s_actualTemperature[8]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -2044,61 +650,217 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \clk~input_o\,
-	d => \s_actualCook[14]~21_combout\,
+	d => \Add0~14_combout\,
+	sclr => \reset~input_o\,
+	ena => \s_actualTemperature[1]~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => s_actualCook(14));
+	q => s_actualTemperature(8));
 
-\LessThan2~2\ : cycloneive_lcell_comb
+\Add0~16\ : cycloneive_lcell_comb
 -- Equation(s):
--- \LessThan2~2_combout\ = (s_actualCook(0)) # ((s_actualCook(2)) # ((!s_actualCook(3)) # (!s_actualCook(1))))
+-- \Add0~16_combout\ = ((\s_actualTemperature~1_combout\ $ (s_actualTemperature(9) $ (\Add0~15\)))) # (GND)
+-- \Add0~17\ = CARRY((\s_actualTemperature~1_combout\ & (s_actualTemperature(9) & !\Add0~15\)) # (!\s_actualTemperature~1_combout\ & ((s_actualTemperature(9)) # (!\Add0~15\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1110111111111111",
-	sum_lutc_input => "datac")
+	lut_mask => "1001011001001101",
+	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => s_actualCook(0),
-	datab => s_actualCook(2),
-	datac => s_actualCook(1),
-	datad => s_actualCook(3),
-	combout => \LessThan2~2_combout\);
+	dataa => \s_actualTemperature~1_combout\,
+	datab => s_actualTemperature(9),
+	datad => VCC,
+	cin => \Add0~15\,
+	combout => \Add0~16_combout\,
+	cout => \Add0~17\);
 
-\LessThan2~3\ : cycloneive_lcell_comb
+\s_actualTemperature[9]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \clk~input_o\,
+	d => \Add0~16_combout\,
+	sclr => \reset~input_o\,
+	ena => \s_actualTemperature[1]~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => s_actualTemperature(9));
+
+\Add0~18\ : cycloneive_lcell_comb
 -- Equation(s):
--- \LessThan2~3_combout\ = (s_actualCook(4)) # ((s_actualCook(5)) # ((s_actualCook(6)) # (s_actualCook(7))))
+-- \Add0~18_combout\ = (\s_actualTemperature~1_combout\ & ((s_actualTemperature(10) & (!\Add0~17\)) # (!s_actualTemperature(10) & ((\Add0~17\) # (GND))))) # (!\s_actualTemperature~1_combout\ & ((s_actualTemperature(10) & (\Add0~17\ & VCC)) # 
+-- (!s_actualTemperature(10) & (!\Add0~17\))))
+-- \Add0~19\ = CARRY((\s_actualTemperature~1_combout\ & ((!\Add0~17\) # (!s_actualTemperature(10)))) # (!\s_actualTemperature~1_combout\ & (!s_actualTemperature(10) & !\Add0~17\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111111111110",
-	sum_lutc_input => "datac")
+	lut_mask => "0110100100101011",
+	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => s_actualCook(4),
-	datab => s_actualCook(5),
-	datac => s_actualCook(6),
-	datad => s_actualCook(7),
-	combout => \LessThan2~3_combout\);
+	dataa => \s_actualTemperature~1_combout\,
+	datab => s_actualTemperature(10),
+	datad => VCC,
+	cin => \Add0~17\,
+	combout => \Add0~18_combout\,
+	cout => \Add0~19\);
 
-\LessThan2~4\ : cycloneive_lcell_comb
+\s_actualTemperature[10]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \clk~input_o\,
+	d => \Add0~18_combout\,
+	sclr => \reset~input_o\,
+	ena => \s_actualTemperature[1]~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => s_actualTemperature(10));
+
+\Add0~20\ : cycloneive_lcell_comb
 -- Equation(s):
--- \LessThan2~4_combout\ = (\LessThan2~2_combout\) # ((\LessThan2~3_combout\) # (!\LessThan2~0_combout\))
+-- \Add0~20_combout\ = ((\s_actualTemperature~1_combout\ $ (s_actualTemperature(11) $ (\Add0~19\)))) # (GND)
+-- \Add0~21\ = CARRY((\s_actualTemperature~1_combout\ & (s_actualTemperature(11) & !\Add0~19\)) # (!\s_actualTemperature~1_combout\ & ((s_actualTemperature(11)) # (!\Add0~19\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1110111011111111",
-	sum_lutc_input => "datac")
+	lut_mask => "1001011001001101",
+	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \LessThan2~2_combout\,
-	datab => \LessThan2~3_combout\,
-	datad => \LessThan2~0_combout\,
-	combout => \LessThan2~4_combout\);
+	dataa => \s_actualTemperature~1_combout\,
+	datab => s_actualTemperature(11),
+	datad => VCC,
+	cin => \Add0~19\,
+	combout => \Add0~20_combout\,
+	cout => \Add0~21\);
 
-\Add3~30\ : cycloneive_lcell_comb
+\s_actualTemperature[11]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \clk~input_o\,
+	d => \Add0~20_combout\,
+	sclr => \reset~input_o\,
+	ena => \s_actualTemperature[1]~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => s_actualTemperature(11));
+
+\Add0~22\ : cycloneive_lcell_comb
 -- Equation(s):
--- \Add3~30_combout\ = \s_actualCook[11]~7_combout\ $ (s_actualCook(15) $ (\Add3~29\))
+-- \Add0~22_combout\ = (\s_actualTemperature~1_combout\ & ((s_actualTemperature(12) & (!\Add0~21\)) # (!s_actualTemperature(12) & ((\Add0~21\) # (GND))))) # (!\s_actualTemperature~1_combout\ & ((s_actualTemperature(12) & (\Add0~21\ & VCC)) # 
+-- (!s_actualTemperature(12) & (!\Add0~21\))))
+-- \Add0~23\ = CARRY((\s_actualTemperature~1_combout\ & ((!\Add0~21\) # (!s_actualTemperature(12)))) # (!\s_actualTemperature~1_combout\ & (!s_actualTemperature(12) & !\Add0~21\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0110100100101011",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \s_actualTemperature~1_combout\,
+	datab => s_actualTemperature(12),
+	datad => VCC,
+	cin => \Add0~21\,
+	combout => \Add0~22_combout\,
+	cout => \Add0~23\);
+
+\s_actualTemperature[12]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \clk~input_o\,
+	d => \Add0~22_combout\,
+	sclr => \reset~input_o\,
+	ena => \s_actualTemperature[1]~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => s_actualTemperature(12));
+
+\Add0~24\ : cycloneive_lcell_comb
+-- Equation(s):
+-- \Add0~24_combout\ = ((\s_actualTemperature~1_combout\ $ (s_actualTemperature(13) $ (\Add0~23\)))) # (GND)
+-- \Add0~25\ = CARRY((\s_actualTemperature~1_combout\ & (s_actualTemperature(13) & !\Add0~23\)) # (!\s_actualTemperature~1_combout\ & ((s_actualTemperature(13)) # (!\Add0~23\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1001011001001101",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \s_actualTemperature~1_combout\,
+	datab => s_actualTemperature(13),
+	datad => VCC,
+	cin => \Add0~23\,
+	combout => \Add0~24_combout\,
+	cout => \Add0~25\);
+
+\s_actualTemperature[13]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \clk~input_o\,
+	d => \Add0~24_combout\,
+	sclr => \reset~input_o\,
+	ena => \s_actualTemperature[1]~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => s_actualTemperature(13));
+
+\Add0~26\ : cycloneive_lcell_comb
+-- Equation(s):
+-- \Add0~26_combout\ = (\s_actualTemperature~1_combout\ & ((s_actualTemperature(14) & (!\Add0~25\)) # (!s_actualTemperature(14) & ((\Add0~25\) # (GND))))) # (!\s_actualTemperature~1_combout\ & ((s_actualTemperature(14) & (\Add0~25\ & VCC)) # 
+-- (!s_actualTemperature(14) & (!\Add0~25\))))
+-- \Add0~27\ = CARRY((\s_actualTemperature~1_combout\ & ((!\Add0~25\) # (!s_actualTemperature(14)))) # (!\s_actualTemperature~1_combout\ & (!s_actualTemperature(14) & !\Add0~25\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0110100100101011",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \s_actualTemperature~1_combout\,
+	datab => s_actualTemperature(14),
+	datad => VCC,
+	cin => \Add0~25\,
+	combout => \Add0~26_combout\,
+	cout => \Add0~27\);
+
+\s_actualTemperature[14]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \clk~input_o\,
+	d => \Add0~26_combout\,
+	sclr => \reset~input_o\,
+	ena => \s_actualTemperature[1]~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => s_actualTemperature(14));
+
+\Add0~28\ : cycloneive_lcell_comb
+-- Equation(s):
+-- \Add0~28_combout\ = \s_actualTemperature~1_combout\ $ (s_actualTemperature(15) $ (\Add0~27\))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2106,28 +868,12 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \s_actualCook[11]~7_combout\,
-	datab => s_actualCook(15),
-	cin => \Add3~29\,
-	combout => \Add3~30_combout\);
+	dataa => \s_actualTemperature~1_combout\,
+	datab => s_actualTemperature(15),
+	cin => \Add0~27\,
+	combout => \Add0~28_combout\);
 
-\s_actualCook[15]~22\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualCook[15]~22_combout\ = (\s_actualCook[11]~5_combout\ & (s_actualCook(15))) # (!\s_actualCook[11]~5_combout\ & (((\s_actualCook[11]~3_combout\ & \Add3~30_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010101011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualCook(15),
-	datab => \s_actualCook[11]~3_combout\,
-	datac => \Add3~30_combout\,
-	datad => \s_actualCook[11]~5_combout\,
-	combout => \s_actualCook[15]~22_combout\);
-
-\s_actualCook[15]\ : dffeas
+\s_actualTemperature[15]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -2135,504 +881,455 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \clk~input_o\,
-	d => \s_actualCook[15]~22_combout\,
+	d => \Add0~28_combout\,
+	sclr => \reset~input_o\,
+	ena => \s_actualTemperature[1]~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => s_actualCook(15));
+	q => s_actualTemperature(15));
 
-\LessThan2~1\ : cycloneive_lcell_comb
--- Equation(s):
--- \LessThan2~1_combout\ = (!s_actualCook(12) & (!s_actualCook(13) & !s_actualCook(15)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000000011",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => s_actualCook(12),
-	datac => s_actualCook(13),
-	datad => s_actualCook(15),
-	combout => \LessThan2~1_combout\);
-
-\s_actualCook[11]~3\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualCook[11]~3_combout\ = (!\reset~input_o\ & ((s_actualCook(14)) # ((\LessThan2~4_combout\) # (!\LessThan2~1_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000011101111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualCook(14),
-	datab => \LessThan2~4_combout\,
-	datac => \LessThan2~1_combout\,
-	datad => \reset~input_o\,
-	combout => \s_actualCook[11]~3_combout\);
-
-\s_actualCook[1]~8\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualCook[1]~8_combout\ = (\s_actualCook[11]~5_combout\ & (((s_actualCook(1))))) # (!\s_actualCook[11]~5_combout\ & (!\Add3~2_combout\ & (\s_actualCook[11]~3_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111010000000100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \Add3~2_combout\,
-	datab => \s_actualCook[11]~3_combout\,
-	datac => \s_actualCook[11]~5_combout\,
-	datad => s_actualCook(1),
-	combout => \s_actualCook[1]~8_combout\);
-
-\s_actualCook[1]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~input_o\,
-	d => \s_actualCook[1]~8_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => s_actualCook(1));
-
-\Add3~4\ : cycloneive_lcell_comb
--- Equation(s):
--- \Add3~4_combout\ = ((\s_actualCook[11]~7_combout\ $ (s_actualCook(2) $ (!\Add3~3\)))) # (GND)
--- \Add3~5\ = CARRY((\s_actualCook[11]~7_combout\ & ((s_actualCook(2)) # (!\Add3~3\))) # (!\s_actualCook[11]~7_combout\ & (s_actualCook(2) & !\Add3~3\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110100110001110",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \s_actualCook[11]~7_combout\,
-	datab => s_actualCook(2),
-	datad => VCC,
-	cin => \Add3~3\,
-	combout => \Add3~4_combout\,
-	cout => \Add3~5\);
-
-\s_actualCook[2]~9\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualCook[2]~9_combout\ = (s_actualCook(2) & ((\s_actualCook[11]~5_combout\) # ((\s_actualCook[15]~4_combout\ & \Add3~4_combout\)))) # (!s_actualCook(2) & (\s_actualCook[15]~4_combout\ & (\Add3~4_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110101011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualCook(2),
-	datab => \s_actualCook[15]~4_combout\,
-	datac => \Add3~4_combout\,
-	datad => \s_actualCook[11]~5_combout\,
-	combout => \s_actualCook[2]~9_combout\);
-
-\s_actualCook[2]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~input_o\,
-	d => \s_actualCook[2]~9_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => s_actualCook(2));
-
-\Add3~6\ : cycloneive_lcell_comb
--- Equation(s):
--- \Add3~6_combout\ = (\s_actualCook[11]~7_combout\ & ((s_actualCook(3) & (!\Add3~5\)) # (!s_actualCook(3) & (\Add3~5\ & VCC)))) # (!\s_actualCook[11]~7_combout\ & ((s_actualCook(3) & ((\Add3~5\) # (GND))) # (!s_actualCook(3) & (!\Add3~5\))))
--- \Add3~7\ = CARRY((\s_actualCook[11]~7_combout\ & (s_actualCook(3) & !\Add3~5\)) # (!\s_actualCook[11]~7_combout\ & ((s_actualCook(3)) # (!\Add3~5\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110100101001101",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \s_actualCook[11]~7_combout\,
-	datab => s_actualCook(3),
-	datad => VCC,
-	cin => \Add3~5\,
-	combout => \Add3~6_combout\,
-	cout => \Add3~7\);
-
-\s_actualCook[3]~10\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualCook[3]~10_combout\ = (\s_actualCook[11]~5_combout\ & (((s_actualCook(3))))) # (!\s_actualCook[11]~5_combout\ & (!\Add3~6_combout\ & (\s_actualCook[11]~3_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111010000000100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \Add3~6_combout\,
-	datab => \s_actualCook[11]~3_combout\,
-	datac => \s_actualCook[11]~5_combout\,
-	datad => s_actualCook(3),
-	combout => \s_actualCook[3]~10_combout\);
-
-\s_actualCook[3]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~input_o\,
-	d => \s_actualCook[3]~10_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => s_actualCook(3));
-
-\Add3~8\ : cycloneive_lcell_comb
--- Equation(s):
--- \Add3~8_combout\ = ((\s_actualCook[11]~7_combout\ $ (s_actualCook(4) $ (!\Add3~7\)))) # (GND)
--- \Add3~9\ = CARRY((\s_actualCook[11]~7_combout\ & ((s_actualCook(4)) # (!\Add3~7\))) # (!\s_actualCook[11]~7_combout\ & (s_actualCook(4) & !\Add3~7\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110100110001110",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \s_actualCook[11]~7_combout\,
-	datab => s_actualCook(4),
-	datad => VCC,
-	cin => \Add3~7\,
-	combout => \Add3~8_combout\,
-	cout => \Add3~9\);
-
-\s_actualCook[4]~11\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualCook[4]~11_combout\ = (s_actualCook(4) & ((\s_actualCook[11]~5_combout\) # ((\s_actualCook[15]~4_combout\ & \Add3~8_combout\)))) # (!s_actualCook(4) & (\s_actualCook[15]~4_combout\ & (\Add3~8_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110101011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualCook(4),
-	datab => \s_actualCook[15]~4_combout\,
-	datac => \Add3~8_combout\,
-	datad => \s_actualCook[11]~5_combout\,
-	combout => \s_actualCook[4]~11_combout\);
-
-\s_actualCook[4]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~input_o\,
-	d => \s_actualCook[4]~11_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => s_actualCook(4));
-
-\Add3~10\ : cycloneive_lcell_comb
--- Equation(s):
--- \Add3~10_combout\ = (\s_actualCook[11]~7_combout\ & ((s_actualCook(5) & (\Add3~9\ & VCC)) # (!s_actualCook(5) & (!\Add3~9\)))) # (!\s_actualCook[11]~7_combout\ & ((s_actualCook(5) & (!\Add3~9\)) # (!s_actualCook(5) & ((\Add3~9\) # (GND)))))
--- \Add3~11\ = CARRY((\s_actualCook[11]~7_combout\ & (!s_actualCook(5) & !\Add3~9\)) # (!\s_actualCook[11]~7_combout\ & ((!\Add3~9\) # (!s_actualCook(5)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1001011000010111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \s_actualCook[11]~7_combout\,
-	datab => s_actualCook(5),
-	datad => VCC,
-	cin => \Add3~9\,
-	combout => \Add3~10_combout\,
-	cout => \Add3~11\);
-
-\s_actualCook[5]~12\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualCook[5]~12_combout\ = (s_actualCook(5) & ((\s_actualCook[11]~5_combout\) # ((\s_actualCook[15]~4_combout\ & \Add3~10_combout\)))) # (!s_actualCook(5) & (\s_actualCook[15]~4_combout\ & (\Add3~10_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110101011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualCook(5),
-	datab => \s_actualCook[15]~4_combout\,
-	datac => \Add3~10_combout\,
-	datad => \s_actualCook[11]~5_combout\,
-	combout => \s_actualCook[5]~12_combout\);
-
-\s_actualCook[5]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~input_o\,
-	d => \s_actualCook[5]~12_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => s_actualCook(5));
-
-\Add3~12\ : cycloneive_lcell_comb
--- Equation(s):
--- \Add3~12_combout\ = ((\s_actualCook[11]~7_combout\ $ (s_actualCook(6) $ (!\Add3~11\)))) # (GND)
--- \Add3~13\ = CARRY((\s_actualCook[11]~7_combout\ & ((s_actualCook(6)) # (!\Add3~11\))) # (!\s_actualCook[11]~7_combout\ & (s_actualCook(6) & !\Add3~11\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110100110001110",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \s_actualCook[11]~7_combout\,
-	datab => s_actualCook(6),
-	datad => VCC,
-	cin => \Add3~11\,
-	combout => \Add3~12_combout\,
-	cout => \Add3~13\);
-
-\s_actualCook[6]~13\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualCook[6]~13_combout\ = (s_actualCook(6) & ((\s_actualCook[11]~5_combout\) # ((\s_actualCook[15]~4_combout\ & \Add3~12_combout\)))) # (!s_actualCook(6) & (\s_actualCook[15]~4_combout\ & (\Add3~12_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110101011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualCook(6),
-	datab => \s_actualCook[15]~4_combout\,
-	datac => \Add3~12_combout\,
-	datad => \s_actualCook[11]~5_combout\,
-	combout => \s_actualCook[6]~13_combout\);
-
-\s_actualCook[6]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~input_o\,
-	d => \s_actualCook[6]~13_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => s_actualCook(6));
-
-\Add3~14\ : cycloneive_lcell_comb
--- Equation(s):
--- \Add3~14_combout\ = (\s_actualCook[11]~7_combout\ & ((s_actualCook(7) & (\Add3~13\ & VCC)) # (!s_actualCook(7) & (!\Add3~13\)))) # (!\s_actualCook[11]~7_combout\ & ((s_actualCook(7) & (!\Add3~13\)) # (!s_actualCook(7) & ((\Add3~13\) # (GND)))))
--- \Add3~15\ = CARRY((\s_actualCook[11]~7_combout\ & (!s_actualCook(7) & !\Add3~13\)) # (!\s_actualCook[11]~7_combout\ & ((!\Add3~13\) # (!s_actualCook(7)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1001011000010111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \s_actualCook[11]~7_combout\,
-	datab => s_actualCook(7),
-	datad => VCC,
-	cin => \Add3~13\,
-	combout => \Add3~14_combout\,
-	cout => \Add3~15\);
-
-\s_actualCook[7]~14\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualCook[7]~14_combout\ = (s_actualCook(7) & ((\s_actualCook[11]~5_combout\) # ((\s_actualCook[15]~4_combout\ & \Add3~14_combout\)))) # (!s_actualCook(7) & (\s_actualCook[15]~4_combout\ & (\Add3~14_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110101011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualCook(7),
-	datab => \s_actualCook[15]~4_combout\,
-	datac => \Add3~14_combout\,
-	datad => \s_actualCook[11]~5_combout\,
-	combout => \s_actualCook[7]~14_combout\);
-
-\s_actualCook[7]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~input_o\,
-	d => \s_actualCook[7]~14_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => s_actualCook(7));
-
-\s_actualCook[8]~15\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualCook[8]~15_combout\ = (s_actualCook(8) & ((\s_actualCook[11]~5_combout\) # ((\s_actualCook[15]~4_combout\ & \Add3~16_combout\)))) # (!s_actualCook(8) & (\s_actualCook[15]~4_combout\ & (\Add3~16_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110101011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualCook(8),
-	datab => \s_actualCook[15]~4_combout\,
-	datac => \Add3~16_combout\,
-	datad => \s_actualCook[11]~5_combout\,
-	combout => \s_actualCook[8]~15_combout\);
-
-\s_actualCook[8]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~input_o\,
-	d => \s_actualCook[8]~15_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => s_actualCook(8));
-
-\LessThan2~0\ : cycloneive_lcell_comb
--- Equation(s):
--- \LessThan2~0_combout\ = (!s_actualCook(8) & (!s_actualCook(9) & (!s_actualCook(10) & !s_actualCook(11))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000000001",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualCook(8),
-	datab => s_actualCook(9),
-	datac => s_actualCook(10),
-	datad => s_actualCook(11),
-	combout => \LessThan2~0_combout\);
-
-\LessThan3~0\ : cycloneive_lcell_comb
--- Equation(s):
--- \LessThan3~0_combout\ = (((s_actualCook(3) & !s_actualCook(2))) # (!s_actualCook(5))) # (!s_actualCook(4))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0010111111111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => s_actualCook(3),
-	datab => s_actualCook(2),
-	datac => s_actualCook(4),
-	datad => s_actualCook(5),
-	combout => \LessThan3~0_combout\);
-
-\s_actualCook[14]~0\ : cycloneive_lcell_comb
--- Equation(s):
--- \s_actualCook[14]~0_combout\ = (\LessThan2~0_combout\ & (((\LessThan3~0_combout\ & !s_actualCook(6))) # (!s_actualCook(7))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000100010101010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \LessThan2~0_combout\,
-	datab => \LessThan3~0_combout\,
-	datac => s_actualCook(6),
-	datad => s_actualCook(7),
-	combout => \s_actualCook[14]~0_combout\);
-
-\decrementCook~input\ : cycloneive_io_ibuf
+\averageTemperature[15]~input\ : cycloneive_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_decrementCook,
-	o => \decrementCook~input_o\);
+	i => ww_averageTemperature(15),
+	o => \averageTemperature[15]~input_o\);
 
-\s_actualCook[14]~1\ : cycloneive_lcell_comb
+\averageTemperature[14]~input\ : cycloneive_io_ibuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_averageTemperature(14),
+	o => \averageTemperature[14]~input_o\);
+
+\averageTemperature[13]~input\ : cycloneive_io_ibuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_averageTemperature(13),
+	o => \averageTemperature[13]~input_o\);
+
+\averageTemperature[12]~input\ : cycloneive_io_ibuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_averageTemperature(12),
+	o => \averageTemperature[12]~input_o\);
+
+\averageTemperature[11]~input\ : cycloneive_io_ibuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_averageTemperature(11),
+	o => \averageTemperature[11]~input_o\);
+
+\averageTemperature[10]~input\ : cycloneive_io_ibuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_averageTemperature(10),
+	o => \averageTemperature[10]~input_o\);
+
+\averageTemperature[9]~input\ : cycloneive_io_ibuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_averageTemperature(9),
+	o => \averageTemperature[9]~input_o\);
+
+\averageTemperature[8]~input\ : cycloneive_io_ibuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_averageTemperature(8),
+	o => \averageTemperature[8]~input_o\);
+
+\averageTemperature[7]~input\ : cycloneive_io_ibuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_averageTemperature(7),
+	o => \averageTemperature[7]~input_o\);
+
+\averageTemperature[6]~input\ : cycloneive_io_ibuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_averageTemperature(6),
+	o => \averageTemperature[6]~input_o\);
+
+\averageTemperature[5]~input\ : cycloneive_io_ibuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_averageTemperature(5),
+	o => \averageTemperature[5]~input_o\);
+
+\averageTemperature[4]~input\ : cycloneive_io_ibuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_averageTemperature(4),
+	o => \averageTemperature[4]~input_o\);
+
+\averageTemperature[3]~input\ : cycloneive_io_ibuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_averageTemperature(3),
+	o => \averageTemperature[3]~input_o\);
+
+\averageTemperature[2]~input\ : cycloneive_io_ibuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_averageTemperature(2),
+	o => \averageTemperature[2]~input_o\);
+
+\averageTemperature[1]~input\ : cycloneive_io_ibuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_averageTemperature(1),
+	o => \averageTemperature[1]~input_o\);
+
+\averageTemperature[0]~input\ : cycloneive_io_ibuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_averageTemperature(0),
+	o => \averageTemperature[0]~input_o\);
+
+\LessThan0~1\ : cycloneive_lcell_comb
 -- Equation(s):
--- \s_actualCook[14]~1_combout\ = (\enable~input_o\ & ((\runCook~input_o\) # ((\incrementCook~input_o\) # (\decrementCook~input_o\))))
+-- \LessThan0~1_cout\ = CARRY(\averageTemperature[0]~input_o\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010101010101000",
+	lut_mask => "0000000010101010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \enable~input_o\,
-	datab => \runCook~input_o\,
-	datac => \incrementCook~input_o\,
-	datad => \decrementCook~input_o\,
-	combout => \s_actualCook[14]~1_combout\);
+	dataa => \averageTemperature[0]~input_o\,
+	datad => VCC,
+	cout => \LessThan0~1_cout\);
 
-\s_actualCook[14]~2\ : cycloneive_lcell_comb
+\LessThan0~3\ : cycloneive_lcell_comb
 -- Equation(s):
--- \s_actualCook[14]~2_combout\ = (\s_actualCook[14]~0_combout\ & (\LessThan2~1_combout\ & (\LessThan2~4_combout\ & \s_actualCook[14]~1_combout\)))
+-- \LessThan0~3_cout\ = CARRY((s_actualTemperature(1) & ((!\LessThan0~1_cout\) # (!\averageTemperature[1]~input_o\))) # (!s_actualTemperature(1) & (!\averageTemperature[1]~input_o\ & !\LessThan0~1_cout\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1000000000000000",
-	sum_lutc_input => "datac")
+	lut_mask => "0000000000101011",
+	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \s_actualCook[14]~0_combout\,
-	datab => \LessThan2~1_combout\,
-	datac => \LessThan2~4_combout\,
-	datad => \s_actualCook[14]~1_combout\,
-	combout => \s_actualCook[14]~2_combout\);
+	dataa => s_actualTemperature(1),
+	datab => \averageTemperature[1]~input_o\,
+	datad => VCC,
+	cin => \LessThan0~1_cout\,
+	cout => \LessThan0~3_cout\);
 
-\s_actualCook[15]~4\ : cycloneive_lcell_comb
+\LessThan0~5\ : cycloneive_lcell_comb
 -- Equation(s):
--- \s_actualCook[15]~4_combout\ = (\s_actualCook[14]~2_combout\ & (\s_actualCook[11]~3_combout\ & !s_actualCook(14)))
+-- \LessThan0~5_cout\ = CARRY((s_actualTemperature(2) & ((\averageTemperature[2]~input_o\) # (!\LessThan0~3_cout\))) # (!s_actualTemperature(2) & (\averageTemperature[2]~input_o\ & !\LessThan0~3_cout\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000010001000",
-	sum_lutc_input => "datac")
+	lut_mask => "0000000010001110",
+	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \s_actualCook[14]~2_combout\,
-	datab => \s_actualCook[11]~3_combout\,
-	datad => s_actualCook(14),
-	combout => \s_actualCook[15]~4_combout\);
+	dataa => s_actualTemperature(2),
+	datab => \averageTemperature[2]~input_o\,
+	datad => VCC,
+	cin => \LessThan0~3_cout\,
+	cout => \LessThan0~5_cout\);
 
-\s_actualCook[0]~6\ : cycloneive_lcell_comb
+\LessThan0~7\ : cycloneive_lcell_comb
 -- Equation(s):
--- \s_actualCook[0]~6_combout\ = (s_actualCook(0) & ((\s_actualCook[11]~5_combout\) # ((\Add3~0_combout\ & \s_actualCook[15]~4_combout\)))) # (!s_actualCook(0) & (\Add3~0_combout\ & (\s_actualCook[15]~4_combout\)))
+-- \LessThan0~7_cout\ = CARRY((s_actualTemperature(3) & ((!\LessThan0~5_cout\) # (!\averageTemperature[3]~input_o\))) # (!s_actualTemperature(3) & (!\averageTemperature[3]~input_o\ & !\LessThan0~5_cout\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1110101011000000",
+	lut_mask => "0000000000101011",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => s_actualTemperature(3),
+	datab => \averageTemperature[3]~input_o\,
+	datad => VCC,
+	cin => \LessThan0~5_cout\,
+	cout => \LessThan0~7_cout\);
+
+\LessThan0~9\ : cycloneive_lcell_comb
+-- Equation(s):
+-- \LessThan0~9_cout\ = CARRY((s_actualTemperature(4) & ((\averageTemperature[4]~input_o\) # (!\LessThan0~7_cout\))) # (!s_actualTemperature(4) & (\averageTemperature[4]~input_o\ & !\LessThan0~7_cout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000010001110",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => s_actualTemperature(4),
+	datab => \averageTemperature[4]~input_o\,
+	datad => VCC,
+	cin => \LessThan0~7_cout\,
+	cout => \LessThan0~9_cout\);
+
+\LessThan0~11\ : cycloneive_lcell_comb
+-- Equation(s):
+-- \LessThan0~11_cout\ = CARRY((s_actualTemperature(5) & ((!\LessThan0~9_cout\) # (!\averageTemperature[5]~input_o\))) # (!s_actualTemperature(5) & (!\averageTemperature[5]~input_o\ & !\LessThan0~9_cout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000101011",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => s_actualTemperature(5),
+	datab => \averageTemperature[5]~input_o\,
+	datad => VCC,
+	cin => \LessThan0~9_cout\,
+	cout => \LessThan0~11_cout\);
+
+\LessThan0~13\ : cycloneive_lcell_comb
+-- Equation(s):
+-- \LessThan0~13_cout\ = CARRY((s_actualTemperature(6) & (\averageTemperature[6]~input_o\ & !\LessThan0~11_cout\)) # (!s_actualTemperature(6) & ((\averageTemperature[6]~input_o\) # (!\LessThan0~11_cout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000001001101",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => s_actualTemperature(6),
+	datab => \averageTemperature[6]~input_o\,
+	datad => VCC,
+	cin => \LessThan0~11_cout\,
+	cout => \LessThan0~13_cout\);
+
+\LessThan0~15\ : cycloneive_lcell_comb
+-- Equation(s):
+-- \LessThan0~15_cout\ = CARRY((s_actualTemperature(7) & ((!\LessThan0~13_cout\) # (!\averageTemperature[7]~input_o\))) # (!s_actualTemperature(7) & (!\averageTemperature[7]~input_o\ & !\LessThan0~13_cout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000101011",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => s_actualTemperature(7),
+	datab => \averageTemperature[7]~input_o\,
+	datad => VCC,
+	cin => \LessThan0~13_cout\,
+	cout => \LessThan0~15_cout\);
+
+\LessThan0~17\ : cycloneive_lcell_comb
+-- Equation(s):
+-- \LessThan0~17_cout\ = CARRY((s_actualTemperature(8) & (\averageTemperature[8]~input_o\ & !\LessThan0~15_cout\)) # (!s_actualTemperature(8) & ((\averageTemperature[8]~input_o\) # (!\LessThan0~15_cout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000001001101",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => s_actualTemperature(8),
+	datab => \averageTemperature[8]~input_o\,
+	datad => VCC,
+	cin => \LessThan0~15_cout\,
+	cout => \LessThan0~17_cout\);
+
+\LessThan0~19\ : cycloneive_lcell_comb
+-- Equation(s):
+-- \LessThan0~19_cout\ = CARRY((s_actualTemperature(9) & ((!\LessThan0~17_cout\) # (!\averageTemperature[9]~input_o\))) # (!s_actualTemperature(9) & (!\averageTemperature[9]~input_o\ & !\LessThan0~17_cout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000101011",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => s_actualTemperature(9),
+	datab => \averageTemperature[9]~input_o\,
+	datad => VCC,
+	cin => \LessThan0~17_cout\,
+	cout => \LessThan0~19_cout\);
+
+\LessThan0~21\ : cycloneive_lcell_comb
+-- Equation(s):
+-- \LessThan0~21_cout\ = CARRY((s_actualTemperature(10) & (\averageTemperature[10]~input_o\ & !\LessThan0~19_cout\)) # (!s_actualTemperature(10) & ((\averageTemperature[10]~input_o\) # (!\LessThan0~19_cout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000001001101",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => s_actualTemperature(10),
+	datab => \averageTemperature[10]~input_o\,
+	datad => VCC,
+	cin => \LessThan0~19_cout\,
+	cout => \LessThan0~21_cout\);
+
+\LessThan0~23\ : cycloneive_lcell_comb
+-- Equation(s):
+-- \LessThan0~23_cout\ = CARRY((s_actualTemperature(11) & ((!\LessThan0~21_cout\) # (!\averageTemperature[11]~input_o\))) # (!s_actualTemperature(11) & (!\averageTemperature[11]~input_o\ & !\LessThan0~21_cout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000101011",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => s_actualTemperature(11),
+	datab => \averageTemperature[11]~input_o\,
+	datad => VCC,
+	cin => \LessThan0~21_cout\,
+	cout => \LessThan0~23_cout\);
+
+\LessThan0~25\ : cycloneive_lcell_comb
+-- Equation(s):
+-- \LessThan0~25_cout\ = CARRY((s_actualTemperature(12) & (\averageTemperature[12]~input_o\ & !\LessThan0~23_cout\)) # (!s_actualTemperature(12) & ((\averageTemperature[12]~input_o\) # (!\LessThan0~23_cout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000001001101",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => s_actualTemperature(12),
+	datab => \averageTemperature[12]~input_o\,
+	datad => VCC,
+	cin => \LessThan0~23_cout\,
+	cout => \LessThan0~25_cout\);
+
+\LessThan0~27\ : cycloneive_lcell_comb
+-- Equation(s):
+-- \LessThan0~27_cout\ = CARRY((s_actualTemperature(13) & ((!\LessThan0~25_cout\) # (!\averageTemperature[13]~input_o\))) # (!s_actualTemperature(13) & (!\averageTemperature[13]~input_o\ & !\LessThan0~25_cout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000101011",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => s_actualTemperature(13),
+	datab => \averageTemperature[13]~input_o\,
+	datad => VCC,
+	cin => \LessThan0~25_cout\,
+	cout => \LessThan0~27_cout\);
+
+\LessThan0~29\ : cycloneive_lcell_comb
+-- Equation(s):
+-- \LessThan0~29_cout\ = CARRY((s_actualTemperature(14) & (\averageTemperature[14]~input_o\ & !\LessThan0~27_cout\)) # (!s_actualTemperature(14) & ((\averageTemperature[14]~input_o\) # (!\LessThan0~27_cout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000001001101",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => s_actualTemperature(14),
+	datab => \averageTemperature[14]~input_o\,
+	datad => VCC,
+	cin => \LessThan0~27_cout\,
+	cout => \LessThan0~29_cout\);
+
+\LessThan0~30\ : cycloneive_lcell_comb
+-- Equation(s):
+-- \LessThan0~30_combout\ = (s_actualTemperature(15) & (\averageTemperature[15]~input_o\ & \LessThan0~29_cout\)) # (!s_actualTemperature(15) & ((\averageTemperature[15]~input_o\) # (\LessThan0~29_cout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101010011010100",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => s_actualTemperature(15),
+	datab => \averageTemperature[15]~input_o\,
+	cin => \LessThan0~29_cout\,
+	combout => \LessThan0~30_combout\);
+
+\s_actualTemperature~1\ : cycloneive_lcell_comb
+-- Equation(s):
+-- \s_actualTemperature~1_combout\ = (\heatOn~input_o\ & \LessThan0~30_combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1000100010001000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => s_actualCook(0),
-	datab => \Add3~0_combout\,
-	datac => \s_actualCook[15]~4_combout\,
-	datad => \s_actualCook[11]~5_combout\,
-	combout => \s_actualCook[0]~6_combout\);
+	dataa => \heatOn~input_o\,
+	datab => \LessThan0~30_combout\,
+	combout => \s_actualTemperature~1_combout\);
 
-\s_actualCook[0]\ : dffeas
+\s_actualTemperature~2\ : cycloneive_lcell_comb
+-- Equation(s):
+-- \s_actualTemperature~2_combout\ = (!\reset~input_o\ & !\Add0~2_combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0001000100010001",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \reset~input_o\,
+	datab => \Add0~2_combout\,
+	combout => \s_actualTemperature~2_combout\);
+
+\s_actualTemperature[2]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -2640,76 +1337,43 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \clk~input_o\,
-	d => \s_actualCook[0]~6_combout\,
+	d => \s_actualTemperature~2_combout\,
+	ena => \s_actualTemperature[1]~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => s_actualCook(0));
+	q => s_actualTemperature(2));
 
-ww_finishTime <= \finishTime~output_o\;
+ww_actualTemperature(0) <= \actualTemperature[0]~output_o\;
 
-ww_timeOutIdle(0) <= \timeOutIdle[0]~output_o\;
+ww_actualTemperature(1) <= \actualTemperature[1]~output_o\;
 
-ww_timeOutIdle(1) <= \timeOutIdle[1]~output_o\;
+ww_actualTemperature(2) <= \actualTemperature[2]~output_o\;
 
-ww_timeOutIdle(2) <= \timeOutIdle[2]~output_o\;
+ww_actualTemperature(3) <= \actualTemperature[3]~output_o\;
 
-ww_timeOutIdle(3) <= \timeOutIdle[3]~output_o\;
+ww_actualTemperature(4) <= \actualTemperature[4]~output_o\;
 
-ww_timeOutIdle(4) <= \timeOutIdle[4]~output_o\;
+ww_actualTemperature(5) <= \actualTemperature[5]~output_o\;
 
-ww_timeOutIdle(5) <= \timeOutIdle[5]~output_o\;
+ww_actualTemperature(6) <= \actualTemperature[6]~output_o\;
 
-ww_timeOutIdle(6) <= \timeOutIdle[6]~output_o\;
+ww_actualTemperature(7) <= \actualTemperature[7]~output_o\;
 
-ww_timeOutIdle(7) <= \timeOutIdle[7]~output_o\;
+ww_actualTemperature(8) <= \actualTemperature[8]~output_o\;
 
-ww_timeOutIdle(8) <= \timeOutIdle[8]~output_o\;
+ww_actualTemperature(9) <= \actualTemperature[9]~output_o\;
 
-ww_timeOutIdle(9) <= \timeOutIdle[9]~output_o\;
+ww_actualTemperature(10) <= \actualTemperature[10]~output_o\;
 
-ww_timeOutIdle(10) <= \timeOutIdle[10]~output_o\;
+ww_actualTemperature(11) <= \actualTemperature[11]~output_o\;
 
-ww_timeOutIdle(11) <= \timeOutIdle[11]~output_o\;
+ww_actualTemperature(12) <= \actualTemperature[12]~output_o\;
 
-ww_timeOutIdle(12) <= \timeOutIdle[12]~output_o\;
+ww_actualTemperature(13) <= \actualTemperature[13]~output_o\;
 
-ww_timeOutIdle(13) <= \timeOutIdle[13]~output_o\;
+ww_actualTemperature(14) <= \actualTemperature[14]~output_o\;
 
-ww_timeOutIdle(14) <= \timeOutIdle[14]~output_o\;
-
-ww_timeOutIdle(15) <= \timeOutIdle[15]~output_o\;
-
-ww_timeOutCook(0) <= \timeOutCook[0]~output_o\;
-
-ww_timeOutCook(1) <= \timeOutCook[1]~output_o\;
-
-ww_timeOutCook(2) <= \timeOutCook[2]~output_o\;
-
-ww_timeOutCook(3) <= \timeOutCook[3]~output_o\;
-
-ww_timeOutCook(4) <= \timeOutCook[4]~output_o\;
-
-ww_timeOutCook(5) <= \timeOutCook[5]~output_o\;
-
-ww_timeOutCook(6) <= \timeOutCook[6]~output_o\;
-
-ww_timeOutCook(7) <= \timeOutCook[7]~output_o\;
-
-ww_timeOutCook(8) <= \timeOutCook[8]~output_o\;
-
-ww_timeOutCook(9) <= \timeOutCook[9]~output_o\;
-
-ww_timeOutCook(10) <= \timeOutCook[10]~output_o\;
-
-ww_timeOutCook(11) <= \timeOutCook[11]~output_o\;
-
-ww_timeOutCook(12) <= \timeOutCook[12]~output_o\;
-
-ww_timeOutCook(13) <= \timeOutCook[13]~output_o\;
-
-ww_timeOutCook(14) <= \timeOutCook[14]~output_o\;
-
-ww_timeOutCook(15) <= \timeOutCook[15]~output_o\;
+ww_actualTemperature(15) <= \actualTemperature[15]~output_o\;
 END structure;
 
 
