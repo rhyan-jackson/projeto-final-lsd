@@ -28,10 +28,12 @@ begin
                if (s_actualTemperature < s_averageTemperature) then
                   s_actualTemperature <= s_actualTemperature + 10;
                else
-                  s_actualTemperature <= s_actualTemperature - 10;
+                  s_actualTemperature <= s_actualTemperature - 5;
                end if;
             else
-               s_actualTemperature <= s_actualTemperature - 10;
+               if ((s_actualTemperature - 5) > 20) then
+                  s_actualTemperature <= s_actualTemperature - 5;
+               end if;
             end if;
          end if;
 		end if;
