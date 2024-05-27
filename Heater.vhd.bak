@@ -1,0 +1,56 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+
+-- Moore Machine
+
+entity Heater is
+	port(clk		            : in std_logic;
+        enable             : in std_logic;
+        reset		         : in std_logic;
+        averageTemperature : in std_logic_vector(15 downto 0);
+        actualTemperature  : out std_logic_vector(15 downto 0));
+end Heater;
+
+architecture Behavioral of Heater is
+	type TState is (COOLING, HEATING);
+	signal s_currentState, s_nextState : TState;
+	signal s_actualTemperature: unsigned(15 downto 0) := 20;
+	signal s_averageTemperature: unsigned(15 downto 0) := 20;
+begin
+	sync_proc : process(clk)
+	begin
+		if (rising_edge(clk)) then
+         s_averageTemperature <= unsigned(averageTemperature);
+			if (reset = '1') then
+				s_currentState <= COOLING;
+			else
+				s_currentState	<= s_nextState;
+			end if;
+
+         if (s_currentState = HEATING) then
+            s_actualTemperature <= s_actualTemperature + 10;
+         else
+            s_actualTemperature <= s_actualTemperature - 10;
+         end if;
+		end if;
+	end process;
+
+	comb_proc : process(s_currentState)
+	begin
+		case (s_currentState) is
+		when COOLING =>
+			if (s_actualTemperature < s_averageTemperature) then
+				s_nextState <= HEATING;
+			else
+				s_nextState <= COOLING;
+			end if;
+
+		when HEATING =>
+         if (s_actualTemperature > s_averageTemperature) then
+            s_nextState <= COOLING;
+         else
+            s_nextState <= HEATING;
+         end if;        
+		end case;
+	end process;
+end Behavioral;

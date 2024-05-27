@@ -1,0 +1,157 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "endTimeOut[0]",
+					"strict" : false
+				},
+				{
+					"name" : "endTimeOut[1]",
+					"strict" : false
+				},
+				{
+					"name" : "endTimeOut[2]",
+					"strict" : false
+				},
+				{
+					"name" : "endTimeOut[3]",
+					"strict" : false
+				},
+				{
+					"name" : "endTimeOut[4]",
+					"strict" : false
+				},
+				{
+					"name" : "endTimeOut[5]",
+					"strict" : false
+				},
+				{
+					"name" : "endTimeOut[6]",
+					"strict" : false
+				},
+				{
+					"name" : "endTimeOut[7]",
+					"strict" : false
+				},
+				{
+					"name" : "endTimeOut[8]",
+					"strict" : false
+				},
+				{
+					"name" : "endTimeOut[9]",
+					"strict" : false
+				},
+				{
+					"name" : "endTimeOut[10]",
+					"strict" : false
+				},
+				{
+					"name" : "endTimeOut[11]",
+					"strict" : false
+				},
+				{
+					"name" : "endTimeOut[12]",
+					"strict" : false
+				},
+				{
+					"name" : "endTimeOut[13]",
+					"strict" : false
+				},
+				{
+					"name" : "endTimeOut[14]",
+					"strict" : false
+				},
+				{
+					"name" : "endTimeOut[15]",
+					"strict" : false
+				},
+				{
+					"name" : "actualTime[0]",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "actualTime[15]",
+					"strict" : false
+				},
+				{
+					"name" : "actualTime[14]",
+					"strict" : false
+				},
+				{
+					"name" : "actualTime[13]",
+					"strict" : false
+				},
+				{
+					"name" : "actualTime[12]",
+					"strict" : false
+				},
+				{
+					"name" : "actualTime[11]",
+					"strict" : false
+				},
+				{
+					"name" : "actualTime[10]",
+					"strict" : false
+				},
+				{
+					"name" : "actualTime[9]",
+					"strict" : false
+				},
+				{
+					"name" : "actualTime[8]",
+					"strict" : false
+				},
+				{
+					"name" : "actualTime[7]",
+					"strict" : false
+				},
+				{
+					"name" : "actualTime[6]",
+					"strict" : false
+				},
+				{
+					"name" : "actualTime[5]",
+					"strict" : false
+				},
+				{
+					"name" : "actualTime[4]",
+					"strict" : false
+				},
+				{
+					"name" : "actualTime[3]",
+					"strict" : false
+				},
+				{
+					"name" : "actualTime[2]",
+					"strict" : false
+				},
+				{
+					"name" : "actualTime[1]",
+					"strict" : false
+				},
+				{
+					"name" : "increment",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "decrement",
+					"strict" : false
+				},
+				{
+					"name" : "enable",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

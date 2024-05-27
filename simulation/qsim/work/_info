@@ -1,0 +1,747 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+!s11e vcom 2021.2 2021.04, Apr 14 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 d/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/simulation/qsim
+T_opt
+Z2 !s110 1716567485
+VEbaSN;K:O^9I3TVVG4D@51
+04 24 17 work generalclock_vhd_vec_tst generalclock_arch 1
+=1-000ae431a4f1-6650bdbd-a5c95-31d0
+Z3 !s124 OEM10U2 
+Z4 o-quiet -auto_acc_if_foreign -work work -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim +acc
+Z5 tCvgOpt 0
+n@_opt
+Z6 OL;O;2021.2;73
+R1
+T_opt1
+!s110 1716743546
+V31HU:O5WU:[RC0A5QUXk;3
+04 27 20 work endtimeregister_vhd_vec_tst endtimeregister_arch 1
+=1-000ae431a4f1-66536d79-e165d-31da
+R3
+R4
+R5
+n@_opt1
+R6
+T_opt2
+!s110 1716393419
+VYEf5nz0LE^M;UT6^T989M0
+04 18 11 work heater_vhd_vec_tst heater_arch 1
+=1-000ae431a4f1-664e15cb-81505-a334
+R3
+R4
+R5
+n@_opt2
+R6
+R1
+Eendtimeregister
+Z7 w1716743545
+Z8 DPx10 cycloneive 20 cycloneive_atom_pack 0 22 gn]m8U<PzXZH32IDQ4:hj3
+Z9 DPx10 cycloneive 21 cycloneive_components 0 22 cSe5`^NYM;IRV3WNS^Q7a2
+Z10 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z11 DPx6 altera 11 dffeas_pack 0 22 ^oS01<AhH<ZbI@CNcPk2V0
+Z12 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z13 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z14 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+Z15 DPx6 altera 28 altera_primitives_components 0 22 Y19K[Kjfb73Y`YfbP9Kf30
+!i122 100
+R1
+Z16 8Forno.vho
+Z17 FForno.vho
+l0
+Z18 L37 1
+Vn6nDV04J7YU?VE<:iWiWH3
+!s100 jo@9UN1zWRILK3GZBIcQ81
+Z19 OL;C;2021.2;73
+32
+Z20 !s110 1716743545
+!i10b 1
+Z21 !s108 1716743545.000000
+Z22 !s90 -work|work|Forno.vho|
+Z23 !s107 Forno.vho|
+!i113 0
+Z24 o-work work
+Z25 tExplicit 1 CvgOpt 0
+Astructure
+R8
+R9
+R10
+R11
+R12
+R13
+R14
+R15
+DEx4 work 15 endtimeregister 0 22 n6nDV04J7YU?VE<:iWiWH3
+!i122 100
+l200
+L49 1951
+V^1?]YjcB]>h3H_NZmKa0V2
+!s100 CGZK=o?jgDCAfzbo0a3zR0
+R19
+32
+R20
+!i10b 1
+R21
+R22
+R23
+!i113 0
+R24
+R25
+Eendtimeregister_vhd_vec_tst
+Z26 w1716743543
+R13
+R14
+!i122 101
+R1
+Z27 8EndTimeRegister.vwf.vht
+Z28 FEndTimeRegister.vwf.vht
+l0
+Z29 L32 1
+VY9mWZ[EU3QWJEf?BR7zi70
+!s100 ^BC<8=e8279<``iUIP;GM0
+R19
+32
+R20
+!i10b 1
+R21
+Z30 !s90 -work|work|EndTimeRegister.vwf.vht|
+Z31 !s107 EndTimeRegister.vwf.vht|
+!i113 0
+R24
+R25
+Aendtimeregister_arch
+R13
+R14
+DEx4 work 27 endtimeregister_vhd_vec_tst 0 22 Y9mWZ[EU3QWJEf?BR7zi70
+!i122 101
+l55
+L34 172
+VO_hS89MdRC<]oZ@AENiNl3
+!s100 RX^ioaa7LT<1<_`JNLaLD3
+R19
+32
+R20
+!i10b 1
+R21
+R30
+R31
+!i113 0
+R24
+R25
+Efornofsm
+Z32 w1716381509
+R8
+R9
+R10
+R11
+R12
+R13
+R14
+R15
+!i122 64
+R1
+R16
+R17
+l0
+R18
+VDddcQh5kXSWK>>U^1;Xj91
+!s100 nYgA;W_630P7WbZFmCUBe0
+R19
+32
+Z33 !s110 1716381509
+!i10b 1
+Z34 !s108 1716381509.000000
+R22
+R23
+!i113 0
+R24
+R25
+Astructure
+R8
+R9
+R10
+R11
+R12
+R13
+R14
+R15
+DEx4 work 8 fornofsm 0 22 DddcQh5kXSWK>>U^1;Xj91
+!i122 64
+l109
+L50 632
+VzM:4bkFLo<U@b]c@l?`>z1
+!s100 USgK5=Iebk<58YENbB^ic3
+R19
+32
+R33
+!i10b 1
+R34
+R22
+R23
+!i113 0
+R24
+R25
+Efornofsm_vhd_vec_tst
+Z35 w1716381508
+R13
+R14
+!i122 65
+R1
+Z36 8FornoFSM.vwf.vht
+Z37 FFornoFSM.vwf.vht
+l0
+R29
+VE2c6fHnS_5fO<NYi`NK9P1
+!s100 B]B>UI?LDT`[zB6M?1[]b1
+R19
+32
+R33
+!i10b 1
+R34
+Z38 !s90 -work|work|FornoFSM.vwf.vht|
+Z39 !s107 FornoFSM.vwf.vht|
+!i113 0
+R24
+R25
+Afornofsm_arch
+R13
+R14
+DEx4 work 20 fornofsm_vhd_vec_tst 0 22 E2c6fHnS_5fO<NYi`NK9P1
+!i122 65
+l57
+L34 96
+V`aTSUaIFjkN43JDP5Vgbc0
+!s100 VoUF5ZUS2<iMQkN410f?I1
+R19
+32
+R33
+!i10b 1
+R34
+R38
+R39
+!i113 0
+R24
+R25
+Egeneralclock
+Z40 w1716567484
+R8
+R9
+R10
+R11
+R12
+R13
+R14
+R15
+!i122 90
+R1
+R16
+R17
+l0
+R18
+VIK1?D9:OI5mmd;S2AVPNm1
+!s100 O:XfOOf;a6SQS:=WzejHP0
+R19
+32
+R2
+!i10b 1
+Z41 !s108 1716567485.000000
+R22
+R23
+!i113 0
+R24
+R25
+Astructure
+R8
+R9
+R10
+R11
+R12
+R13
+R14
+R15
+DEx4 work 12 generalclock 0 22 IK1?D9:OI5mmd;S2AVPNm1
+!i122 90
+l171
+L49 1497
+ViP?IF_?]Y=_=el_l`T@TN1
+!s100 gFdPa5YoWe10DN]Uo=BG=0
+R19
+32
+R2
+!i10b 1
+R41
+R22
+R23
+!i113 0
+R24
+R25
+Egeneralclock_vhd_vec_tst
+Z42 w1716567483
+R13
+R14
+!i122 91
+R1
+Z43 8GeneralClock.vwf.vht
+Z44 FGeneralClock.vwf.vht
+l0
+R29
+VG@W2@f8W8DI1iEHI]6o@>3
+!s100 7=Fh4P3aN@W[IQd1VB=Gn0
+R19
+32
+R2
+!i10b 1
+R41
+Z45 !s90 -work|work|GeneralClock.vwf.vht|
+Z46 !s107 GeneralClock.vwf.vht|
+!i113 0
+R24
+R25
+Ageneralclock_arch
+R13
+R14
+DEx4 work 24 generalclock_vhd_vec_tst 0 22 G@W2@f8W8DI1iEHI]6o@>3
+!i122 91
+l55
+L34 91
+V:8jz0ldei4V7dGaz7QnDz1
+!s100 G6<^NG0:G67DgLah1RDR]0
+R19
+32
+R2
+!i10b 1
+R41
+R45
+R46
+!i113 0
+R24
+R25
+Eheater
+Z47 w1716393718
+R8
+R9
+R10
+R11
+R12
+R13
+R14
+R15
+!i122 84
+R1
+R16
+R17
+l0
+R18
+V7zJd7g82GbQLLR3nVzLNE1
+!s100 2VjiD7ejl7nPFWelV4NzW0
+R19
+32
+Z48 !s110 1716393718
+!i10b 1
+Z49 !s108 1716393718.000000
+R22
+R23
+!i113 0
+R24
+R25
+Astructure
+R8
+R9
+R10
+R11
+R12
+R13
+R14
+R15
+DEx4 work 6 heater 0 22 7zJd7g82GbQLLR3nVzLNE1
+!i122 84
+l152
+L48 1330
+V1NaW;[?3[m^lEZKQ@Pz[43
+!s100 a>DHnVhFO80hLb:6R0Zgm2
+R19
+32
+R48
+!i10b 1
+R49
+R22
+R23
+!i113 0
+R24
+R25
+Eheater_vhd_vec_tst
+Z50 w1716393717
+R13
+R14
+!i122 85
+R1
+Z51 8Heater.vwf.vht
+Z52 FHeater.vwf.vht
+l0
+R29
+VnQDC<mWF68L?fgS4T8lXn2
+!s100 QYiXW:VC^CIIIYoV0V>OJ3
+R19
+32
+R48
+!i10b 1
+R49
+Z53 !s90 -work|work|Heater.vwf.vht|
+Z54 !s107 Heater.vwf.vht|
+!i113 0
+R24
+R25
+Aheater_arch
+R13
+R14
+DEx4 work 18 heater_vhd_vec_tst 0 22 nQDC<mWF68L?fgS4T8lXn2
+!i122 85
+l53
+L34 182
+VJ94l1;fkhaQQaIjb<NAe;1
+!s100 <ebR[bAiN]7nn7kGoVGoY3
+R19
+32
+R48
+!i10b 1
+R49
+R53
+R54
+!i113 0
+R24
+R25
+Eregistertemperature
+Z55 w1716135583
+R8
+R9
+R10
+R11
+R12
+R13
+R14
+R15
+!i122 36
+R1
+R16
+R17
+l0
+R18
+VE6i=b<hjk6a>3hlfQ:SeC3
+!s100 GgCbNoGMnKfmcC3N_MU:;3
+R19
+32
+Z56 !s110 1716135584
+!i10b 1
+Z57 !s108 1716135584.000000
+R22
+R23
+!i113 0
+R24
+R25
+Astructure
+R8
+R9
+R10
+R11
+R12
+R13
+R14
+R15
+DEx4 work 19 registertemperature 0 22 E6i=b<hjk6a>3hlfQ:SeC3
+!i122 36
+l189
+L50 1860
+Vh2_]Xk56EPEo]7Z@8Yfk;0
+!s100 [IiKmfjclc;6Ng>lEY6WR1
+R19
+32
+R56
+!i10b 1
+R57
+R22
+R23
+!i113 0
+R24
+R25
+Eregistertemperature_vhd_vec_tst
+Z58 w1716135582
+R13
+R14
+!i122 37
+R1
+Z59 8RegisterTemperature2.vwf.vht
+Z60 FRegisterTemperature2.vwf.vht
+l0
+R29
+VjMC9h88JgF>Ug3Ia5?XPY2
+!s100 j:oG=Sk>6J@<`<TS]MZT<3
+R19
+32
+R56
+!i10b 1
+R57
+Z61 !s90 -work|work|RegisterTemperature2.vwf.vht|
+Z62 !s107 RegisterTemperature2.vwf.vht|
+!i113 0
+R24
+R25
+Aregistertemperature_arch
+R13
+R14
+DEx4 work 31 registertemperature_vhd_vec_tst 0 22 jMC9h88JgF>Ug3Ia5?XPY2
+!i122 37
+l57
+L34 186
+V=C=_>]<:_C:@01]G^[M7m1
+!s100 o5DQHGXH2:m@Yc9L6lBIV0
+R19
+32
+R56
+!i10b 1
+R57
+R61
+R62
+!i113 0
+R24
+R25
+Eregistertime
+Z63 w1716148319
+R8
+R9
+R10
+R11
+R12
+R13
+R14
+R15
+!i122 58
+R1
+R16
+R17
+l0
+R18
+VUz0Eie302khh77kZYk:@_1
+!s100 >GzFU]_F8MRaMc8ooNE]T0
+R19
+32
+Z64 !s110 1716148320
+!i10b 1
+Z65 !s108 1716148319.000000
+R22
+R23
+!i113 0
+R24
+R25
+Astructure
+R8
+R9
+R10
+R11
+R12
+R13
+R14
+R15
+DEx4 work 12 registertime 0 22 Uz0Eie302khh77kZYk:@_1
+!i122 58
+l245
+L54 2660
+VaSg8ok:S2bizgi^h9o=dV0
+!s100 2^d`bM<@^azAV`zRIic=j3
+R19
+32
+R64
+!i10b 1
+R65
+R22
+R23
+!i113 0
+R24
+R25
+Eregistertime_vhd_vec_tst
+Z66 w1716148318
+R13
+R14
+!i122 59
+R1
+Z67 8FinishTime.vwf.vht
+Z68 FFinishTime.vwf.vht
+l0
+R29
+VUGB907d<dU0<en]?j@A=h2
+!s100 4I;nNEP1Q=N[?[Vid<g1h0
+R19
+32
+R64
+!i10b 1
+Z69 !s108 1716148320.000000
+Z70 !s90 -work|work|FinishTime.vwf.vht|
+Z71 !s107 FinishTime.vwf.vht|
+!i113 0
+R24
+R25
+Aregistertime_arch
+R13
+R14
+DEx4 work 24 registertime_vhd_vec_tst 0 22 UGB907d<dU0<en]?j@A=h2
+!i122 59
+l65
+L34 127
+VkZe>F7fzbLKkB0LKM37Bh2
+!s100 H8fl4Vi477Pf[0]jn4Mmm0
+R19
+32
+R64
+!i10b 1
+R69
+R70
+R71
+!i113 0
+R24
+R25
+Esinglepulsegenerator
+Z72 w1716385718
+R8
+R9
+R10
+R11
+R12
+R13
+R14
+R15
+!i122 68
+R1
+R16
+R17
+l0
+R18
+V91b_Njfo@@P^KZ?kHd3ah0
+!s100 iadX[H84JoYEHMOI77mak1
+R19
+32
+Z73 !s110 1716385719
+!i10b 1
+Z74 !s108 1716385719.000000
+R22
+R23
+!i113 0
+R24
+R25
+Astructure
+R8
+R9
+R10
+R11
+R12
+R13
+R14
+R15
+DEx4 work 20 singlepulsegenerator 0 22 91b_Njfo@@P^KZ?kHd3ah0
+!i122 68
+l68
+L46 104
+VCLIBS9@fXm8RKJ9f@cO[o0
+!s100 gknWlWC>85fPBXXoZbhQZ3
+R19
+32
+R73
+!i10b 1
+R74
+R22
+R23
+!i113 0
+R24
+R25
+Esinglepulsegenerator_vhd_vec_tst
+Z75 w1716385717
+R13
+R14
+!i122 69
+R1
+Z76 8SinglePulseGenerator.vwf.vht
+Z77 FSinglePulseGenerator.vwf.vht
+l0
+R29
+V7ffICc1FEGA`2V2a0n2za1
+!s100 [kcAi0Q[hzXz2_leQBD4V2
+R19
+32
+R73
+!i10b 1
+R74
+Z78 !s90 -work|work|SinglePulseGenerator.vwf.vht|
+Z79 !s107 SinglePulseGenerator.vwf.vht|
+!i113 0
+R24
+R25
+Asinglepulsegenerator_arch
+R13
+R14
+DEx4 work 32 singlepulsegenerator_vhd_vec_tst 0 22 7ffICc1FEGA`2V2a0n2za1
+!i122 69
+l49
+L34 65
+VG4WFjhiioTK7o[6z?TlKe1
+!s100 2GjJ^Q1_4MAAhLLn?o=oB3
+R19
+32
+R73
+!i10b 1
+R74
+R78
+R79
+!i113 0
+R24
+R25
