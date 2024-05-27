@@ -1,7 +1,0 @@
-
-State Machine - |FornoFSM|s_currentState
-Name s_currentState.FINISH s_currentState.COOK s_currentState.IDLE s_currentState.START 
-s_currentState.START 0 0 0 0 
-s_currentState.IDLE 0 0 1 1 
-s_currentState.COOK 0 1 0 1 
-s_currentState.FINISH 1 0 0 1 
