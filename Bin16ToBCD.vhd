@@ -16,11 +16,11 @@ end entity Bin16ToBCD;
 
 architecture Behavioral of Bin16ToBCD is
 
-    signal b_dez, b_int1, b_int, b_rem : unsigned(3 downto 0);
+    signal b_dez, b_int1, b_int, b_rem : unsigned(15 downto 0);
 
 begin
 
-    b_dez <=  to_unsigned(10,4);
+    b_dez <=  to_unsigned(10,16);
 
     
 
@@ -30,7 +30,7 @@ begin
 
 
 
-    bcd2 <= std_logic_vector(b_int1);
-    bcd1 <= std_logic_vector(b_int);
-    bcd0 <= std_logic_vector(b_rem);
+    bcd2 <= std_logic_vector(resize(b_int1, 4));
+    bcd1 <= std_logic_vector(resize(b_int, 4));
+    bcd0 <= std_logic_vector(resize(b_rem, 4));
 end Behavioral ; -- Behavioral

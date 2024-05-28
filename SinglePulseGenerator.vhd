@@ -29,7 +29,6 @@ begin
 
    comb_proc : process(s_currentState)
 	begin
-		singleOut <= '0';
 		case (s_currentState) is
 		when S1 =>
          if (longHigh <= '1') then
@@ -37,12 +36,15 @@ begin
             singleOut <= '1';
          else
             s_nextState <= S1;
+				singleOut <= '0';
          end if;
 		when S2 =>
          if (longHigh <= '0') then
             s_nextState <= S1;
+				singleOut <= '0';
          else
             s_nextState <= S2;
+				singleOut <= '0';
          end if;
 		end case;
 	end process;

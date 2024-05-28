@@ -1,0 +1,244 @@
+entity OvenTopLevel is
+   port (
+      CLOCK_50 : in std_logic;
+      SW       : in std_logic_vector(17 downto 0);
+      KEY      : in std_logic_vector(3 downto 0);
+      HEX0     : out std_logic_vector(6 downto 0);
+      HEX1     : out std_logic_vector(6 downto 0);
+      HEX2     : out std_logic_vector(6 downto 0);
+      HEX3     : out std_logic_vector(6 downto 0);
+      HEX4     : out std_logic_vector(6 downto 0);
+      HEX5     : out std_logic_vector(6 downto 0);
+      HEX6     : out std_logic_vector(6 downto 0);
+      LEDG     : out std_logic_vector(1 downto 0);
+   );
+end entity OvenTopLevel;
+
+architecture Structural of OvenTopLevel is
+
+   -- input signals
+   signal sync_sw : std_logic_vector(17 downto 0);
+   /*
+   ABOUT sync_sw:
+      0,1: select program
+      17  : general reset
+   */
+   signal key0 : std_logic;
+   signal key1 : std_logic;
+   signal key2 : std_logic;
+   signal key3 : std_logic;
+
+   -- output variables
+
+   signal s_hex7_bcd : std_logic_vector(6 downto 0);
+   signal s_hex6_bcd : std_logic_vector(6 downto 0);
+   signal s_hex5_bcd : std_logic_vector(6 downto 0);
+   signal s_hex4_bcd : std_logic_vector(6 downto 0);
+   signal s_hex3_bcd : std_logic_vector(6 downto 0);
+   signal s_hex2_bcd : std_logic_vector(6 downto 0);
+   signal s_hex1_bcd : std_logic_vector(6 downto 0);
+   signal s_hex0_bcd : std_logic_vector(6 downto 0);
+
+   -- pulses, blinks and temporization signals
+   signal s_pulse_1hz : std_logic;
+
+   -- logic project signals
+   signal s_program_selected : std_logic_vector(3 downto 0);
+   signal s_actualTime : std_logic_vector(15 downto 0);
+   signal s_endTime : std_logic_vector(15 downto 0);
+   signal s_cookTime : std_logic_vector(15 downto 0);
+   signal s_averageTemperature : std_logic_vector(15 downto 0);
+   signal s_actualTemperature : std_logic_vector(15 downto 0);
+   signal s_adjustGeneralClock : std_logic;
+   signal s_actualFSMState : std_logic_vector(1 downto 0);
+
+   -- signals to treat with bcd's, 7seg, minutes and hours.
+   signal s_generalClock_hour_bin : std_logic_vector(5 downto 0);
+   signal s_generalClock_minute_bin : std_logic_vector(5 downto 0);
+
+   signal s_generalClock_minute_bcd1 : std_logic_vector(3 downto 0);
+   signal s_generalClock_minute_bcd0 : std_logic_vector(3 downto 0);
+
+begin
+   -- sync inputs 
+   process(CLOCK_50)
+   begin
+      if (rising_edge(CLOCK_50)) then
+         sync_sw <= SW;
+   end process;
+
+   -- debouncers for keys
+   debouncer_key0 : work.DebounceUnit(Behavioral)
+			generic map(kHzClkFreq		    => 50000,
+							mSecMinInWidth	=> 100,
+							inPolarity		=> '0',
+							outPolarity		=> '1')
+			port 	map(refClk		        => CLOCK_50,
+							dirtyIn			=> KEY(0),
+							pulsedOut		=> key0);
+   
+   debouncer_key1 : work.DebounceUnit(Behavioral)
+			generic map(kHzClkFreq		    => 50000,
+							mSecMinInWidth	=> 100,
+							inPolarity		=> '0',
+							outPolarity		=> '1')
+			port 	map(refClk		        => CLOCK_50,
+							dirtyIn			=> KEY(1),
+							pulsedOut		=> key1);
+   debouncer_key2 : work.DebounceUnit(Behavioral)
+			generic map(kHzClkFreq		    => 50000,
+							mSecMinInWidth	=> 100,
+							inPolarity		=> '0',
+							outPolarity		=> '1')
+			port 	map(refClk		        => CLOCK_50,
+							dirtyIn			=> KEY(2),
+							pulsedOut		=> key2);
+   
+   debouncer_key3 : work.DebounceUnit(Behavioral)
+			generic map(kHzClkFreq		    => 50000,
+							mSecMinInWidth	=> 100,
+							inPolarity		=> '0',
+							outPolarity		=> '1')
+			port 	map(refClk		        => CLOCK_50,
+							dirtyIn			=> KEY(3),
+							pulsedOut		=> key3);
+   
+   -- selection with sw's process & process to select what will be displayed
+
+   process(sync_sw)
+   begin
+      if (sync_sw(0) = '0' and sync_sw(1) = '0') then -- temperatura
+         s_programSelected <= "0001";
+         s_hex7_bcd <= 
+         s_hex6_bcd <= 
+         s_hex5_bcd <=
+         s_hex4_bcd <= 
+         s_hex3_bcd <= 
+         s_hex2_bcd <= 
+         s_hex1_bcd <= 
+         s_hex0_bcd <= 
+
+      elsif (sync_sw(0) = '0' and sync_sw(1) = '0') then -- tempo cozedura
+         s_programSelected <= "0010";
+
+
+      elsif (sync_sw(0) = '0' and sync_sw(1) = '0') then --hora terminal
+         s_programSelected <= "0100";
+
+
+      else -- relógio
+         s_programSelected <= "1000";
+
+
+   end process;
+   
+   -- pulse's and blink's and fundamental logic blocks
+
+   pulse_1hz : work.PulseGenerator(Behavioral)
+         generic map(MAX => 50_000_000)
+         port  map(clk    => CLOCK_50,
+                   reset  => sync_sw(17),
+                   pulse  => s_pulse_1hz);
+
+   -- mapping the registers
+   general_clock : work.GeneralClock(Synchronous)
+			port 	map(clk		        => CLOCK_50,
+						 reset  			  => sync_sw(17),
+						 enable  		  => s_pulse_1hz,
+						 adjust  		  => s_adjustGeneralClock,
+						 increment  	  => s_key1 and s_programSelected(3),
+						 decrement  	  => s_key2 and s_programSelected(3),
+						 actualTimeOut   => s_actualTime);
+
+   end_time_register : work.EndTimeRegister(Synchronous)
+			port 	map(clk		        => CLOCK_50,
+						 reset  			  => sync_sw(17),
+						 enable  		  => '1',
+						 increment  	  => s_key1 and s_programSelected(2),
+						 decrement  	  => s_key2 and s_programSelected(2),
+                   cookDuration    => s_cookTime,
+                   actualTime      => s_actualTime,
+						 endTimeOut      => s_endTime);
+   
+   cook_duration_register : work.CookDurationRegister(Synchronous)
+			port 	map(clk		        => CLOCK_50,
+						 reset  			  => sync_sw(17),
+						 enable  		  => '1',
+						 increment  	  => s_key1 and s_programSelected(1),
+						 decrement  	  => s_key2 and s_programSelected(1),
+						 cookTimeOut     => s_cookTime);
+   
+   register_temperature : work.RegisterTemperature(Synchronous)
+			port 	map(clk		        => CLOCK_50,
+						 reset  			  => sync_sw(17),
+						 enable  		  => '1',
+						 increment  	  => s_key1 and s_programSelected(0),
+						 decrement  	  => s_key2 and s_programSelected(0),
+						 temperatureOut  => s_averageTemperature);
+   
+   heater : work.Heater(Behavioral)
+   port 	map(clk		           => CLOCK_50,
+             reset  			     => sync_sw(17),
+             enable  		     => '1',
+             averageTemperature => s_averageTemperature
+             actualTemperature  => s_actualTemperature);
+
+   oven_fsm : work.OvenFSM(Behavioral)
+         port 	map(clk		           => CLOCK_50,
+                   reset  			     => sync_sw(17),
+                   start  		        => s_key3,
+                   adjustGeneralClock => s_adjustGeneralClock,
+                   actualTime  	     => s_actualTime,
+                   cookDuration  	  => s_cookTime,
+                   endTime  	        => s_endTime,
+                   actualState        => s_actualFSMState);
+   
+   -- display and hour/minute manipulation 
+
+   display_time_general_clock : work.DisplayTime(Shell)
+         port map(timeIn         => s_actualTime,
+                  timeOutHour    => s_generalClock_hour_bin,
+                  timeOutMinute  => s_generalClock_minute_bin);
+   
+   bin6_to_bcd_hour_gen_clock : work.Bin6ToBCD(Behavioral)
+         port map(enable  => '1',
+                  binIn   => s_generalClock_minute_bin,
+                  bcd1    => s_generalClock_minute_bcd1,
+                  bcd0    => s_generalClock_minute_bcd0);
+
+   -- bin 7seg decoders
+
+   bin7seg_hex7 : work.Bin7SegDecoder(Behavioral)
+         port map(binInput  => s_hex7_bcd,
+                  decOut_n  => HEX7);
+   
+   bin7seg_hex6 : work.Bin7SegDecoder(Behavioral)
+         port map(binInput  => s_hex6_bcd,
+                  decOut_n  => HEX6);
+
+   bin7seg_hex5 : work.Bin7SegDecoder(Behavioral)
+         port map(binInput  => s_hex5_bcd,
+                  decOut_n  => HEX5);
+
+   bin7seg_hex4 : work.Bin7SegDecoder(Behavioral)
+         port map(binInput  => s_hex4_bcd,
+                  decOut_n  => HEX4);
+   
+   bin7seg_hex3 : work.Bin7SegDecoder(Behavioral)
+         port map(binInput  => s_hex3_bcd,
+                  decOut_n  => HEX3);
+                  
+   bin7seg_hex2 : work.Bin7SegDecoder(Behavioral)
+         port map(binInput  => s_hex2_bcd,
+                  decOut_n  => HEX2);
+   
+   bin7seg_hex1 : work.Bin7SegDecoder(Behavioral)
+         port map(binInput  => s_hex1_bcd,
+                  decOut_n  => HEX1);
+                  
+   bin7seg_hex0 : work.Bin7SegDecoder(Behavioral)
+         port map(binInput  => s_hex0_bcd,
+                  decOut_n  => HEX0);
+
+   LEDG <= s_actualFSMState; 
+end architecture Structural;

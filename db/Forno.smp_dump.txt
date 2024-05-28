@@ -1,16 +1,14 @@
 
-State Machine - |FornoFSM|s_previousState
-Name s_previousState.FINISH s_previousState.PAUSE s_previousState.COOK s_previousState.IDLE s_previousState.START 
-s_previousState.START 0 0 0 0 0 
-s_previousState.IDLE 0 0 0 1 1 
-s_previousState.COOK 0 0 1 0 1 
-s_previousState.PAUSE 0 1 0 0 1 
-s_previousState.FINISH 1 0 0 0 1 
+State Machine - |OvenTopLevel|OvenFSM:oven_fsm|s_previousState
+Name s_previousState.FINISH s_previousState.COOK s_previousState.IDLE s_previousState.START 
+s_previousState.START 0 0 0 0 
+s_previousState.IDLE 0 0 1 1 
+s_previousState.COOK 0 1 0 1 
+s_previousState.FINISH 1 0 0 1 
 
-State Machine - |FornoFSM|s_currentState
-Name s_currentState.FINISH s_currentState.PAUSE s_currentState.COOK s_currentState.IDLE s_currentState.START 
-s_currentState.START 0 0 0 0 0 
-s_currentState.IDLE 0 0 0 1 1 
-s_currentState.COOK 0 0 1 0 1 
-s_currentState.PAUSE 0 1 0 0 1 
-s_currentState.FINISH 1 0 0 0 1 
+State Machine - |OvenTopLevel|OvenFSM:oven_fsm|s_currentState
+Name s_currentState.FINISH s_currentState.COOK s_currentState.IDLE s_currentState.START 
+s_currentState.START 0 0 0 0 
+s_currentState.IDLE 0 0 1 1 
+s_currentState.COOK 0 1 0 1 
+s_currentState.FINISH 1 0 0 1 

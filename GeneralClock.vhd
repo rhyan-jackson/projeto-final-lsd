@@ -20,30 +20,28 @@ begin
 		if (rising_edge(clk)) then
             if (reset = '1') then
                 s_actualTime <= x"0000";
-            elsif (enable = '1') then
-                if (adjust = '1') then
-                    if (increment = '1') then
-                        if (s_actualTime = x"059F") then
-                            s_actualTime <= x"0000";
-                        else
-                            s_actualTime <= s_actualTime + 1;
-                        end if;
-                    elsif (decrement = '1') then
-                        if (s_actualTime = 0) then
-                            s_actualTime <= x"059F";
-                        else
-                            s_actualTime <= s_actualTime - 1;
-                        end if;
-                    end if;
-                else
+            elsif (adjust = '1') then
+                if (increment = '1') then
                     if (s_actualTime = x"059F") then
                         s_actualTime <= x"0000";
                     else
                         s_actualTime <= s_actualTime + 1;
                     end if;
+                elsif (decrement = '1') then
+                    if (s_actualTime = 0) then
+                        s_actualTime <= x"059F";
+                    else
+                        s_actualTime <= s_actualTime - 1;
+                    end if;
                 end if;
+            elsif (enable = '1') then
+					  if (s_actualTime = x"059F") then
+							s_actualTime <= x"0000";
+					  else
+							s_actualTime <= s_actualTime + 1;
+					  end if;
             end if;
-        end if;
+      end if;
 	end process;
     actualTimeOut <= std_logic_vector(s_actualTime); 
 end Synchronous;

@@ -26,22 +26,22 @@ begin
             if (reset = '1') then
                 s_endTime <= s_actualTime + s_cookDuration;
             elsif (enable = '1') then
-                if (s_endTime < s_actualTime + s_cookDuration) then 
+					  if (increment = '1') then
+							if (s_endTime + 5 > 1439) then
+								 s_endTime <= x"0000";
+							else
+								 s_endTime <= s_endTime + 5;
+							end if;
+					  elsif (decrement = '1') then
+							if (s_endTime - 5 < 0) then
+								 s_endTime <= x"059F";
+							else
+								 s_endTime <= s_endTime - 5;
+							end if;
+                end if;
+					 
+					 if (s_endTime < s_actualTime + s_cookDuration) then 
                     s_endTime <= s_actualTime + s_cookDuration;
-                else
-                    if (increment = '1') then
-                        if (s_endTime + 5 > 1439) then
-                            s_endTime <= x"0000";
-                        else
-                            s_endTime <= s_endTime + 5;
-                        end if;
-                    elsif (decrement = '1') then
-                        if (s_endTime - 5 < 0) then
-                            s_endTime <= x"059F";
-                        else
-                            s_endTime <= s_endTime - 5;
-                        end if;
-                    end if;
                 end if;
             end if;
         end if;
