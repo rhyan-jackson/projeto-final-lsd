@@ -15,7 +15,8 @@ entity OvenTopLevel is
       HEX5     : out std_logic_vector(6 downto 0);
       HEX6     : out std_logic_vector(6 downto 0);
 		HEX7     : out std_logic_vector(6 downto 0);
-      LEDR     : out std_logic_vector(1 downto 0)
+      LEDR     : out std_logic_vector(1 downto 0);
+		LEDG     : out std_logic_vector(7 downto 0)
    );
 end entity OvenTopLevel;
 
@@ -44,7 +45,9 @@ architecture Structural of OvenTopLevel is
 
    -- pulses, blinks and temporization signals
    signal s_pulse_1hz : std_logic;
-
+	signal s_blink_1hz : std_logic;
+	signal s_blink_1hz_8bits : std_logic_vector(7 downto 0);
+	
    -- logic project signals
    signal s_programSelected : std_logic_vector(3 downto 0);
    signal s_actualTime : std_logic_vector(15 downto 0);
@@ -53,9 +56,12 @@ architecture Structural of OvenTopLevel is
    signal s_averageTemperature : std_logic_vector(15 downto 0);
    signal s_actualTemperature : std_logic_vector(15 downto 0);
    signal s_adjustGeneralClock : std_logic;
+   signal s_adjustEndTimeRegister : std_logic;
    signal s_actualFSMState : std_logic_vector(1 downto 0);
 	signal s_heatOn : std_logic;
    signal s_resetBlocks : std_logic;
+   signal s_en_blinks_finish : std_logic;
+	signal s_en_leds_finish_8bits : std_logic_vector(7 downto 0);
 
    -- signals to treat with bcd's, 7seg, minutes and hours.
    signal s_generalClock_hour_bin : std_logic_vector(5 downto 0);
@@ -163,20 +169,15 @@ begin
 
       elsif (sync_sw(1) = '0' and sync_sw(0) = '1') then -- tempo cozedura
 
-         -- END TIME < > COOK TIME
+         -- COOK TIME <
 
          s_programSelected <= "0010";
-         s_enable_7seg <= "11111111";
+         s_enable_7seg <= "11110000";
 
-         s_hex7_bcd <= s_endTime_hour_bcd1;
-         s_hex6_bcd <= s_endTime_hour_bcd0;
-         s_hex5_bcd <= s_endTime_minute_bcd1;
-         s_hex4_bcd <= s_endTime_minute_bcd0;
-
-         s_hex3_bcd <= s_cookTime_hour_bcd1;
-         s_hex2_bcd <= s_cookTime_hour_bcd0;
-         s_hex1_bcd <= s_cookTime_minute_bcd1;
-         s_hex0_bcd <= s_cookTime_minute_bcd0;
+         s_hex7_bcd <= s_cookTime_hour_bcd1;
+         s_hex6_bcd <= s_cookTime_hour_bcd0;
+         s_hex5_bcd <= s_cookTime_minute_bcd1;
+         s_hex4_bcd <= s_cookTime_minute_bcd0;
 
 
       elsif (sync_sw(1) = '1' and sync_sw(0) = '0') then --hora terminal
@@ -210,13 +211,21 @@ begin
 
    end process;
    
-   -- pulse's and blink's and fundamental logic blocks
+   -- pulse's and blink's
 
    pulse_1hz : work.PulseGenerator(Behavioral)
          generic map(MAX => 50_000_000)
          port  map(clk    => CLOCK_50,
                    reset  => sync_sw(17),
                    pulse  => s_pulse_1hz);
+   
+   blink_1hz : work.BlinkGenerator(Behavioral)
+         generic map(NUMBER_STEPS => 25_000_000)
+         port  map(clk    => CLOCK_50,
+                   reset  => sync_sw(17),
+                   blink  => s_blink_1hz);
+						 
+	s_blink_1hz_8bits <= (others => s_blink_1hz);
 
    -- mapping the registers
    general_clock : work.GeneralClock(Synchronous)
@@ -232,6 +241,7 @@ begin
 			port 	map(clk		        => CLOCK_50,
 						 reset  			  => sync_sw(17) or s_resetBlocks,
 						 enable  		  => '1',
+                   adjust          => s_adjustEndTimeRegister,
 						 increment  	  => s_key1 and s_programSelected(2),
 						 decrement  	  => s_key2 and s_programSelected(2),
                    cookDuration    => s_cookTime,
@@ -263,17 +273,20 @@ begin
                 actualTemperature  => s_actualTemperature);
 
    oven_fsm : work.OvenFSM(Behavioral)
-      port 	map(clk		           => CLOCK_50,
-                reset  			     => sync_sw(17),
-                startIn  		     => s_key3 and not sync_sw(1) and not sync_sw(0),
-                adjustGeneralClock => s_adjustGeneralClock,
-                actualTime  	     => s_actualTime,
-                cookDuration  	  => s_cookTime,
-                endTime  	        => s_endTime,
-                resetBlocks        => s_resetBlocks,
-                heatOn             => s_heatOn,
-                actualState        => s_actualFSMState);
-
+      port 	map(clk		               => CLOCK_50,
+                reset  			         => sync_sw(17),
+                startIn  		         => s_key3 and not sync_sw(1) and not sync_sw(0),
+                adjustGeneralClock     => s_adjustGeneralClock,
+                adjustEndTimeRegister  => s_adjustEndTimeRegister,
+                actualTime  	         => s_actualTime,
+                cookDuration  	      => s_cookTime,
+                endTime  	            => s_endTime,
+                enableBlinkGreenFinish => s_en_blinks_finish,
+                resetBlocks            => s_resetBlocks,
+                heatOn                 => s_heatOn,
+                actualState            => s_actualFSMState);
+					 
+	s_en_leds_finish_8bits <= (others => s_en_blinks_finish);
    -- display and hour/minute manipulation 
 
    -- GENERAL WATCH
@@ -379,5 +392,6 @@ begin
                   binInput  => s_hex0_bcd,
                   decOut_n  => HEX0);
 
-   LEDR <= s_actualFSMState;
+   LEDR(1 downto 0) <= s_actualFSMState;
+   LEDG(7 downto 0) <= (s_blink_1hz_8bits and s_en_leds_finish_8bits);
 end architecture Structural;

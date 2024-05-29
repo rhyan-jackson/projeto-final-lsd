@@ -6,6 +6,7 @@ entity EndTimeRegister is
 		port(clk            : in std_logic;
            reset          : in std_logic;
            enable         : in std_logic;
+			  adjust         : in std_logic;
            increment      : in std_logic;
            decrement      : in std_logic;
            cookDuration   : in std_logic_vector(15 downto 0);
@@ -39,8 +40,8 @@ begin
 								 s_endTime <= s_endTime - 5;
 							end if;
                 end if;
-					 
-					 if (s_endTime < s_actualTime + s_cookDuration) then 
+
+					 if (s_endTime < s_actualTime + s_cookDuration and adjust = '1') then 
                     s_endTime <= s_actualTime + s_cookDuration;
                 end if;
             end if;

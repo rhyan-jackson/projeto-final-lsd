@@ -20,18 +20,18 @@ begin
 			if (reset = '1') then
 				s_selectedTemperature <= x"0000";
 			elsif (enable = '1') then
-				if (increment = '1' and (s_selectedTemperature + 2 <= 300)) then
-						s_selectedTemperature <= s_selectedTemperature + 2;
-				elsif (decrement = '1' and (s_selectedTemperature - 2 >= 0)) then
-						s_selectedTemperature <= s_selectedTemperature - 2;
-				else
-					s_selectedTemperature <= s_selectedTemperature;
-				end if;
-
-				if (s_selectedTemperature > 300) then
-					s_selectedTemperature <= x"012C";
-				elsif (s_selectedTemperature < 0) then
-					s_selectedTemperature <= x"0000";
+				if (increment = '1') then
+						if (s_selectedTemperature >= 290) then
+							s_selectedTemperature <= x"012C";
+						else
+							s_selectedTemperature <= s_selectedTemperature + 10;
+						end if;
+				elsif (decrement = '1') then
+					if (s_selectedTemperature <= 10) then
+						s_selectedTemperature <= x"0000";
+					else
+						s_selectedTemperature <= s_selectedTemperature - 10;
+					end if;
 				end if;
 			end if;
 		end if;

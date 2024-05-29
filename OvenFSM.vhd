@@ -5,16 +5,18 @@ use IEEE.NUMERIC_STD.all;
 -- Moore Machine
 
 entity OvenFSM is
-	port(clk		           : in std_logic;
-		 reset		        : in std_logic;
-		 startIn            : in std_logic;
-		 actualTime         : in std_logic_vector(15 downto 0);
-		 cookDuration       : in std_logic_vector(15 downto 0);
-		 endTime            : in std_logic_vector(15 downto 0);
-		 resetBlocks        : out std_logic;
-		 heatOn             : out std_logic;
-		 adjustGeneralClock : out std_logic;
-		 actualState        : out std_logic_vector(1 downto 0)); -- actualState is to see externally the actual state.
+	port(clk		              : in std_logic;
+		 reset		           : in std_logic;
+		 startIn               : in std_logic;
+		 actualTime            : in std_logic_vector(15 downto 0);
+		 cookDuration          : in std_logic_vector(15 downto 0);
+		 endTime               : in std_logic_vector(15 downto 0);
+		 enableBlinkGreenFinish : out std_logic;
+		 resetBlocks           : out std_logic;
+		 heatOn                : out std_logic;
+		 adjustGeneralClock    : out std_logic;
+		 adjustEndTimeRegister : out std_logic;
+		 actualState           : out std_logic_vector(1 downto 0)); -- actualState is to see externally the actual state.
 end OvenFSM;
 
 architecture Behavioral of OvenFSM is
@@ -43,6 +45,8 @@ begin
 	comb_proc : process(s_currentState)
 	begin
 		adjustGeneralClock <= '0';
+		adjustEndTimeRegister <= '0';
+		enableBlinkGreenFinish <= '0';
 		heatOn <= '0';
 		resetBlocks <= '0';
 
@@ -50,6 +54,7 @@ begin
 		when START =>
 			actualState <= "00";
 			adjustGeneralClock <= '1';
+			adjustEndTimeRegister <= '1';
 
 			if (startIn = '1') then
 				s_nextState <= IDLE;
@@ -70,16 +75,18 @@ begin
 			actualState <= "10";
 			heatOn <= '1';
 
-			if (s_actualTime >= s_finishHour - 2) then
-				s_nextState <= FINISH;
+			if (s_actualTime >= s_finishHour) then
 				resetBlocks <= '1';
+				s_nextState <= FINISH;
 			else
 				s_nextState <= COOK;
 			end if;
 
 		when FINISH =>
 			actualState <= "11";
-			
+			adjustEndTimeRegister <= '1';
+			enableBlinkGreenFinish <= '1';
+
 			if (startIn = '1') then
 				s_nextState <= IDLE;
 			else

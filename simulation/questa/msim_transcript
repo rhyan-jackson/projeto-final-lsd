@@ -1,0 +1,212 @@
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2021.2 linux_x86_64 Apr 14 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# do Forno_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Questa Intel Starter FPGA Edition-64 vmap 2021.2 Lib Mapping Utility 2021.04 Apr 14 2021
+# vmap work rtl_work 
+# Copying /home/rhyan/.intel_fpga_lite/22.1.2/questa_fse/linux_x86_64/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/PulseGenerator.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 14:41:03 on May 28,2024
+# vcom -reportprogress 300 -93 -work work /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/PulseGenerator.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity PulseGenerator
+# -- Compiling architecture Behavioral of PulseGenerator
+# End time: 14:41:03 on May 28,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Bin16ToBCD.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 14:41:03 on May 28,2024
+# vcom -reportprogress 300 -93 -work work /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Bin16ToBCD.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Bin16ToBCD
+# -- Compiling architecture Behavioral of Bin16ToBCD
+# End time: 14:41:03 on May 28,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 14:41:03 on May 28,2024
+# vcom -reportprogress 300 -93 -work work /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity OvenFSM
+# -- Compiling architecture Behavioral of OvenFSM
+# End time: 14:41:03 on May 28,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Bin6toBCD.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 14:41:03 on May 28,2024
+# vcom -reportprogress 300 -93 -work work /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Bin6toBCD.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Bin6toBCD
+# -- Compiling architecture Behavioral of Bin6toBCD
+# End time: 14:41:03 on May 28,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/CookDurationRegister.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 14:41:03 on May 28,2024
+# vcom -reportprogress 300 -93 -work work /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/CookDurationRegister.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity CookDurationRegister
+# -- Compiling architecture Synchronous of CookDurationRegister
+# End time: 14:41:03 on May 28,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/DebounceUnit.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 14:41:03 on May 28,2024
+# vcom -reportprogress 300 -93 -work work /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/DebounceUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity DebounceUnit
+# -- Compiling architecture Behavioral of DebounceUnit
+# End time: 14:41:03 on May 28,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Bin7SegDecoder.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 14:41:03 on May 28,2024
+# vcom -reportprogress 300 -93 -work work /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Bin7SegDecoder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Bin7SegDecoder
+# -- Compiling architecture Behavioral of Bin7SegDecoder
+# End time: 14:41:03 on May 28,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/DisplayTime.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 14:41:03 on May 28,2024
+# vcom -reportprogress 300 -93 -work work /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/DisplayTime.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity DisplayTime
+# -- Compiling architecture Shell of DisplayTime
+# End time: 14:41:03 on May 28,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/EndTimeRegister.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 14:41:04 on May 28,2024
+# vcom -reportprogress 300 -93 -work work /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/EndTimeRegister.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity EndTimeRegister
+# -- Compiling architecture Synchronous of EndTimeRegister
+# End time: 14:41:04 on May 28,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/GeneralClock.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 14:41:04 on May 28,2024
+# vcom -reportprogress 300 -93 -work work /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/GeneralClock.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity GeneralClock
+# -- Compiling architecture Synchronous of GeneralClock
+# End time: 14:41:04 on May 28,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 14:41:04 on May 28,2024
+# vcom -reportprogress 300 -93 -work work /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity OvenTopLevel
+# -- Compiling architecture Structural of OvenTopLevel
+# -- Loading entity DebounceUnit
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(111): (vcom-1219) Expecting a component name, found "DebounceUnit(Behavioral)".
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(120): (vcom-1219) Expecting a component name, found "DebounceUnit(Behavioral)".
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(128): (vcom-1219) Expecting a component name, found "DebounceUnit(Behavioral)".
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(137): (vcom-1219) Expecting a component name, found "DebounceUnit(Behavioral)".
+# -- Loading entity PulseGenerator
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(212): (vcom-1219) Expecting a component name, found "PulseGenerator(Behavioral)".
+# ** Error: (vcom-11) Could not find work.blinkgenerator.
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(218): (vcom-1195) Cannot find expanded name "work.BlinkGenerator".
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(218): (vcom-1218) Expecting a component name, found "BlinkGenerator" (indexed name) instead.
+# -- Loading entity GeneralClock
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(225): (vcom-1219) Expecting a component name, found "GeneralClock(Synchronous)".
+# -- Loading entity EndTimeRegister
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(234): (vcom-1219) Expecting a component name, found "EndTimeRegister(Synchronous)".
+# -- Loading entity CookDurationRegister
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(245): (vcom-1219) Expecting a component name, found "CookDurationRegister(Synchronous)".
+# ** Error: (vcom-11) Could not find work.registertemperature.
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(253): (vcom-1195) Cannot find expanded name "work.RegisterTemperature".
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(253): (vcom-1218) Expecting a component name, found "RegisterTemperature" (indexed name) instead.
+# ** Error: (vcom-11) Could not find work.heater.
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(261): (vcom-1195) Cannot find expanded name "work.Heater".
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(261): (vcom-1218) Expecting a component name, found "Heater" (indexed name) instead.
+# -- Loading entity OvenFSM
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(269): (vcom-1219) Expecting a component name, found "OvenFSM(Behavioral)".
+# -- Loading entity DisplayTime
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(286): (vcom-1219) Expecting a component name, found "DisplayTime(Shell)".
+# -- Loading entity Bin6toBCD
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(291): (vcom-1219) Expecting a component name, found "Bin6toBCD(Behavioral)".
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(296): (vcom-1219) Expecting a component name, found "Bin6toBCD(Behavioral)".
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(302): (vcom-1219) Expecting a component name, found "DisplayTime(Shell)".
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(307): (vcom-1219) Expecting a component name, found "Bin6toBCD(Behavioral)".
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(312): (vcom-1219) Expecting a component name, found "Bin6toBCD(Behavioral)".
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(318): (vcom-1219) Expecting a component name, found "DisplayTime(Shell)".
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(323): (vcom-1219) Expecting a component name, found "Bin6toBCD(Behavioral)".
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(328): (vcom-1219) Expecting a component name, found "Bin6toBCD(Behavioral)".
+# -- Loading entity Bin16ToBCD
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(334): (vcom-1219) Expecting a component name, found "Bin16ToBCD(Behavioral)".
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(340): (vcom-1219) Expecting a component name, found "Bin16ToBCD(Behavioral)".
+# -- Loading entity Bin7SegDecoder
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(348): (vcom-1219) Expecting a component name, found "Bin7SegDecoder(Behavioral)".
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(353): (vcom-1219) Expecting a component name, found "Bin7SegDecoder(Behavioral)".
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(358): (vcom-1219) Expecting a component name, found "Bin7SegDecoder(Behavioral)".
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(363): (vcom-1219) Expecting a component name, found "Bin7SegDecoder(Behavioral)".
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(368): (vcom-1219) Expecting a component name, found "Bin7SegDecoder(Behavioral)".
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(373): (vcom-1219) Expecting a component name, found "Bin7SegDecoder(Behavioral)".
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(378): (vcom-1219) Expecting a component name, found "Bin7SegDecoder(Behavioral)".
+# ** Error (suppressible): /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(383): (vcom-1219) Expecting a component name, found "Bin7SegDecoder(Behavioral)".
+# ** Error: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(389): Illegal target for signal assignment.
+# ** Error: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd(389): near "<=": (vcom-1576) expecting => or '|' or '!'.
+# End time: 14:41:04 on May 28,2024, Elapsed time: 0:00:00
+# Errors: 39, Warnings: 0
+# ** Error: /home/rhyan/.intel_fpga_lite/22.1.2/questa_fse/linux_x86_64/vcom failed.
+# Error in macro ./Forno_run_msim_rtl_vhdl.do line 18
+# /home/rhyan/.intel_fpga_lite/22.1.2/questa_fse/linux_x86_64/vcom failed.
+#     while executing
+# "vcom -93 -work work {/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd}"
+# 
+# stdin: <EOF>

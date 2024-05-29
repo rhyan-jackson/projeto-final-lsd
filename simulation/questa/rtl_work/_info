@@ -1,0 +1,462 @@
+m255
+K4
+z2
+!s11e vcom 2021.2 2021.04, Apr 14 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/simulation/questa
+Ebin16tobcd
+Z1 w1716888735
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 1
+R0
+Z5 8/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Bin16ToBCD.vhd
+Z6 F/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Bin16ToBCD.vhd
+l0
+L6 1
+V9:O8ekGjR0I14eAf3U8jo0
+!s100 @W[[OneZP^@>ORkmH72CW2
+Z7 OL;C;2021.2;73
+31
+Z8 !s110 1716903663
+!i10b 1
+Z9 !s108 1716903663.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Bin16ToBCD.vhd|
+Z11 !s107 /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Bin16ToBCD.vhd|
+!i113 0
+Z12 o-93 -work work
+Z13 tExplicit 1 CvgOpt 0
+Abehavioral
+R2
+R3
+R4
+DEx4 work 10 bin16tobcd 0 22 9:O8ekGjR0I14eAf3U8jo0
+!i122 1
+l21
+L17 20
+VW@gOmDMW=o]FKW=`?;KXb3
+!s100 O2hMOk8^WlBBbRfHEA`>E2
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 0
+R12
+R13
+Ebin6tobcd
+Z14 w1716834057
+R2
+R3
+R4
+!i122 3
+R0
+Z15 8/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Bin6toBCD.vhd
+Z16 F/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Bin6toBCD.vhd
+l0
+L5 1
+VMJ4Ok5F@EGSG:J@`F=0=b1
+!s100 WBA2AI;DX4<TS@`e8PmDM3
+R7
+31
+R8
+!i10b 1
+R9
+Z17 !s90 -reportprogress|300|-93|-work|work|/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Bin6toBCD.vhd|
+Z18 !s107 /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Bin6toBCD.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R2
+R3
+R4
+DEx4 work 9 bin6tobcd 0 22 MJ4Ok5F@EGSG:J@`F=0=b1
+!i122 3
+l15
+L13 11
+VUc_Q8XkbhlfVjX:2So_ao0
+!s100 RFhX1]_DK:i6KjNNFN?iW0
+R7
+31
+R8
+!i10b 1
+R9
+R17
+R18
+!i113 0
+R12
+R13
+Ebin7segdecoder
+Z19 w1716884684
+R3
+R4
+!i122 6
+R0
+Z20 8/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Bin7SegDecoder.vhd
+Z21 F/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Bin7SegDecoder.vhd
+l0
+L4 1
+VLlS2n:8S4?<^0fjZj6GK61
+!s100 5kUbLDdfKRefAF5`NZo[Q1
+R7
+31
+R8
+!i10b 1
+R9
+Z22 !s90 -reportprogress|300|-93|-work|work|/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Bin7SegDecoder.vhd|
+Z23 !s107 /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Bin7SegDecoder.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R3
+R4
+DEx4 work 14 bin7segdecoder 0 22 LlS2n:8S4?<^0fjZj6GK61
+!i122 6
+l11
+L10 21
+VFCB^IbZ3:n9a=eK>O;?1U1
+!s100 TZU1?JYcmbGdIc=NSPg=m2
+R7
+31
+R8
+!i10b 1
+R9
+R22
+R23
+!i113 0
+R12
+R13
+Ecookdurationregister
+Z24 w1716890020
+R2
+R3
+R4
+!i122 4
+R0
+Z25 8/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/CookDurationRegister.vhd
+Z26 F/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/CookDurationRegister.vhd
+l0
+L5 1
+VM1o3`Z^jlliQiVWWgJEDJ1
+!s100 [a0EeL[`hPoL425zdL9Ba2
+R7
+31
+R8
+!i10b 1
+R9
+Z27 !s90 -reportprogress|300|-93|-work|work|/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/CookDurationRegister.vhd|
+Z28 !s107 /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/CookDurationRegister.vhd|
+!i113 0
+R12
+R13
+Asynchronous
+R2
+R3
+R4
+DEx4 work 20 cookdurationregister 0 22 M1o3`Z^jlliQiVWWgJEDJ1
+!i122 4
+l16
+L14 27
+VLbQYzLMAh2ZWmNX34ATm30
+!s100 nfN[VBE<[SMIEZPR`36]D0
+R7
+31
+R8
+!i10b 1
+R9
+R27
+R28
+!i113 0
+R12
+R13
+Edebounceunit
+Z29 w1716801206
+R2
+R3
+R4
+!i122 5
+R0
+Z30 8/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/DebounceUnit.vhd
+Z31 F/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/DebounceUnit.vhd
+l0
+L5 1
+VgHK[fX_44kCXFcGM]Db092
+!s100 Cg<VSR:RhQRLYFdR<K]c]3
+R7
+31
+R8
+!i10b 1
+R9
+Z32 !s90 -reportprogress|300|-93|-work|work|/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/DebounceUnit.vhd|
+Z33 !s107 /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/DebounceUnit.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R2
+R3
+R4
+DEx4 work 12 debounceunit 0 22 gHK[fX_44kCXFcGM]Db092
+!i122 5
+l23
+L15 50
+VbGWBK2]=cTnU3N4NdJKi:2
+!s100 RSdLcgKmL[]:O8ck9dCoI3
+R7
+31
+R8
+!i10b 1
+R9
+R32
+R33
+!i113 0
+R12
+R13
+Edisplaytime
+Z34 w1716827053
+R2
+R3
+R4
+!i122 7
+R0
+Z35 8/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/DisplayTime.vhd
+Z36 F/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/DisplayTime.vhd
+l0
+L6 1
+VjXGJfDO5ZPFFJNI68BhH52
+!s100 K>jhN5og@PMkg4zaN:`G]3
+R7
+31
+R8
+!i10b 1
+R9
+Z37 !s90 -reportprogress|300|-93|-work|work|/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/DisplayTime.vhd|
+Z38 !s107 /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/DisplayTime.vhd|
+!i113 0
+R12
+R13
+Ashell
+R2
+R3
+R4
+DEx4 work 11 displaytime 0 22 jXGJfDO5ZPFFJNI68BhH52
+!i122 7
+l17
+L14 9
+VdP;:d19[b8D2eeFLA?gLc2
+!s100 hXHUKW0U?HAUD`TC_Lcbj2
+R7
+31
+R8
+!i10b 1
+R9
+R37
+R38
+!i113 0
+R12
+R13
+Eendtimeregister
+Z39 w1716902338
+R2
+R3
+R4
+!i122 8
+R0
+Z40 8/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/EndTimeRegister.vhd
+Z41 F/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/EndTimeRegister.vhd
+l0
+L5 1
+VoG<XekiH3kOWmeg9k=T`R2
+!s100 2OR13l]@9NLjAOmC^K93o3
+R7
+31
+Z42 !s110 1716903664
+!i10b 1
+Z43 !s108 1716903664.000000
+Z44 !s90 -reportprogress|300|-93|-work|work|/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/EndTimeRegister.vhd|
+Z45 !s107 /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/EndTimeRegister.vhd|
+!i113 0
+R12
+R13
+Asynchronous
+R2
+R3
+R4
+DEx4 work 15 endtimeregister 0 22 oG<XekiH3kOWmeg9k=T`R2
+!i122 8
+l21
+L17 35
+V1JM@W>?mgWIZK9Z7QSinE3
+!s100 BhUHJA:n4zCRcIU2gnM>e1
+R7
+31
+R42
+!i10b 1
+R43
+R44
+R45
+!i113 0
+R12
+R13
+Egeneralclock
+Z46 w1716835046
+R2
+R3
+R4
+!i122 9
+R0
+Z47 8/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/GeneralClock.vhd
+Z48 F/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/GeneralClock.vhd
+l0
+L5 1
+VU`S^8LA8_Mnn=]E2C<1nj3
+!s100 nT;Hcoo=zB_zjeR1?dn^S0
+R7
+31
+R42
+!i10b 1
+R43
+Z49 !s90 -reportprogress|300|-93|-work|work|/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/GeneralClock.vhd|
+Z50 !s107 /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/GeneralClock.vhd|
+!i113 0
+R12
+R13
+Asynchronous
+R2
+R3
+R4
+DEx4 work 12 generalclock 0 22 U`S^8LA8_Mnn=]E2C<1nj3
+!i122 9
+l17
+L15 33
+V^;PgVDAb`f^^lK@G6JQ`f2
+!s100 3ZWUz3f`3OGUk0RGd4O7I0
+R7
+31
+R42
+!i10b 1
+R43
+R49
+R50
+!i113 0
+R12
+R13
+Eovenfsm
+Z51 w1716902752
+R2
+R3
+R4
+!i122 2
+R0
+Z52 8/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd
+Z53 F/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd
+l0
+L7 1
+VC4F?aC;7]go3:zHocn_9:2
+!s100 9e5EFD>=_d75WTkQ@KWB[3
+R7
+31
+R8
+!i10b 1
+R9
+Z54 !s90 -reportprogress|300|-93|-work|work|/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd|
+Z55 !s107 /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R2
+R3
+R4
+DEx4 work 7 ovenfsm 0 22 C4F?aC;7]go3:zHocn_9:2
+!i122 2
+l25
+L21 74
+VM4H4a2oQ3ISIkDZ2Y??S`0
+!s100 ;feYLOnG:mf81`CI7H=EJ2
+R7
+31
+R8
+!i10b 1
+R9
+R54
+R55
+!i113 0
+R12
+R13
+Eoventoplevel
+w1716903270
+R2
+R3
+R4
+!i122 10
+R0
+8/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd
+F/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd
+l0
+L5 1
+VXDU1n`mJDW;^XZec13BR=0
+!s100 YCPH0Cb@0IQS@XA9JcPkZ2
+R7
+31
+R42
+!i10b 1
+R43
+!s90 -reportprogress|300|-93|-work|work|/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd|
+!s107 /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd|
+!i113 0
+R12
+R13
+Epulsegenerator
+R29
+R2
+R3
+R4
+!i122 0
+R0
+Z56 8/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/PulseGenerator.vhd
+Z57 F/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/PulseGenerator.vhd
+l0
+L4 1
+V4V:M6>I6on9mHbDe^3[N<0
+!s100 4IOb6d9Yg1<1mjO:eaaIK1
+R7
+31
+R8
+!i10b 1
+R9
+Z58 !s90 -reportprogress|300|-93|-work|work|/home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/PulseGenerator.vhd|
+Z59 !s107 /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/PulseGenerator.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R2
+R3
+R4
+DEx4 work 14 pulsegenerator 0 22 4V:M6>I6on9mHbDe^3[N<0
+!i122 0
+l12
+L10 19
+VYF<=no?ZhTJ19WH8<kg6O3
+!s100 J?BAC<>H77Mczh=]>d8Do3
+R7
+31
+R8
+!i10b 1
+R9
+R58
+R59
+!i113 0
+R12
+R13
