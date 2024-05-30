@@ -28,15 +28,20 @@ begin
                if (s_actualTemperature < s_averageTemperature) then
                   s_actualTemperature <= s_actualTemperature + 10;
                else
-                  s_actualTemperature <= s_actualTemperature - 5;
+						if (s_actualTemperature <= 25) then
+							s_actualTemperature <= x"0014";
+						else
+							s_actualTemperature <= s_actualTemperature - 5;
+						end if;
                end if;
             else
-               if (s_actualTemperature <= 25) then
-                  s_actualTemperature <= x"0014";
-               else
-						s_actualTemperature <= s_actualTemperature - 5;
-            end if;
-         end if;
+					if (s_actualTemperature <= 25) then
+							s_actualTemperature <= x"0014";
+						else
+							s_actualTemperature <= s_actualTemperature - 5;
+						end if;
+				end if;
+			end if;
 		end if;
 	end process;
    actualTemperature <= std_logic_vector(s_actualTemperature);

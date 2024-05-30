@@ -1,5 +1,5 @@
 Fitter report for Forno
-Tue May 28 20:11:17 2024
+Wed May 29 17:58:55 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -69,17 +69,17 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                      ;
 +------------------------------------+------------------------------------------------+
-; Fitter Status                      ; Successful - Tue May 28 20:11:17 2024          ;
+; Fitter Status                      ; Successful - Wed May 29 17:58:55 2024          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; Forno                                          ;
 ; Top-level Entity Name              ; OvenTopLevel                                   ;
 ; Family                             ; Cyclone IV E                                   ;
 ; Device                             ; EP4CE115F29C7                                  ;
 ; Timing Models                      ; Final                                          ;
-; Total logic elements               ; 7,071 / 114,480 ( 6 % )                        ;
-;     Total combinational functions  ; 7,067 / 114,480 ( 6 % )                        ;
-;     Dedicated logic registers      ; 216 / 114,480 ( < 1 % )                        ;
-; Total registers                    ; 216                                            ;
+; Total logic elements               ; 7,123 / 114,480 ( 6 % )                        ;
+;     Total combinational functions  ; 7,120 / 114,480 ( 6 % )                        ;
+;     Dedicated logic registers      ; 249 / 114,480 ( < 1 % )                        ;
+; Total registers                    ; 249                                            ;
 ; Total pins                         ; 89 / 529 ( 17 % )                              ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0 / 3,981,312 ( 0 % )                          ;
@@ -609,8 +609,8 @@ https://fpgasoftware.intel.com/eula.
 ; Type                ; Total [A + B]       ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+---------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                     ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 7479 ) ; 0.00 % ( 0 / 7479 )        ; 0.00 % ( 0 / 7479 )      ;
-;     -- Achieved     ; 0.00 % ( 0 / 7479 ) ; 0.00 % ( 0 / 7479 )        ; 0.00 % ( 0 / 7479 )      ;
+;     -- Requested    ; 0.00 % ( 0 / 7565 ) ; 0.00 % ( 0 / 7565 )        ; 0.00 % ( 0 / 7565 )      ;
+;     -- Achieved     ; 0.00 % ( 0 / 7565 ) ; 0.00 % ( 0 / 7565 )        ; 0.00 % ( 0 / 7565 )      ;
 ;                     ;                     ;                            ;                          ;
 ; Routing (by net)    ;                     ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )    ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -633,7 +633,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 7469 )   ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 7555 )   ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 10 )     ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -649,26 +649,26 @@ The pin-out file can be found in /home/rhyan/Documents/ua/1.2/LSD/projeto-final-
 +---------------------------------------------+-------------------------+
 ; Resource                                    ; Usage                   ;
 +---------------------------------------------+-------------------------+
-; Total logic elements                        ; 7,071 / 114,480 ( 6 % ) ;
-;     -- Combinational with no register       ; 6855                    ;
-;     -- Register only                        ; 4                       ;
-;     -- Combinational with a register        ; 212                     ;
+; Total logic elements                        ; 7,123 / 114,480 ( 6 % ) ;
+;     -- Combinational with no register       ; 6874                    ;
+;     -- Register only                        ; 3                       ;
+;     -- Combinational with a register        ; 246                     ;
 ;                                             ;                         ;
 ; Logic element usage by number of LUT inputs ;                         ;
-;     -- 4 input functions                    ; 1817                    ;
-;     -- 3 input functions                    ; 2175                    ;
-;     -- <=2 input functions                  ; 3075                    ;
-;     -- Register only                        ; 4                       ;
+;     -- 4 input functions                    ; 1834                    ;
+;     -- 3 input functions                    ; 2195                    ;
+;     -- <=2 input functions                  ; 3091                    ;
+;     -- Register only                        ; 3                       ;
 ;                                             ;                         ;
 ; Logic elements by mode                      ;                         ;
-;     -- normal mode                          ; 4629                    ;
-;     -- arithmetic mode                      ; 2438                    ;
+;     -- normal mode                          ; 4659                    ;
+;     -- arithmetic mode                      ; 2461                    ;
 ;                                             ;                         ;
-; Total registers*                            ; 216 / 117,053 ( < 1 % ) ;
-;     -- Dedicated logic registers            ; 216 / 114,480 ( < 1 % ) ;
+; Total registers*                            ; 249 / 117,053 ( < 1 % ) ;
+;     -- Dedicated logic registers            ; 249 / 114,480 ( < 1 % ) ;
 ;     -- I/O registers                        ; 0 / 2,573 ( 0 % )       ;
 ;                                             ;                         ;
-; Total LABs:  partially or completely used   ; 515 / 7,155 ( 7 % )     ;
+; Total LABs:  partially or completely used   ; 517 / 7,155 ( 7 % )     ;
 ; Virtual pins                                ; 0                       ;
 ; I/O pins                                    ; 89 / 529 ( 17 % )       ;
 ;     -- Clock pins                           ; 1 / 7 ( 14 % )          ;
@@ -686,12 +686,12 @@ The pin-out file can be found in /home/rhyan/Documents/ua/1.2/LSD/projeto-final-
 ; ASMI blocks                                 ; 0 / 1 ( 0 % )           ;
 ; Oscillator blocks                           ; 0 / 1 ( 0 % )           ;
 ; Impedance control blocks                    ; 0 / 4 ( 0 % )           ;
-; Average interconnect usage (total/H/V)      ; 1.6% / 1.5% / 1.9%      ;
-; Peak interconnect usage (total/H/V)         ; 15.8% / 14.0% / 19.7%   ;
-; Maximum fan-out                             ; 215                     ;
+; Average interconnect usage (total/H/V)      ; 1.7% / 1.5% / 1.9%      ;
+; Peak interconnect usage (total/H/V)         ; 17.9% / 16.7% / 19.7%   ;
+; Maximum fan-out                             ; 248                     ;
 ; Highest non-global fan-out                  ; 92                      ;
-; Total fan-out                               ; 20301                   ;
-; Average fan-out                             ; 2.71                    ;
+; Total fan-out                               ; 20559                   ;
+; Average fan-out                             ; 2.72                    ;
 +---------------------------------------------+-------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -704,26 +704,26 @@ The pin-out file can be found in /home/rhyan/Documents/ua/1.2/LSD/projeto-final-
 +---------------------------------------------+------------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                    ; Low                            ;
 ;                                             ;                        ;                                ;
-; Total logic elements                        ; 7071 / 114480 ( 6 % )  ; 0 / 114480 ( 0 % )             ;
-;     -- Combinational with no register       ; 6855                   ; 0                              ;
-;     -- Register only                        ; 4                      ; 0                              ;
-;     -- Combinational with a register        ; 212                    ; 0                              ;
+; Total logic elements                        ; 7123 / 114480 ( 6 % )  ; 0 / 114480 ( 0 % )             ;
+;     -- Combinational with no register       ; 6874                   ; 0                              ;
+;     -- Register only                        ; 3                      ; 0                              ;
+;     -- Combinational with a register        ; 246                    ; 0                              ;
 ;                                             ;                        ;                                ;
 ; Logic element usage by number of LUT inputs ;                        ;                                ;
-;     -- 4 input functions                    ; 1817                   ; 0                              ;
-;     -- 3 input functions                    ; 2175                   ; 0                              ;
-;     -- <=2 input functions                  ; 3075                   ; 0                              ;
-;     -- Register only                        ; 4                      ; 0                              ;
+;     -- 4 input functions                    ; 1834                   ; 0                              ;
+;     -- 3 input functions                    ; 2195                   ; 0                              ;
+;     -- <=2 input functions                  ; 3091                   ; 0                              ;
+;     -- Register only                        ; 3                      ; 0                              ;
 ;                                             ;                        ;                                ;
 ; Logic elements by mode                      ;                        ;                                ;
-;     -- normal mode                          ; 4629                   ; 0                              ;
-;     -- arithmetic mode                      ; 2438                   ; 0                              ;
+;     -- normal mode                          ; 4659                   ; 0                              ;
+;     -- arithmetic mode                      ; 2461                   ; 0                              ;
 ;                                             ;                        ;                                ;
-; Total registers                             ; 216                    ; 0                              ;
-;     -- Dedicated logic registers            ; 216 / 114480 ( < 1 % ) ; 0 / 114480 ( 0 % )             ;
+; Total registers                             ; 249                    ; 0                              ;
+;     -- Dedicated logic registers            ; 249 / 114480 ( < 1 % ) ; 0 / 114480 ( 0 % )             ;
 ;     -- I/O registers                        ; 0                      ; 0                              ;
 ;                                             ;                        ;                                ;
-; Total LABs:  partially or completely used   ; 515 / 7155 ( 7 % )     ; 0 / 7155 ( 0 % )               ;
+; Total LABs:  partially or completely used   ; 517 / 7155 ( 7 % )     ; 0 / 7155 ( 0 % )               ;
 ;                                             ;                        ;                                ;
 ; Virtual pins                                ; 0                      ; 0                              ;
 ; I/O pins                                    ; 89                     ; 0                              ;
@@ -739,8 +739,8 @@ The pin-out file can be found in /home/rhyan/Documents/ua/1.2/LSD/projeto-final-
 ;     -- Registered Output Connections        ; 0                      ; 0                              ;
 ;                                             ;                        ;                                ;
 ; Internal Connections                        ;                        ;                                ;
-;     -- Total Connections                    ; 20296                  ; 5                              ;
-;     -- Registered Connections               ; 1470                   ; 0                              ;
+;     -- Total Connections                    ; 20554                  ; 5                              ;
+;     -- Registered Connections               ; 1568                   ; 0                              ;
 ;                                             ;                        ;                                ;
 ; External Connections                        ;                        ;                                ;
 ;     -- Top                                  ; 0                      ; 0                              ;
@@ -772,7 +772,7 @@ The pin-out file can be found in /home/rhyan/Documents/ua/1.2/LSD/projeto-final-
 +----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 ; Name     ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination Control Block ; Location assigned by ; Slew Rate ;
 +----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
-; CLOCK_50 ; Y2    ; 2        ; 0            ; 36           ; 14           ; 216                   ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
+; CLOCK_50 ; Y2    ; 2        ; 0            ; 36           ; 14           ; 249                   ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
 ; KEY[0]   ; M23   ; 6        ; 115          ; 40           ; 7            ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
 ; KEY[1]   ; M21   ; 6        ; 115          ; 53           ; 14           ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
 ; KEY[2]   ; N21   ; 6        ; 115          ; 42           ; 14           ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
@@ -1800,7 +1800,7 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +--------------------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
 ; Compilation Hierarchy Node                       ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name                                                                                                                                  ; Entity Name          ; Library Name ;
 +--------------------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
-; |OvenTopLevel                                    ; 7071 (106)  ; 216 (3)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 89   ; 0            ; 6855 (103)   ; 4 (1)             ; 212 (2)          ; |OvenTopLevel                                                                                                                                        ; OvenTopLevel         ; work         ;
+; |OvenTopLevel                                    ; 7123 (113)  ; 249 (3)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 89   ; 0            ; 6874 (112)   ; 3 (0)             ; 246 (1)          ; |OvenTopLevel                                                                                                                                        ; OvenTopLevel         ; work         ;
 ;    |Bin16ToBCD:bin16_to_bcd_actuaTemp|           ; 1355 (0)    ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 1355 (0)     ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin16ToBCD:bin16_to_bcd_actuaTemp                                                                                                      ; Bin16ToBCD           ; work         ;
 ;       |lpm_divide:Div0|                          ; 358 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 358 (0)      ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin16ToBCD:bin16_to_bcd_actuaTemp|lpm_divide:Div0                                                                                      ; lpm_divide           ; work         ;
 ;          |lpm_divide_lkm:auto_generated|         ; 358 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 358 (0)      ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin16ToBCD:bin16_to_bcd_actuaTemp|lpm_divide:Div0|lpm_divide_lkm:auto_generated                                                        ; lpm_divide_lkm       ; work         ;
@@ -1835,15 +1835,15 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;          |lpm_divide_ocm:auto_generated|         ; 358 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 358 (0)      ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin16ToBCD:bin16_to_bcd_averageTemp|lpm_divide:Mod1|lpm_divide_ocm:auto_generated                                                      ; lpm_divide_ocm       ; work         ;
 ;             |sign_div_unsign_dnh:divider|        ; 358 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 358 (0)      ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin16ToBCD:bin16_to_bcd_averageTemp|lpm_divide:Mod1|lpm_divide_ocm:auto_generated|sign_div_unsign_dnh:divider                          ; sign_div_unsign_dnh  ; work         ;
 ;                |alt_u_div_eaf:divider|           ; 358 (358)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 358 (358)    ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin16ToBCD:bin16_to_bcd_averageTemp|lpm_divide:Mod1|lpm_divide_ocm:auto_generated|sign_div_unsign_dnh:divider|alt_u_div_eaf:divider    ; alt_u_div_eaf        ; work         ;
-;    |Bin6toBCD:bin6_to_bcd_hour_cookTime|         ; 69 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 69 (0)       ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_cookTime                                                                                                    ; Bin6toBCD            ; work         ;
+;    |Bin6toBCD:bin6_to_bcd_hour_cookTime|         ; 69 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 68 (0)       ; 0 (0)             ; 1 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_cookTime                                                                                                    ; Bin6toBCD            ; work         ;
 ;       |lpm_divide:Div0|                          ; 33 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 33 (0)       ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_cookTime|lpm_divide:Div0                                                                                    ; lpm_divide           ; work         ;
 ;          |lpm_divide_jhm:auto_generated|         ; 33 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 33 (0)       ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_cookTime|lpm_divide:Div0|lpm_divide_jhm:auto_generated                                                      ; lpm_divide_jhm       ; work         ;
 ;             |sign_div_unsign_bkh:divider|        ; 33 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 33 (0)       ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_cookTime|lpm_divide:Div0|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider                          ; sign_div_unsign_bkh  ; work         ;
 ;                |alt_u_div_a4f:divider|           ; 33 (33)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 33 (33)      ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_cookTime|lpm_divide:Div0|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider    ; alt_u_div_a4f        ; work         ;
-;       |lpm_divide:Mod0|                          ; 36 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 36 (0)       ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_cookTime|lpm_divide:Mod0                                                                                    ; lpm_divide           ; work         ;
-;          |lpm_divide_m9m:auto_generated|         ; 36 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 36 (0)       ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_cookTime|lpm_divide:Mod0|lpm_divide_m9m:auto_generated                                                      ; lpm_divide_m9m       ; work         ;
-;             |sign_div_unsign_bkh:divider|        ; 36 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 36 (0)       ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_cookTime|lpm_divide:Mod0|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider                          ; sign_div_unsign_bkh  ; work         ;
-;                |alt_u_div_a4f:divider|           ; 36 (36)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 36 (36)      ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_cookTime|lpm_divide:Mod0|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider    ; alt_u_div_a4f        ; work         ;
+;       |lpm_divide:Mod0|                          ; 36 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 35 (0)       ; 0 (0)             ; 1 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_cookTime|lpm_divide:Mod0                                                                                    ; lpm_divide           ; work         ;
+;          |lpm_divide_m9m:auto_generated|         ; 36 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 35 (0)       ; 0 (0)             ; 1 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_cookTime|lpm_divide:Mod0|lpm_divide_m9m:auto_generated                                                      ; lpm_divide_m9m       ; work         ;
+;             |sign_div_unsign_bkh:divider|        ; 36 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 35 (0)       ; 0 (0)             ; 1 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_cookTime|lpm_divide:Mod0|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider                          ; sign_div_unsign_bkh  ; work         ;
+;                |alt_u_div_a4f:divider|           ; 36 (36)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 35 (35)      ; 0 (0)             ; 1 (1)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_cookTime|lpm_divide:Mod0|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider    ; alt_u_div_a4f        ; work         ;
 ;    |Bin6toBCD:bin6_to_bcd_hour_endTime|          ; 71 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 71 (0)       ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_endTime                                                                                                     ; Bin6toBCD            ; work         ;
 ;       |lpm_divide:Div0|                          ; 35 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 35 (0)       ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_endTime|lpm_divide:Div0                                                                                     ; lpm_divide           ; work         ;
 ;          |lpm_divide_jhm:auto_generated|         ; 35 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 35 (0)       ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_endTime|lpm_divide:Div0|lpm_divide_jhm:auto_generated                                                       ; lpm_divide_jhm       ; work         ;
@@ -1853,15 +1853,15 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;          |lpm_divide_m9m:auto_generated|         ; 36 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 36 (0)       ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_endTime|lpm_divide:Mod0|lpm_divide_m9m:auto_generated                                                       ; lpm_divide_m9m       ; work         ;
 ;             |sign_div_unsign_bkh:divider|        ; 36 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 36 (0)       ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_endTime|lpm_divide:Mod0|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider                           ; sign_div_unsign_bkh  ; work         ;
 ;                |alt_u_div_a4f:divider|           ; 36 (36)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 36 (36)      ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_endTime|lpm_divide:Mod0|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider     ; alt_u_div_a4f        ; work         ;
-;    |Bin6toBCD:bin6_to_bcd_hour_gen_clock|        ; 69 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 69 (0)       ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_gen_clock                                                                                                   ; Bin6toBCD            ; work         ;
+;    |Bin6toBCD:bin6_to_bcd_hour_gen_clock|        ; 69 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 68 (0)       ; 0 (0)             ; 1 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_gen_clock                                                                                                   ; Bin6toBCD            ; work         ;
 ;       |lpm_divide:Div0|                          ; 33 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 33 (0)       ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_gen_clock|lpm_divide:Div0                                                                                   ; lpm_divide           ; work         ;
 ;          |lpm_divide_jhm:auto_generated|         ; 33 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 33 (0)       ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_gen_clock|lpm_divide:Div0|lpm_divide_jhm:auto_generated                                                     ; lpm_divide_jhm       ; work         ;
 ;             |sign_div_unsign_bkh:divider|        ; 33 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 33 (0)       ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_gen_clock|lpm_divide:Div0|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider                         ; sign_div_unsign_bkh  ; work         ;
 ;                |alt_u_div_a4f:divider|           ; 33 (33)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 33 (33)      ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_gen_clock|lpm_divide:Div0|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider   ; alt_u_div_a4f        ; work         ;
-;       |lpm_divide:Mod0|                          ; 36 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 36 (0)       ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_gen_clock|lpm_divide:Mod0                                                                                   ; lpm_divide           ; work         ;
-;          |lpm_divide_m9m:auto_generated|         ; 36 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 36 (0)       ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_gen_clock|lpm_divide:Mod0|lpm_divide_m9m:auto_generated                                                     ; lpm_divide_m9m       ; work         ;
-;             |sign_div_unsign_bkh:divider|        ; 36 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 36 (0)       ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_gen_clock|lpm_divide:Mod0|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider                         ; sign_div_unsign_bkh  ; work         ;
-;                |alt_u_div_a4f:divider|           ; 36 (36)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 36 (36)      ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_gen_clock|lpm_divide:Mod0|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider   ; alt_u_div_a4f        ; work         ;
+;       |lpm_divide:Mod0|                          ; 36 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 35 (0)       ; 0 (0)             ; 1 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_gen_clock|lpm_divide:Mod0                                                                                   ; lpm_divide           ; work         ;
+;          |lpm_divide_m9m:auto_generated|         ; 36 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 35 (0)       ; 0 (0)             ; 1 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_gen_clock|lpm_divide:Mod0|lpm_divide_m9m:auto_generated                                                     ; lpm_divide_m9m       ; work         ;
+;             |sign_div_unsign_bkh:divider|        ; 36 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 35 (0)       ; 0 (0)             ; 1 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_gen_clock|lpm_divide:Mod0|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider                         ; sign_div_unsign_bkh  ; work         ;
+;                |alt_u_div_a4f:divider|           ; 36 (36)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 35 (35)      ; 0 (0)             ; 1 (1)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_gen_clock|lpm_divide:Mod0|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider   ; alt_u_div_a4f        ; work         ;
 ;    |Bin6toBCD:bin6_to_bcd_min_cookTime|          ; 71 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 71 (0)       ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_min_cookTime                                                                                                     ; Bin6toBCD            ; work         ;
 ;       |lpm_divide:Div0|                          ; 35 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 35 (0)       ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_min_cookTime|lpm_divide:Div0                                                                                     ; lpm_divide           ; work         ;
 ;          |lpm_divide_jhm:auto_generated|         ; 35 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 35 (0)       ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_min_cookTime|lpm_divide:Div0|lpm_divide_jhm:auto_generated                                                       ; lpm_divide_jhm       ; work         ;
@@ -1898,15 +1898,15 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;    |Bin7SegDecoder:bin7seg_hex6|                 ; 7 (7)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin7SegDecoder:bin7seg_hex6                                                                                                            ; Bin7SegDecoder       ; work         ;
 ;    |Bin7SegDecoder:bin7seg_hex7|                 ; 7 (7)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|Bin7SegDecoder:bin7seg_hex7                                                                                                            ; Bin7SegDecoder       ; work         ;
 ;    |BlinkGenerator:blink_1hz|                    ; 32 (32)     ; 25 (25)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 25 (25)          ; |OvenTopLevel|BlinkGenerator:blink_1hz                                                                                                               ; BlinkGenerator       ; work         ;
-;    |CookDurationRegister:cook_duration_register| ; 69 (69)     ; 16 (16)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 53 (53)      ; 0 (0)             ; 16 (16)          ; |OvenTopLevel|CookDurationRegister:cook_duration_register                                                                                            ; CookDurationRegister ; work         ;
-;    |DebounceUnit:debouncer_key1|                 ; 68 (68)     ; 26 (26)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 42 (42)      ; 0 (0)             ; 26 (26)          ; |OvenTopLevel|DebounceUnit:debouncer_key1                                                                                                            ; DebounceUnit         ; work         ;
-;    |DebounceUnit:debouncer_key2|                 ; 69 (69)     ; 26 (26)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 43 (43)      ; 1 (1)             ; 25 (25)          ; |OvenTopLevel|DebounceUnit:debouncer_key2                                                                                                            ; DebounceUnit         ; work         ;
+;    |CookDurationRegister:cook_duration_register| ; 63 (63)     ; 16 (16)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 47 (47)      ; 0 (0)             ; 16 (16)          ; |OvenTopLevel|CookDurationRegister:cook_duration_register                                                                                            ; CookDurationRegister ; work         ;
+;    |DebounceUnit:debouncer_key1|                 ; 67 (67)     ; 26 (26)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 41 (41)      ; 0 (0)             ; 26 (26)          ; |OvenTopLevel|DebounceUnit:debouncer_key1                                                                                                            ; DebounceUnit         ; work         ;
+;    |DebounceUnit:debouncer_key2|                 ; 67 (67)     ; 26 (26)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 41 (41)      ; 0 (0)             ; 26 (26)          ; |OvenTopLevel|DebounceUnit:debouncer_key2                                                                                                            ; DebounceUnit         ; work         ;
 ;    |DebounceUnit:debouncer_key3|                 ; 68 (68)     ; 26 (26)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 42 (42)      ; 1 (1)             ; 25 (25)          ; |OvenTopLevel|DebounceUnit:debouncer_key3                                                                                                            ; DebounceUnit         ; work         ;
-;    |DisplayTime:display_time_cookTime|           ; 1038 (0)    ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 1033 (0)     ; 0 (0)             ; 5 (0)            ; |OvenTopLevel|DisplayTime:display_time_cookTime                                                                                                      ; DisplayTime          ; work         ;
-;       |lpm_divide:Div0|                          ; 199 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 194 (0)      ; 0 (0)             ; 5 (0)            ; |OvenTopLevel|DisplayTime:display_time_cookTime|lpm_divide:Div0                                                                                      ; lpm_divide           ; work         ;
-;          |lpm_divide_r0p:auto_generated|         ; 199 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 194 (0)      ; 0 (0)             ; 5 (0)            ; |OvenTopLevel|DisplayTime:display_time_cookTime|lpm_divide:Div0|lpm_divide_r0p:auto_generated                                                        ; lpm_divide_r0p       ; work         ;
-;             |abs_divider_mbg:divider|            ; 199 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 194 (0)      ; 0 (0)             ; 5 (0)            ; |OvenTopLevel|DisplayTime:display_time_cookTime|lpm_divide:Div0|lpm_divide_r0p:auto_generated|abs_divider_mbg:divider                                ; abs_divider_mbg      ; work         ;
-;                |alt_u_div_a7f:divider|           ; 199 (199)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 194 (194)    ; 0 (0)             ; 5 (5)            ; |OvenTopLevel|DisplayTime:display_time_cookTime|lpm_divide:Div0|lpm_divide_r0p:auto_generated|abs_divider_mbg:divider|alt_u_div_a7f:divider          ; alt_u_div_a7f        ; work         ;
+;    |DisplayTime:display_time_cookTime|           ; 1038 (0)    ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 1038 (0)     ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|DisplayTime:display_time_cookTime                                                                                                      ; DisplayTime          ; work         ;
+;       |lpm_divide:Div0|                          ; 199 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 199 (0)      ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|DisplayTime:display_time_cookTime|lpm_divide:Div0                                                                                      ; lpm_divide           ; work         ;
+;          |lpm_divide_r0p:auto_generated|         ; 199 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 199 (0)      ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|DisplayTime:display_time_cookTime|lpm_divide:Div0|lpm_divide_r0p:auto_generated                                                        ; lpm_divide_r0p       ; work         ;
+;             |abs_divider_mbg:divider|            ; 199 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 199 (0)      ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|DisplayTime:display_time_cookTime|lpm_divide:Div0|lpm_divide_r0p:auto_generated|abs_divider_mbg:divider                                ; abs_divider_mbg      ; work         ;
+;                |alt_u_div_a7f:divider|           ; 199 (199)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 199 (199)    ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|DisplayTime:display_time_cookTime|lpm_divide:Div0|lpm_divide_r0p:auto_generated|abs_divider_mbg:divider|alt_u_div_a7f:divider          ; alt_u_div_a7f        ; work         ;
 ;       |lpm_divide:Mod0|                          ; 839 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 839 (0)      ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|DisplayTime:display_time_cookTime|lpm_divide:Mod0                                                                                      ; lpm_divide           ; work         ;
 ;          |lpm_divide_lcm:auto_generated|         ; 839 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 839 (0)      ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|DisplayTime:display_time_cookTime|lpm_divide:Mod0|lpm_divide_lcm:auto_generated                                                        ; lpm_divide_lcm       ; work         ;
 ;             |sign_div_unsign_anh:divider|        ; 839 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 839 (0)      ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|DisplayTime:display_time_cookTime|lpm_divide:Mod0|lpm_divide_lcm:auto_generated|sign_div_unsign_anh:divider                            ; sign_div_unsign_anh  ; work         ;
@@ -1929,11 +1929,13 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;          |lpm_divide_lcm:auto_generated|         ; 839 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 839 (0)      ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|DisplayTime:display_time_general_clock|lpm_divide:Mod0|lpm_divide_lcm:auto_generated                                                   ; lpm_divide_lcm       ; work         ;
 ;             |sign_div_unsign_anh:divider|        ; 839 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 839 (0)      ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|DisplayTime:display_time_general_clock|lpm_divide:Mod0|lpm_divide_lcm:auto_generated|sign_div_unsign_anh:divider                       ; sign_div_unsign_anh  ; work         ;
 ;                |alt_u_div_8af:divider|           ; 839 (839)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 839 (839)    ; 0 (0)             ; 0 (0)            ; |OvenTopLevel|DisplayTime:display_time_general_clock|lpm_divide:Mod0|lpm_divide_lcm:auto_generated|sign_div_unsign_anh:divider|alt_u_div_8af:divider ; alt_u_div_8af        ; work         ;
-;    |EndTimeRegister:end_time_register|           ; 85 (85)     ; 16 (16)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 69 (69)      ; 0 (0)             ; 16 (16)          ; |OvenTopLevel|EndTimeRegister:end_time_register                                                                                                      ; EndTimeRegister      ; work         ;
+;    |EndTimeRegister:end_time_register|           ; 86 (86)     ; 16 (16)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 70 (70)      ; 0 (0)             ; 16 (16)          ; |OvenTopLevel|EndTimeRegister:end_time_register                                                                                                      ; EndTimeRegister      ; work         ;
 ;    |GeneralClock:general_clock|                  ; 54 (54)     ; 16 (16)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 38 (38)      ; 1 (1)             ; 15 (15)          ; |OvenTopLevel|GeneralClock:general_clock                                                                                                             ; GeneralClock         ; work         ;
-;    |Heater:heater|                               ; 70 (70)     ; 16 (16)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 54 (54)      ; 0 (0)             ; 16 (16)          ; |OvenTopLevel|Heater:heater                                                                                                                          ; Heater               ; work         ;
-;    |OvenFSM:oven_fsm|                            ; 57 (57)     ; 4 (4)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 53 (53)      ; 0 (0)             ; 4 (4)            ; |OvenTopLevel|OvenFSM:oven_fsm                                                                                                                       ; OvenFSM              ; work         ;
+;    |Heater:heater|                               ; 73 (73)     ; 16 (16)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 57 (57)      ; 0 (0)             ; 16 (16)          ; |OvenTopLevel|Heater:heater                                                                                                                          ; Heater               ; work         ;
+;    |OvenFSM:oven_fsm|                            ; 57 (57)     ; 4 (4)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 53 (53)      ; 1 (1)             ; 3 (3)            ; |OvenTopLevel|OvenFSM:oven_fsm                                                                                                                       ; OvenFSM              ; work         ;
+;    |ProgressLeds:progress_bar_control|           ; 12 (12)     ; 8 (8)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 8 (8)            ; |OvenTopLevel|ProgressLeds:progress_bar_control                                                                                                      ; ProgressLeds         ; work         ;
 ;    |PulseGenerator:pulse_1hz|                    ; 37 (37)     ; 27 (27)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 10 (10)      ; 0 (0)             ; 27 (27)          ; |OvenTopLevel|PulseGenerator:pulse_1hz                                                                                                               ; PulseGenerator       ; work         ;
+;    |PulseGenerator:pulse_4hz|                    ; 33 (33)     ; 25 (25)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 25 (25)          ; |OvenTopLevel|PulseGenerator:pulse_4hz                                                                                                               ; PulseGenerator       ; work         ;
 ;    |RegisterTemperature:register_temperature|    ; 53 (53)     ; 15 (15)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 38 (38)      ; 0 (0)             ; 15 (15)          ; |OvenTopLevel|RegisterTemperature:register_temperature                                                                                               ; RegisterTemperature  ; work         ;
 +--------------------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -2028,11 +2030,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; LEDG[7]  ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; SW[0]    ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
 ; CLOCK_50 ; Input    ; (0) 0 ps      ; --            ; --                    ; --  ; --   ;
-; SW[1]    ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
-; SW[17]   ; Input    ; --            ; (6) 1314 ps   ; --                    ; --  ; --   ;
+; SW[1]    ; Input    ; --            ; (6) 1314 ps   ; --                    ; --  ; --   ;
+; SW[17]   ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
 ; KEY[1]   ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
 ; KEY[2]   ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
-; KEY[3]   ; Input    ; --            ; (6) 1314 ps   ; --                    ; --  ; --   ;
+; KEY[3]   ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
 +----------+----------+---------------+---------------+-----------------------+-----+------+
 
 
@@ -2061,44 +2063,46 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - sync_sw[0]                              ; 0                 ; 6       ;
 ; CLOCK_50                                       ;                   ;         ;
 ; SW[1]                                          ;                   ;         ;
-;      - sync_sw[1]                              ; 0                 ; 6       ;
+;      - sync_sw[1]                              ; 1                 ; 6       ;
 ; SW[17]                                         ;                   ;         ;
-;      - sync_sw[17]~feeder                      ; 1                 ; 6       ;
+;      - sync_sw[17]                             ; 0                 ; 6       ;
 ; KEY[1]                                         ;                   ;         ;
 ;      - DebounceUnit:debouncer_key1|s_dirtyIn~0 ; 0                 ; 6       ;
 ; KEY[2]                                         ;                   ;         ;
 ;      - DebounceUnit:debouncer_key2|s_dirtyIn~0 ; 0                 ; 6       ;
 ; KEY[3]                                         ;                   ;         ;
-;      - DebounceUnit:debouncer_key3|s_dirtyIn~0 ; 1                 ; 6       ;
+;      - DebounceUnit:debouncer_key3|s_dirtyIn~0 ; 0                 ; 6       ;
 +------------------------------------------------+-------------------+---------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                                                                                    ;
-+-----------------------------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; Name                                                                  ; Location           ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+-----------------------------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; BlinkGenerator:blink_1hz|count_proc~6                                 ; LCCOMB_X61_Y34_N26 ; 25      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; CLOCK_50                                                              ; PIN_Y2             ; 215     ; Clock        ; yes    ; Global Clock         ; GCLK4            ; --                        ;
-; CLOCK_50                                                              ; PIN_Y2             ; 2       ; Clock        ; no     ; --                   ; --               ; --                        ;
-; CookDurationRegister:cook_duration_register|s_cookTime[11]~20         ; LCCOMB_X60_Y36_N14 ; 16      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; DebounceUnit:debouncer_key1|s_debounceCnt[13]~4                       ; LCCOMB_X63_Y34_N14 ; 22      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; DebounceUnit:debouncer_key2|s_debounceCnt[1]~4                        ; LCCOMB_X58_Y34_N8  ; 22      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; DebounceUnit:debouncer_key3|s_debounceCnt[10]~4                       ; LCCOMB_X76_Y36_N4  ; 22      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; EndTimeRegister:end_time_register|s_endTime[10]~3                     ; LCCOMB_X60_Y38_N10 ; 16      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; GeneralClock:general_clock|s_actualTime[15]~23                        ; LCCOMB_X58_Y35_N22 ; 16      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; GeneralClock:general_clock|s_actualTime[15]~25                        ; LCCOMB_X58_Y35_N6  ; 16      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; GeneralClock:general_clock|s_actualTime~19                            ; LCCOMB_X58_Y35_N30 ; 17      ; Sync. load   ; no     ; --                   ; --               ; --                        ;
-; Heater:heater|s_actualTemperature[10]~3                               ; LCCOMB_X55_Y29_N22 ; 15      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; PulseGenerator:pulse_1hz|s_cnt[22]~28                                 ; LCCOMB_X57_Y31_N22 ; 26      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; RegisterTemperature:register_temperature|s_selectedTemperature[12]~47 ; LCCOMB_X49_Y33_N18 ; 15      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; RegisterTemperature:register_temperature|s_selectedTemperature[12]~48 ; LCCOMB_X48_Y33_N0  ; 15      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; comb~3                                                                ; LCCOMB_X63_Y35_N28 ; 16      ; Sync. load   ; no     ; --                   ; --               ; --                        ;
-; s_hex4_bcd[0]~2                                                       ; LCCOMB_X63_Y35_N4  ; 3       ; Latch enable ; yes    ; Global Clock         ; GCLK17           ; --                        ;
-; s_programSelected[0]~0                                                ; LCCOMB_X63_Y35_N14 ; 3       ; Latch enable ; yes    ; Global Clock         ; GCLK5            ; --                        ;
-; sync_sw[0]                                                            ; FF_X63_Y35_N5      ; 12      ; Latch enable ; yes    ; Global Clock         ; GCLK18           ; --                        ;
-; sync_sw[17]                                                           ; FF_X60_Y35_N1      ; 18      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-+-----------------------------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                                                                   ;
++----------------------------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; Name                                                                 ; Location           ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++----------------------------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; BlinkGenerator:blink_1hz|count_proc~6                                ; LCCOMB_X59_Y34_N0  ; 25      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; CLOCK_50                                                             ; PIN_Y2             ; 2       ; Clock        ; no     ; --                   ; --               ; --                        ;
+; CLOCK_50                                                             ; PIN_Y2             ; 248     ; Clock        ; yes    ; Global Clock         ; GCLK4            ; --                        ;
+; CookDurationRegister:cook_duration_register|s_cookTime[11]~16        ; LCCOMB_X54_Y32_N30 ; 16      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; DebounceUnit:debouncer_key1|s_debounceCnt[22]~3                      ; LCCOMB_X41_Y35_N10 ; 22      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; DebounceUnit:debouncer_key2|s_debounceCnt[15]~3                      ; LCCOMB_X60_Y46_N22 ; 22      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; DebounceUnit:debouncer_key3|s_debounceCnt[2]~3                       ; LCCOMB_X65_Y47_N4  ; 22      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; EndTimeRegister:end_time_register|s_endTime[9]~4                     ; LCCOMB_X49_Y34_N6  ; 16      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; GeneralClock:general_clock|s_actualTime[15]~23                       ; LCCOMB_X52_Y33_N12 ; 16      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; GeneralClock:general_clock|s_actualTime[15]~25                       ; LCCOMB_X52_Y33_N24 ; 16      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; GeneralClock:general_clock|s_actualTime~19                           ; LCCOMB_X52_Y33_N20 ; 17      ; Sync. load   ; no     ; --                   ; --               ; --                        ;
+; Heater:heater|s_actualTemperature[11]~5                              ; LCCOMB_X69_Y30_N18 ; 15      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; ProgressLeds:progress_bar_control|s_progressBar[2]~14                ; LCCOMB_X55_Y34_N30 ; 7       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; PulseGenerator:pulse_1hz|s_cnt[19]~28                                ; LCCOMB_X62_Y33_N16 ; 26      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; PulseGenerator:pulse_4hz|s_cnt[4]~26                                 ; LCCOMB_X60_Y33_N26 ; 24      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; RegisterTemperature:register_temperature|s_selectedTemperature[5]~47 ; LCCOMB_X68_Y34_N6  ; 15      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; RegisterTemperature:register_temperature|s_selectedTemperature[5]~48 ; LCCOMB_X69_Y34_N30 ; 15      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; comb~3                                                               ; LCCOMB_X50_Y33_N20 ; 16      ; Sync. load   ; no     ; --                   ; --               ; --                        ;
+; s_hex4_bcd[0]~2                                                      ; LCCOMB_X50_Y33_N24 ; 3       ; Latch enable ; yes    ; Global Clock         ; GCLK18           ; --                        ;
+; s_programSelected[0]~0                                               ; LCCOMB_X50_Y33_N16 ; 3       ; Latch enable ; yes    ; Global Clock         ; GCLK19           ; --                        ;
+; sync_sw[0]                                                           ; FF_X50_Y33_N23     ; 12      ; Latch enable ; yes    ; Global Clock         ; GCLK2            ; --                        ;
+; sync_sw[17]                                                          ; FF_X55_Y34_N27     ; 26      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
++----------------------------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -2106,10 +2110,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------+--------------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 ; Name                   ; Location           ; Fan-Out ; Fan-Out Using Intentional Clock Skew ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +------------------------+--------------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
-; CLOCK_50               ; PIN_Y2             ; 215     ; 1                                    ; Global Clock         ; GCLK4            ; --                        ;
-; s_hex4_bcd[0]~2        ; LCCOMB_X63_Y35_N4  ; 3       ; 0                                    ; Global Clock         ; GCLK17           ; --                        ;
-; s_programSelected[0]~0 ; LCCOMB_X63_Y35_N14 ; 3       ; 0                                    ; Global Clock         ; GCLK5            ; --                        ;
-; sync_sw[0]             ; FF_X63_Y35_N5      ; 12      ; 0                                    ; Global Clock         ; GCLK18           ; --                        ;
+; CLOCK_50               ; PIN_Y2             ; 248     ; 2                                    ; Global Clock         ; GCLK4            ; --                        ;
+; s_hex4_bcd[0]~2        ; LCCOMB_X50_Y33_N24 ; 3       ; 0                                    ; Global Clock         ; GCLK18           ; --                        ;
+; s_programSelected[0]~0 ; LCCOMB_X50_Y33_N16 ; 3       ; 0                                    ; Global Clock         ; GCLK19           ; --                        ;
+; sync_sw[0]             ; FF_X50_Y33_N23     ; 12      ; 0                                    ; Global Clock         ; GCLK2            ; --                        ;
 +------------------------+--------------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 
 
@@ -2118,49 +2122,49 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+---------------------------+
 ; Routing Resource Type ; Usage                     ;
 +-----------------------+---------------------------+
-; Block interconnects   ; 9,013 / 342,891 ( 3 % )   ;
-; C16 interconnects     ; 109 / 10,120 ( 1 % )      ;
-; C4 interconnects      ; 4,036 / 209,544 ( 2 % )   ;
-; Direct links          ; 2,427 / 342,891 ( < 1 % ) ;
+; Block interconnects   ; 9,005 / 342,891 ( 3 % )   ;
+; C16 interconnects     ; 96 / 10,120 ( < 1 % )     ;
+; C4 interconnects      ; 4,052 / 209,544 ( 2 % )   ;
+; Direct links          ; 2,349 / 342,891 ( < 1 % ) ;
 ; Global clocks         ; 4 / 20 ( 20 % )           ;
-; Local interconnects   ; 1,929 / 119,088 ( 2 % )   ;
-; R24 interconnects     ; 124 / 9,963 ( 1 % )       ;
-; R4 interconnects      ; 4,148 / 289,782 ( 1 % )   ;
+; Local interconnects   ; 1,942 / 119,088 ( 2 % )   ;
+; R24 interconnects     ; 138 / 9,963 ( 1 % )       ;
+; R4 interconnects      ; 4,240 / 289,782 ( 1 % )   ;
 +-----------------------+---------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Logic Elements                                                          ;
 +---------------------------------------------+-------------------------------+
-; Number of Logic Elements  (Average = 13.74) ; Number of LABs  (Total = 515) ;
+; Number of Logic Elements  (Average = 13.78) ; Number of LABs  (Total = 517) ;
 +---------------------------------------------+-------------------------------+
-; 1                                           ; 23                            ;
-; 2                                           ; 13                            ;
-; 3                                           ; 6                             ;
-; 4                                           ; 6                             ;
-; 5                                           ; 4                             ;
-; 6                                           ; 1                             ;
-; 7                                           ; 8                             ;
-; 8                                           ; 8                             ;
-; 9                                           ; 4                             ;
-; 10                                          ; 12                            ;
-; 11                                          ; 6                             ;
-; 12                                          ; 7                             ;
-; 13                                          ; 22                            ;
+; 1                                           ; 22                            ;
+; 2                                           ; 16                            ;
+; 3                                           ; 7                             ;
+; 4                                           ; 3                             ;
+; 5                                           ; 5                             ;
+; 6                                           ; 5                             ;
+; 7                                           ; 6                             ;
+; 8                                           ; 7                             ;
+; 9                                           ; 5                             ;
+; 10                                          ; 4                             ;
+; 11                                          ; 7                             ;
+; 12                                          ; 10                            ;
+; 13                                          ; 17                            ;
 ; 14                                          ; 20                            ;
-; 15                                          ; 35                            ;
-; 16                                          ; 340                           ;
+; 15                                          ; 25                            ;
+; 16                                          ; 358                           ;
 +---------------------------------------------+-------------------------------+
 
 
 +--------------------------------------------------------------------+
 ; LAB-wide Signals                                                   ;
 +------------------------------------+-------------------------------+
-; LAB-wide Signals  (Average = 0.13) ; Number of LABs  (Total = 515) ;
+; LAB-wide Signals  (Average = 0.13) ; Number of LABs  (Total = 517) ;
 +------------------------------------+-------------------------------+
-; 1 Clock                            ; 38                            ;
-; 1 Clock enable                     ; 20                            ;
-; 1 Sync. clear                      ; 6                             ;
+; 1 Clock                            ; 37                            ;
+; 1 Clock enable                     ; 18                            ;
+; 1 Sync. clear                      ; 9                             ;
 ; 1 Sync. load                       ; 3                             ;
 ; 2 Clocks                           ; 1                             ;
 +------------------------------------+-------------------------------+
@@ -2169,114 +2173,109 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                          ;
 +----------------------------------------------+-------------------------------+
-; Number of Signals Sourced  (Average = 13.48) ; Number of LABs  (Total = 515) ;
+; Number of Signals Sourced  (Average = 13.59) ; Number of LABs  (Total = 517) ;
 +----------------------------------------------+-------------------------------+
 ; 0                                            ; 0                             ;
-; 1                                            ; 29                            ;
+; 1                                            ; 30                            ;
 ; 2                                            ; 17                            ;
 ; 3                                            ; 6                             ;
 ; 4                                            ; 12                            ;
 ; 5                                            ; 5                             ;
-; 6                                            ; 2                             ;
-; 7                                            ; 8                             ;
+; 6                                            ; 9                             ;
+; 7                                            ; 4                             ;
 ; 8                                            ; 7                             ;
-; 9                                            ; 6                             ;
-; 10                                           ; 16                            ;
-; 11                                           ; 9                             ;
-; 12                                           ; 10                            ;
-; 13                                           ; 21                            ;
+; 9                                            ; 7                             ;
+; 10                                           ; 7                             ;
+; 11                                           ; 8                             ;
+; 12                                           ; 11                            ;
+; 13                                           ; 18                            ;
 ; 14                                           ; 24                            ;
-; 15                                           ; 65                            ;
-; 16                                           ; 249                           ;
-; 17                                           ; 2                             ;
-; 18                                           ; 2                             ;
-; 19                                           ; 2                             ;
+; 15                                           ; 50                            ;
+; 16                                           ; 275                           ;
+; 17                                           ; 1                             ;
+; 18                                           ; 0                             ;
+; 19                                           ; 1                             ;
 ; 20                                           ; 6                             ;
 ; 21                                           ; 2                             ;
 ; 22                                           ; 1                             ;
-; 23                                           ; 3                             ;
+; 23                                           ; 1                             ;
 ; 24                                           ; 2                             ;
 ; 25                                           ; 1                             ;
 ; 26                                           ; 1                             ;
 ; 27                                           ; 2                             ;
-; 28                                           ; 0                             ;
-; 29                                           ; 3                             ;
+; 28                                           ; 2                             ;
+; 29                                           ; 4                             ;
 ; 30                                           ; 0                             ;
-; 31                                           ; 2                             ;
+; 31                                           ; 3                             ;
 +----------------------------------------------+-------------------------------+
 
 
 +----------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                          ;
 +--------------------------------------------------+-------------------------------+
-; Number of Signals Sourced Out  (Average = 11.30) ; Number of LABs  (Total = 515) ;
+; Number of Signals Sourced Out  (Average = 11.28) ; Number of LABs  (Total = 517) ;
 +--------------------------------------------------+-------------------------------+
 ; 0                                                ; 0                             ;
-; 1                                                ; 37                            ;
-; 2                                                ; 21                            ;
-; 3                                                ; 6                             ;
-; 4                                                ; 18                            ;
-; 5                                                ; 9                             ;
-; 6                                                ; 4                             ;
-; 7                                                ; 10                            ;
-; 8                                                ; 19                            ;
-; 9                                                ; 22                            ;
-; 10                                               ; 30                            ;
-; 11                                               ; 27                            ;
+; 1                                                ; 41                            ;
+; 2                                                ; 18                            ;
+; 3                                                ; 8                             ;
+; 4                                                ; 17                            ;
+; 5                                                ; 10                            ;
+; 6                                                ; 8                             ;
+; 7                                                ; 12                            ;
+; 8                                                ; 14                            ;
+; 9                                                ; 25                            ;
+; 10                                               ; 24                            ;
+; 11                                               ; 25                            ;
 ; 12                                               ; 33                            ;
-; 13                                               ; 41                            ;
-; 14                                               ; 50                            ;
-; 15                                               ; 79                            ;
-; 16                                               ; 106                           ;
-; 17                                               ; 0                             ;
-; 18                                               ; 1                             ;
-; 19                                               ; 1                             ;
-; 20                                               ; 1                             ;
+; 13                                               ; 39                            ;
+; 14                                               ; 45                            ;
+; 15                                               ; 72                            ;
+; 16                                               ; 126                           ;
 +--------------------------------------------------+-------------------------------+
 
 
 +------------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                          ;
 +----------------------------------------------+-------------------------------+
-; Number of Distinct Inputs  (Average = 16.59) ; Number of LABs  (Total = 515) ;
+; Number of Distinct Inputs  (Average = 16.51) ; Number of LABs  (Total = 517) ;
 +----------------------------------------------+-------------------------------+
 ; 0                                            ; 0                             ;
 ; 1                                            ; 1                             ;
-; 2                                            ; 26                            ;
-; 3                                            ; 7                             ;
-; 4                                            ; 8                             ;
-; 5                                            ; 11                            ;
-; 6                                            ; 13                            ;
-; 7                                            ; 9                             ;
-; 8                                            ; 8                             ;
-; 9                                            ; 8                             ;
-; 10                                           ; 14                            ;
-; 11                                           ; 21                            ;
+; 2                                            ; 22                            ;
+; 3                                            ; 9                             ;
+; 4                                            ; 18                            ;
+; 5                                            ; 17                            ;
+; 6                                            ; 11                            ;
+; 7                                            ; 8                             ;
+; 8                                            ; 6                             ;
+; 9                                            ; 9                             ;
+; 10                                           ; 13                            ;
+; 11                                           ; 15                            ;
 ; 12                                           ; 25                            ;
-; 13                                           ; 21                            ;
-; 14                                           ; 28                            ;
-; 15                                           ; 42                            ;
-; 16                                           ; 28                            ;
-; 17                                           ; 41                            ;
+; 13                                           ; 32                            ;
+; 14                                           ; 24                            ;
+; 15                                           ; 29                            ;
+; 16                                           ; 29                            ;
+; 17                                           ; 32                            ;
 ; 18                                           ; 31                            ;
-; 19                                           ; 17                            ;
-; 20                                           ; 10                            ;
-; 21                                           ; 10                            ;
+; 19                                           ; 20                            ;
+; 20                                           ; 18                            ;
+; 21                                           ; 13                            ;
 ; 22                                           ; 12                            ;
-; 23                                           ; 13                            ;
-; 24                                           ; 9                             ;
-; 25                                           ; 9                             ;
-; 26                                           ; 11                            ;
-; 27                                           ; 13                            ;
-; 28                                           ; 16                            ;
-; 29                                           ; 10                            ;
-; 30                                           ; 21                            ;
-; 31                                           ; 11                            ;
-; 32                                           ; 10                            ;
-; 33                                           ; 0                             ;
+; 23                                           ; 8                             ;
+; 24                                           ; 8                             ;
+; 25                                           ; 10                            ;
+; 26                                           ; 17                            ;
+; 27                                           ; 11                            ;
+; 28                                           ; 19                            ;
+; 29                                           ; 7                             ;
+; 30                                           ; 19                            ;
+; 31                                           ; 12                            ;
+; 32                                           ; 9                             ;
+; 33                                           ; 1                             ;
 ; 34                                           ; 0                             ;
-; 35                                           ; 0                             ;
-; 36                                           ; 1                             ;
+; 35                                           ; 2                             ;
 +----------------------------------------------+-------------------------------+
 
 
@@ -2474,8 +2473,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------+----------------------+-------------------+
 ; Source Clock(s) ; Destination Clock(s) ; Delay Added in ns ;
 +-----------------+----------------------+-------------------+
-; CLOCK_50        ; CLOCK_50             ; 118.3             ;
-; CLOCK_50        ; sync_sw[0]           ; 36.0              ;
+; CLOCK_50        ; CLOCK_50             ; 105.6             ;
+; CLOCK_50        ; sync_sw[0]           ; 25.2              ;
 +-----------------+----------------------+-------------------+
 Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
 This will disable optimization of problematic paths and expose them for further analysis using the Timing Analyzer.
@@ -2486,78 +2485,78 @@ This will disable optimization of problematic paths and expose them for further 
 +--------------------------------------------------------------------+-------------------------------------------------------------------+-------------------+
 ; Source Register                                                    ; Destination Register                                              ; Delay Added in ns ;
 +--------------------------------------------------------------------+-------------------------------------------------------------------+-------------------+
-; sync_sw[0]                                                         ; s_hex7_bcd[2]                                                     ; 5.066             ;
-; DebounceUnit:debouncer_key1|s_pulsedOut                            ; CookDurationRegister:cook_duration_register|s_cookTime[15]        ; 2.579             ;
-; sync_sw[1]                                                         ; CookDurationRegister:cook_duration_register|s_cookTime[15]        ; 2.579             ;
-; CookDurationRegister:cook_duration_register|s_cookTime[15]         ; s_hex7_bcd[2]                                                     ; 2.533             ;
-; CookDurationRegister:cook_duration_register|s_cookTime[14]         ; s_hex7_bcd[2]                                                     ; 2.533             ;
-; CookDurationRegister:cook_duration_register|s_cookTime[13]         ; s_hex7_bcd[2]                                                     ; 2.533             ;
-; CookDurationRegister:cook_duration_register|s_cookTime[11]         ; s_hex7_bcd[2]                                                     ; 2.533             ;
-; CookDurationRegister:cook_duration_register|s_cookTime[10]         ; s_hex7_bcd[2]                                                     ; 2.533             ;
-; CookDurationRegister:cook_duration_register|s_cookTime[9]          ; s_hex7_bcd[2]                                                     ; 2.533             ;
-; CookDurationRegister:cook_duration_register|s_cookTime[8]          ; s_hex7_bcd[2]                                                     ; 2.533             ;
-; CookDurationRegister:cook_duration_register|s_cookTime[7]          ; s_hex7_bcd[2]                                                     ; 2.533             ;
-; CookDurationRegister:cook_duration_register|s_cookTime[6]          ; s_hex7_bcd[2]                                                     ; 2.533             ;
-; CookDurationRegister:cook_duration_register|s_cookTime[5]          ; s_hex7_bcd[2]                                                     ; 2.533             ;
-; GeneralClock:general_clock|s_actualTime[15]                        ; s_hex7_bcd[2]                                                     ; 2.533             ;
-; GeneralClock:general_clock|s_actualTime[14]                        ; s_hex7_bcd[2]                                                     ; 2.533             ;
-; GeneralClock:general_clock|s_actualTime[13]                        ; s_hex7_bcd[2]                                                     ; 2.533             ;
-; GeneralClock:general_clock|s_actualTime[12]                        ; s_hex7_bcd[2]                                                     ; 2.533             ;
-; GeneralClock:general_clock|s_actualTime[11]                        ; s_hex7_bcd[2]                                                     ; 2.533             ;
-; GeneralClock:general_clock|s_actualTime[9]                         ; s_hex7_bcd[2]                                                     ; 2.533             ;
-; GeneralClock:general_clock|s_actualTime[10]                        ; s_hex7_bcd[2]                                                     ; 2.533             ;
-; GeneralClock:general_clock|s_actualTime[6]                         ; s_hex7_bcd[2]                                                     ; 2.533             ;
-; GeneralClock:general_clock|s_actualTime[8]                         ; s_hex7_bcd[2]                                                     ; 2.533             ;
-; GeneralClock:general_clock|s_actualTime[5]                         ; s_hex7_bcd[2]                                                     ; 2.533             ;
-; GeneralClock:general_clock|s_actualTime[7]                         ; s_hex7_bcd[2]                                                     ; 2.533             ;
-; CookDurationRegister:cook_duration_register|s_cookTime[12]         ; s_hex7_bcd[2]                                                     ; 2.533             ;
-; CookDurationRegister:cook_duration_register|s_cookTime[4]          ; s_hex7_bcd[1]                                                     ; 2.379             ;
-; GeneralClock:general_clock|s_actualTime[4]                         ; s_hex7_bcd[1]                                                     ; 2.379             ;
-; CookDurationRegister:cook_duration_register|s_cookTime[3]          ; CookDurationRegister:cook_duration_register|s_cookTime[6]         ; 2.321             ;
-; CookDurationRegister:cook_duration_register|s_cookTime[2]          ; CookDurationRegister:cook_duration_register|s_cookTime[6]         ; 2.321             ;
-; CookDurationRegister:cook_duration_register|s_cookTime[1]          ; CookDurationRegister:cook_duration_register|s_cookTime[6]         ; 2.321             ;
-; CookDurationRegister:cook_duration_register|s_cookTime[0]          ; CookDurationRegister:cook_duration_register|s_cookTime[6]         ; 2.321             ;
-; EndTimeRegister:end_time_register|s_endTime[1]                     ; EndTimeRegister:end_time_register|s_endTime[1]                    ; 2.039             ;
-; EndTimeRegister:end_time_register|s_endTime[0]                     ; EndTimeRegister:end_time_register|s_endTime[1]                    ; 2.039             ;
-; DebounceUnit:debouncer_key2|s_pulsedOut                            ; CookDurationRegister:cook_duration_register|s_cookTime[6]         ; 1.913             ;
-; EndTimeRegister:end_time_register|s_endTime[2]                     ; EndTimeRegister:end_time_register|s_endTime[2]                    ; 1.886             ;
-; EndTimeRegister:end_time_register|s_endTime[4]                     ; EndTimeRegister:end_time_register|s_endTime[4]                    ; 1.816             ;
-; EndTimeRegister:end_time_register|s_endTime[3]                     ; EndTimeRegister:end_time_register|s_endTime[4]                    ; 1.816             ;
-; EndTimeRegister:end_time_register|s_endTime[5]                     ; EndTimeRegister:end_time_register|s_endTime[5]                    ; 1.708             ;
-; EndTimeRegister:end_time_register|s_endTime[6]                     ; EndTimeRegister:end_time_register|s_endTime[6]                    ; 1.664             ;
-; EndTimeRegister:end_time_register|s_endTime[7]                     ; EndTimeRegister:end_time_register|s_endTime[7]                    ; 1.595             ;
-; EndTimeRegister:end_time_register|s_endTime[8]                     ; EndTimeRegister:end_time_register|s_endTime[8]                    ; 1.531             ;
-; OvenFSM:oven_fsm|s_currentState.START                              ; GeneralClock:general_clock|s_actualTime[0]                        ; 1.480             ;
-; EndTimeRegister:end_time_register|s_endTime[10]                    ; EndTimeRegister:end_time_register|s_endTime[10]                   ; 1.385             ;
-; EndTimeRegister:end_time_register|s_endTime[9]                     ; EndTimeRegister:end_time_register|s_endTime[10]                   ; 1.385             ;
-; OvenFSM:oven_fsm|s_currentState.FINISH                             ; OvenFSM:oven_fsm|s_currentState.FINISH                            ; 1.343             ;
-; DebounceUnit:debouncer_key3|s_pulsedOut                            ; OvenFSM:oven_fsm|s_currentState.FINISH                            ; 1.343             ;
-; EndTimeRegister:end_time_register|s_endTime[15]                    ; CookDurationRegister:cook_duration_register|s_cookTime[6]         ; 1.267             ;
-; EndTimeRegister:end_time_register|s_endTime[14]                    ; CookDurationRegister:cook_duration_register|s_cookTime[6]         ; 1.267             ;
-; EndTimeRegister:end_time_register|s_endTime[13]                    ; CookDurationRegister:cook_duration_register|s_cookTime[6]         ; 1.267             ;
-; EndTimeRegister:end_time_register|s_endTime[12]                    ; CookDurationRegister:cook_duration_register|s_cookTime[6]         ; 1.267             ;
-; EndTimeRegister:end_time_register|s_endTime[11]                    ; CookDurationRegister:cook_duration_register|s_cookTime[6]         ; 1.267             ;
-; GeneralClock:general_clock|s_actualTime[3]                         ; CookDurationRegister:cook_duration_register|s_cookTime[6]         ; 1.267             ;
-; GeneralClock:general_clock|s_actualTime[2]                         ; CookDurationRegister:cook_duration_register|s_cookTime[6]         ; 1.267             ;
-; GeneralClock:general_clock|s_actualTime[1]                         ; CookDurationRegister:cook_duration_register|s_cookTime[6]         ; 1.267             ;
-; GeneralClock:general_clock|s_actualTime[0]                         ; CookDurationRegister:cook_duration_register|s_cookTime[6]         ; 1.267             ;
-; OvenFSM:oven_fsm|s_currentState.COOK                               ; CookDurationRegister:cook_duration_register|s_cookTime[6]         ; 1.267             ;
-; sync_sw[17]                                                        ; CookDurationRegister:cook_duration_register|s_cookTime[6]         ; 1.267             ;
-; PulseGenerator:pulse_1hz|pulse                                     ; GeneralClock:general_clock|s_actualTime[0]                        ; 1.187             ;
-; RegisterTemperature:register_temperature|s_selectedTemperature[15] ; RegisterTemperature:register_temperature|s_selectedTemperature[1] ; 0.404             ;
-; RegisterTemperature:register_temperature|s_selectedTemperature[14] ; RegisterTemperature:register_temperature|s_selectedTemperature[1] ; 0.404             ;
-; RegisterTemperature:register_temperature|s_selectedTemperature[13] ; RegisterTemperature:register_temperature|s_selectedTemperature[1] ; 0.404             ;
-; RegisterTemperature:register_temperature|s_selectedTemperature[12] ; RegisterTemperature:register_temperature|s_selectedTemperature[1] ; 0.404             ;
-; RegisterTemperature:register_temperature|s_selectedTemperature[11] ; RegisterTemperature:register_temperature|s_selectedTemperature[1] ; 0.404             ;
-; RegisterTemperature:register_temperature|s_selectedTemperature[10] ; RegisterTemperature:register_temperature|s_selectedTemperature[1] ; 0.404             ;
-; RegisterTemperature:register_temperature|s_selectedTemperature[7]  ; RegisterTemperature:register_temperature|s_selectedTemperature[1] ; 0.404             ;
-; RegisterTemperature:register_temperature|s_selectedTemperature[3]  ; RegisterTemperature:register_temperature|s_selectedTemperature[1] ; 0.404             ;
-; RegisterTemperature:register_temperature|s_selectedTemperature[2]  ; RegisterTemperature:register_temperature|s_selectedTemperature[1] ; 0.404             ;
-; RegisterTemperature:register_temperature|s_selectedTemperature[6]  ; RegisterTemperature:register_temperature|s_selectedTemperature[1] ; 0.404             ;
-; RegisterTemperature:register_temperature|s_selectedTemperature[8]  ; RegisterTemperature:register_temperature|s_selectedTemperature[1] ; 0.404             ;
-; RegisterTemperature:register_temperature|s_selectedTemperature[9]  ; RegisterTemperature:register_temperature|s_selectedTemperature[1] ; 0.404             ;
-; RegisterTemperature:register_temperature|s_selectedTemperature[5]  ; RegisterTemperature:register_temperature|s_selectedTemperature[1] ; 0.202             ;
-; RegisterTemperature:register_temperature|s_selectedTemperature[4]  ; RegisterTemperature:register_temperature|s_selectedTemperature[1] ; 0.202             ;
+; sync_sw[0]                                                         ; s_hex7_bcd[0]                                                     ; 3.761             ;
+; sync_sw[1]                                                         ; OvenFSM:oven_fsm|s_currentState.START                             ; 2.644             ;
+; DebounceUnit:debouncer_key1|s_pulsedOut                            ; EndTimeRegister:end_time_register|s_endTime[11]                   ; 2.256             ;
+; CookDurationRegister:cook_duration_register|s_cookTime[15]         ; s_hex7_bcd[1]                                                     ; 1.803             ;
+; CookDurationRegister:cook_duration_register|s_cookTime[14]         ; s_hex7_bcd[1]                                                     ; 1.803             ;
+; CookDurationRegister:cook_duration_register|s_cookTime[13]         ; s_hex7_bcd[1]                                                     ; 1.803             ;
+; CookDurationRegister:cook_duration_register|s_cookTime[11]         ; s_hex7_bcd[1]                                                     ; 1.803             ;
+; CookDurationRegister:cook_duration_register|s_cookTime[10]         ; s_hex7_bcd[1]                                                     ; 1.803             ;
+; CookDurationRegister:cook_duration_register|s_cookTime[9]          ; s_hex7_bcd[1]                                                     ; 1.803             ;
+; CookDurationRegister:cook_duration_register|s_cookTime[8]          ; s_hex7_bcd[1]                                                     ; 1.803             ;
+; CookDurationRegister:cook_duration_register|s_cookTime[7]          ; s_hex7_bcd[1]                                                     ; 1.803             ;
+; CookDurationRegister:cook_duration_register|s_cookTime[6]          ; s_hex7_bcd[1]                                                     ; 1.803             ;
+; CookDurationRegister:cook_duration_register|s_cookTime[5]          ; s_hex7_bcd[1]                                                     ; 1.803             ;
+; CookDurationRegister:cook_duration_register|s_cookTime[4]          ; s_hex7_bcd[1]                                                     ; 1.803             ;
+; GeneralClock:general_clock|s_actualTime[15]                        ; s_hex7_bcd[1]                                                     ; 1.803             ;
+; GeneralClock:general_clock|s_actualTime[14]                        ; s_hex7_bcd[1]                                                     ; 1.803             ;
+; GeneralClock:general_clock|s_actualTime[13]                        ; s_hex7_bcd[1]                                                     ; 1.803             ;
+; GeneralClock:general_clock|s_actualTime[12]                        ; s_hex7_bcd[1]                                                     ; 1.803             ;
+; GeneralClock:general_clock|s_actualTime[11]                        ; s_hex7_bcd[1]                                                     ; 1.803             ;
+; GeneralClock:general_clock|s_actualTime[9]                         ; s_hex7_bcd[1]                                                     ; 1.803             ;
+; GeneralClock:general_clock|s_actualTime[10]                        ; s_hex7_bcd[1]                                                     ; 1.803             ;
+; GeneralClock:general_clock|s_actualTime[6]                         ; s_hex7_bcd[1]                                                     ; 1.803             ;
+; GeneralClock:general_clock|s_actualTime[8]                         ; s_hex7_bcd[1]                                                     ; 1.803             ;
+; GeneralClock:general_clock|s_actualTime[5]                         ; s_hex7_bcd[1]                                                     ; 1.803             ;
+; GeneralClock:general_clock|s_actualTime[7]                         ; s_hex7_bcd[1]                                                     ; 1.803             ;
+; GeneralClock:general_clock|s_actualTime[4]                         ; s_hex7_bcd[1]                                                     ; 1.803             ;
+; CookDurationRegister:cook_duration_register|s_cookTime[12]         ; s_hex7_bcd[1]                                                     ; 1.803             ;
+; OvenFSM:oven_fsm|s_currentState.START                              ; GeneralClock:general_clock|s_actualTime[0]                        ; 1.797             ;
+; DebounceUnit:debouncer_key2|s_pulsedOut                            ; CookDurationRegister:cook_duration_register|s_cookTime[11]        ; 1.769             ;
+; OvenFSM:oven_fsm|s_currentState.FINISH                             ; OvenFSM:oven_fsm|s_currentState.FINISH                            ; 1.617             ;
+; DebounceUnit:debouncer_key3|s_pulsedOut                            ; OvenFSM:oven_fsm|s_currentState.FINISH                            ; 1.617             ;
+; EndTimeRegister:end_time_register|s_endTime[1]                     ; EndTimeRegister:end_time_register|s_endTime[1]                    ; 1.609             ;
+; EndTimeRegister:end_time_register|s_endTime[0]                     ; EndTimeRegister:end_time_register|s_endTime[1]                    ; 1.609             ;
+; PulseGenerator:pulse_1hz|pulse                                     ; GeneralClock:general_clock|s_actualTime[0]                        ; 1.401             ;
+; EndTimeRegister:end_time_register|s_endTime[2]                     ; EndTimeRegister:end_time_register|s_endTime[2]                    ; 1.392             ;
+; EndTimeRegister:end_time_register|s_endTime[3]                     ; EndTimeRegister:end_time_register|s_endTime[3]                    ; 1.355             ;
+; sync_sw[17]                                                        ; OvenFSM:oven_fsm|s_currentState.START                             ; 1.322             ;
+; EndTimeRegister:end_time_register|s_endTime[4]                     ; EndTimeRegister:end_time_register|s_endTime[4]                    ; 1.307             ;
+; CookDurationRegister:cook_duration_register|s_cookTime[3]          ; s_hex7_bcd[0]                                                     ; 1.259             ;
+; GeneralClock:general_clock|s_actualTime[3]                         ; s_hex7_bcd[0]                                                     ; 1.259             ;
+; EndTimeRegister:end_time_register|s_endTime[15]                    ; CookDurationRegister:cook_duration_register|s_cookTime[11]        ; 1.249             ;
+; EndTimeRegister:end_time_register|s_endTime[14]                    ; CookDurationRegister:cook_duration_register|s_cookTime[11]        ; 1.249             ;
+; EndTimeRegister:end_time_register|s_endTime[13]                    ; CookDurationRegister:cook_duration_register|s_cookTime[11]        ; 1.249             ;
+; EndTimeRegister:end_time_register|s_endTime[12]                    ; CookDurationRegister:cook_duration_register|s_cookTime[11]        ; 1.249             ;
+; EndTimeRegister:end_time_register|s_endTime[11]                    ; CookDurationRegister:cook_duration_register|s_cookTime[11]        ; 1.249             ;
+; EndTimeRegister:end_time_register|s_endTime[10]                    ; CookDurationRegister:cook_duration_register|s_cookTime[11]        ; 1.249             ;
+; EndTimeRegister:end_time_register|s_endTime[9]                     ; CookDurationRegister:cook_duration_register|s_cookTime[11]        ; 1.249             ;
+; EndTimeRegister:end_time_register|s_endTime[8]                     ; CookDurationRegister:cook_duration_register|s_cookTime[11]        ; 1.249             ;
+; EndTimeRegister:end_time_register|s_endTime[7]                     ; CookDurationRegister:cook_duration_register|s_cookTime[11]        ; 1.249             ;
+; EndTimeRegister:end_time_register|s_endTime[6]                     ; CookDurationRegister:cook_duration_register|s_cookTime[11]        ; 1.249             ;
+; EndTimeRegister:end_time_register|s_endTime[5]                     ; CookDurationRegister:cook_duration_register|s_cookTime[11]        ; 1.249             ;
+; GeneralClock:general_clock|s_actualTime[2]                         ; CookDurationRegister:cook_duration_register|s_cookTime[11]        ; 1.249             ;
+; GeneralClock:general_clock|s_actualTime[1]                         ; CookDurationRegister:cook_duration_register|s_cookTime[11]        ; 1.249             ;
+; GeneralClock:general_clock|s_actualTime[0]                         ; CookDurationRegister:cook_duration_register|s_cookTime[11]        ; 1.249             ;
+; OvenFSM:oven_fsm|s_currentState.COOK                               ; CookDurationRegister:cook_duration_register|s_cookTime[11]        ; 1.249             ;
+; CookDurationRegister:cook_duration_register|s_cookTime[2]          ; CookDurationRegister:cook_duration_register|s_cookTime[2]         ; 0.995             ;
+; CookDurationRegister:cook_duration_register|s_cookTime[1]          ; CookDurationRegister:cook_duration_register|s_cookTime[2]         ; 0.995             ;
+; CookDurationRegister:cook_duration_register|s_cookTime[0]          ; CookDurationRegister:cook_duration_register|s_cookTime[2]         ; 0.995             ;
+; RegisterTemperature:register_temperature|s_selectedTemperature[15] ; RegisterTemperature:register_temperature|s_selectedTemperature[1] ; 0.646             ;
+; RegisterTemperature:register_temperature|s_selectedTemperature[14] ; RegisterTemperature:register_temperature|s_selectedTemperature[1] ; 0.646             ;
+; RegisterTemperature:register_temperature|s_selectedTemperature[13] ; RegisterTemperature:register_temperature|s_selectedTemperature[1] ; 0.646             ;
+; RegisterTemperature:register_temperature|s_selectedTemperature[12] ; RegisterTemperature:register_temperature|s_selectedTemperature[1] ; 0.646             ;
+; RegisterTemperature:register_temperature|s_selectedTemperature[11] ; RegisterTemperature:register_temperature|s_selectedTemperature[1] ; 0.646             ;
+; RegisterTemperature:register_temperature|s_selectedTemperature[10] ; RegisterTemperature:register_temperature|s_selectedTemperature[1] ; 0.646             ;
+; RegisterTemperature:register_temperature|s_selectedTemperature[7]  ; RegisterTemperature:register_temperature|s_selectedTemperature[1] ; 0.646             ;
+; RegisterTemperature:register_temperature|s_selectedTemperature[3]  ; RegisterTemperature:register_temperature|s_selectedTemperature[1] ; 0.646             ;
+; RegisterTemperature:register_temperature|s_selectedTemperature[2]  ; RegisterTemperature:register_temperature|s_selectedTemperature[1] ; 0.646             ;
+; RegisterTemperature:register_temperature|s_selectedTemperature[6]  ; RegisterTemperature:register_temperature|s_selectedTemperature[1] ; 0.646             ;
+; RegisterTemperature:register_temperature|s_selectedTemperature[8]  ; RegisterTemperature:register_temperature|s_selectedTemperature[1] ; 0.646             ;
+; RegisterTemperature:register_temperature|s_selectedTemperature[9]  ; RegisterTemperature:register_temperature|s_selectedTemperature[1] ; 0.646             ;
+; RegisterTemperature:register_temperature|s_selectedTemperature[5]  ; s_hex2_bcd[0]                                                     ; 0.393             ;
+; RegisterTemperature:register_temperature|s_selectedTemperature[4]  ; s_hex2_bcd[0]                                                     ; 0.393             ;
 +--------------------------------------------------------------------+-------------------------------------------------------------------+-------------------+
 Note: This table only shows the top 72 path(s) that have the largest delay added for hold.
 
@@ -2598,8 +2597,8 @@ Info (332130): Timing requirements not specified -- quality metrics such as perf
 Info (176353): Automatically promoted node CLOCK_50~input (placed in PIN Y2 (CLK2, DIFFCLK_1p)) File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 7
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G4
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
-        Info (176357): Destination node sync_sw[1] File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 109
-Info (176353): Automatically promoted node sync_sw[0]  File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 109
+        Info (176357): Destination node sync_sw[1] File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 112
+Info (176353): Automatically promoted node sync_sw[0]  File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 112
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
         Info (176357): Destination node Bin7SegDecoder:bin7seg_hex0|decOut_n~7 File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Bin7SegDecoder.vhd Line: 7
@@ -2627,7 +2626,7 @@ Info (176353): Automatically promoted node s_hex4_bcd[0]~2  File: /home/rhyan/Do
         Info (176357): Destination node s_hex6_bcd[0]~8 File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 38
         Info (176357): Destination node Bin7SegDecoder:bin7seg_hex7|decOut_n~0 File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Bin7SegDecoder.vhd Line: 7
         Info (176358): Non-global destination nodes limited to 10 nodes
-Info (176353): Automatically promoted node s_programSelected[0]~0  File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 52
+Info (176353): Automatically promoted node s_programSelected[0]~0  File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 53
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
         Info (176357): Destination node Bin7SegDecoder:bin7seg_hex3|decOut_n~0 File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Bin7SegDecoder.vhd Line: 7
@@ -2637,7 +2636,7 @@ Info (176353): Automatically promoted node s_programSelected[0]~0  File: /home/r
         Info (176357): Destination node Bin7SegDecoder:bin7seg_hex3|decOut_n~4 File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Bin7SegDecoder.vhd Line: 7
         Info (176357): Destination node Bin7SegDecoder:bin7seg_hex3|decOut_n~5 File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Bin7SegDecoder.vhd Line: 7
         Info (176357): Destination node Bin7SegDecoder:bin7seg_hex3|decOut_n[6]~6 File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/Bin7SegDecoder.vhd Line: 7
-        Info (176357): Destination node EndTimeRegister:end_time_register|s_endTime[10]~3 File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/EndTimeRegister.vhd Line: 26
+        Info (176357): Destination node EndTimeRegister:end_time_register|s_endTime[9]~3 File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/EndTimeRegister.vhd Line: 26
 Info (176233): Starting register packing
 Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
@@ -3078,14 +3077,14 @@ Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:02
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:18
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:20
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 1% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 14% of the available device resources in the region that extends from location X58_Y24 to location X68_Y36
+    Info (170196): Router estimated peak interconnect usage is 15% of the available device resources in the region that extends from location X46_Y24 to location X57_Y36
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:07
-Info (11888): Total time spent on timing analysis during the Fitter is 2.04 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 1.99 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -3094,10 +3093,10 @@ Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:03
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Info (144001): Generated suppressed messages file /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/output_files/Forno.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 437 warnings
-    Info: Peak virtual memory: 933 megabytes
-    Info: Processing ended: Tue May 28 20:11:18 2024
-    Info: Elapsed time: 00:00:47
-    Info: Total CPU time (on all processors): 00:01:08
+    Info: Peak virtual memory: 937 megabytes
+    Info: Processing ended: Wed May 29 17:58:56 2024
+    Info: Elapsed time: 00:00:48
+    Info: Total CPU time (on all processors): 00:01:11
 
 
 +----------------------------+

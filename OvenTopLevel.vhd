@@ -45,6 +45,7 @@ architecture Structural of OvenTopLevel is
 
    -- pulses, blinks and temporization signals
    signal s_pulse_1hz : std_logic;
+   signal s_pulse_4hz : std_logic;
 	signal s_blink_1hz : std_logic;
 	signal s_blink_1hz_8bits : std_logic_vector(7 downto 0);
 	
@@ -62,6 +63,8 @@ architecture Structural of OvenTopLevel is
    signal s_resetBlocks : std_logic;
    signal s_en_blinks_finish : std_logic;
 	signal s_en_leds_finish_8bits : std_logic_vector(7 downto 0);
+   signal s_progressBar : std_logic_vector(7 downto 0);
+   signal s_ledg_program : std_logic_vector(7 downto 0);
 
    -- signals to treat with bcd's, 7seg, minutes and hours.
    signal s_generalClock_hour_bin : std_logic_vector(5 downto 0);
@@ -218,6 +221,12 @@ begin
          port  map(clk    => CLOCK_50,
                    reset  => sync_sw(17),
                    pulse  => s_pulse_1hz);
+
+   pulse_4hz : work.PulseGenerator(Behavioral)
+         generic map(MAX => 12_500_000)
+         port  map(clk    => CLOCK_50,
+                   reset  => sync_sw(17),
+                   pulse  => s_pulse_4hz);
    
    blink_1hz : work.BlinkGenerator(Behavioral)
          generic map(NUMBER_STEPS => 25_000_000)
@@ -391,7 +400,24 @@ begin
          port map(enable    => s_enable_7seg(0),
                   binInput  => s_hex0_bcd,
                   decOut_n  => HEX0);
+   
+   -- Led's manipulation blocks
+   progress_bar_control : work.ProgressLeds(Synchronous)
+         port map(clk         => CLOCK_50,
+                  reset       => sync_sw(17) or s_resetBlocks,
+                  enable      => s_pulse_4hz,
+                  progressBar => s_progressBar);
 
+   process(s_actualFSMState)
+   begin
+      if (s_actualFSMState = "10") then
+         s_ledg_program <= s_progressBar;
+      else
+         s_ledg_program <= (s_blink_1hz_8bits and s_en_leds_finish_8bits);
+		end if;
+   end process;
+   
    LEDR(1 downto 0) <= s_actualFSMState;
-   LEDG(7 downto 0) <= (s_blink_1hz_8bits and s_en_leds_finish_8bits);
+   LEDG(7 downto 0) <= s_ledg_program;
+
 end architecture Structural;

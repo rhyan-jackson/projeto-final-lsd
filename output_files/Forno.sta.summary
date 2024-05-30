@@ -3,75 +3,75 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'sync_sw[0]'
-Slack : -56.828
-TNS   : -699.775
+Slack : -58.800
+TNS   : -720.386
 
 Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
-Slack : -7.746
-TNS   : -1077.667
+Slack : -6.524
+TNS   : -1088.762
 
 Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
-Slack : 0.401
+Slack : 0.386
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'sync_sw[0]'
-Slack : 0.772
+Slack : 0.581
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -280.560
+TNS   : -322.965
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'sync_sw[0]'
-Slack : 0.415
+Slack : 0.408
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'sync_sw[0]'
-Slack : -51.087
-TNS   : -629.991
+Slack : -52.838
+TNS   : -648.837
 
 Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -7.043
-TNS   : -966.598
+Slack : -5.835
+TNS   : -970.610
 
 Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.352
+Slack : 0.338
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'sync_sw[0]'
-Slack : 0.646
+Slack : 0.444
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -280.560
+TNS   : -322.965
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'sync_sw[0]'
-Slack : 0.331
+Slack : 0.347
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'sync_sw[0]'
-Slack : -27.734
-TNS   : -336.881
+Slack : -28.886
+TNS   : -348.135
 
 Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -3.508
-TNS   : -426.596
+Slack : -2.817
+TNS   : -409.038
 
 Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.181
+Slack : 0.174
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'sync_sw[0]'
-Slack : 0.424
+Slack : 0.400
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -232.106
+TNS   : -267.116
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'sync_sw[0]'
-Slack : 0.270
+Slack : 0.295
 TNS   : 0.000
 
 ------------------------------------------------------------
