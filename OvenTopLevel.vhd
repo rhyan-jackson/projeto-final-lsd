@@ -15,7 +15,7 @@ entity OvenTopLevel is
       HEX5     : out std_logic_vector(6 downto 0);
       HEX6     : out std_logic_vector(6 downto 0);
 		HEX7     : out std_logic_vector(6 downto 0);
-      LEDR     : out std_logic_vector(1 downto 0);
+      LEDR     : out std_logic_vector(2 downto 0);
 		LEDG     : out std_logic_vector(7 downto 0)
    );
 end entity OvenTopLevel;
@@ -47,7 +47,6 @@ architecture Structural of OvenTopLevel is
    signal s_pulse_1hz : std_logic;
    signal s_pulse_4hz : std_logic;
 	signal s_blink_1hz : std_logic;
-	signal s_blink_1hz_8bits : std_logic_vector(7 downto 0);
 	
    -- logic project signals
    signal s_programSelected : std_logic_vector(3 downto 0);
@@ -58,11 +57,10 @@ architecture Structural of OvenTopLevel is
    signal s_actualTemperature : std_logic_vector(15 downto 0);
    signal s_adjustGeneralClock : std_logic;
    signal s_adjustEndTimeRegister : std_logic;
-   signal s_actualFSMState : std_logic_vector(1 downto 0);
+   signal s_actualFSMState : std_logic_vector(2 downto 0);
 	signal s_heatOn : std_logic;
    signal s_resetBlocks : std_logic;
    signal s_en_blinks_finish : std_logic;
-	signal s_en_leds_finish_8bits : std_logic_vector(7 downto 0);
    signal s_progressBar : std_logic_vector(7 downto 0);
    signal s_ledg_program : std_logic_vector(7 downto 0);
 
@@ -152,11 +150,9 @@ begin
    
    -- selection with sw's process & process to select what will be displayed
 
-   process(CLOCK_50, sync_sw)
+   process(sync_sw, s_actualFSMState)
    begin
-      s_enable_7seg <= "00000000";
-
-      if (sync_sw(1) = '0' and sync_sw(0) = '0') then -- temperatura
+      if (s_actualFSMState = "001") then
          s_programSelected <= "0001";
          s_enable_7seg <= "01110111";
          -- ACTUAL TEMP < > AVERAGE TEMP 
@@ -170,48 +166,63 @@ begin
          s_hex0_bcd <= s_averageTemp_bcd0;
 
 
-      elsif (sync_sw(1) = '0' and sync_sw(0) = '1') then -- tempo cozedura
+      else
+         if (sync_sw(1) = '0' and sync_sw(0) = '0') then -- temperatura
+            s_programSelected <= "0001";
+            s_enable_7seg <= "01110111";
+            -- ACTUAL TEMP < > AVERAGE TEMP 
 
-         -- COOK TIME <
+            s_hex6_bcd <= s_actualTemp_bcd2;
+            s_hex5_bcd <= s_actualTemp_bcd1;
+            s_hex4_bcd <= s_actualTemp_bcd0;
 
-         s_programSelected <= "0010";
-         s_enable_7seg <= "11110000";
-
-         s_hex7_bcd <= s_cookTime_hour_bcd1;
-         s_hex6_bcd <= s_cookTime_hour_bcd0;
-         s_hex5_bcd <= s_cookTime_minute_bcd1;
-         s_hex4_bcd <= s_cookTime_minute_bcd0;
+            s_hex2_bcd <= s_averageTemp_bcd2;
+            s_hex1_bcd <= s_averageTemp_bcd1;
+            s_hex0_bcd <= s_averageTemp_bcd0;
 
 
-      elsif (sync_sw(1) = '1' and sync_sw(0) = '0') then --hora terminal
+         elsif (sync_sw(1) = '0' and sync_sw(0) = '1') then -- tempo cozedura
 
-         -- GENERAL CLOCK < > END TIME
+            -- COOK TIME <
 
-         s_programSelected <= "0100";
-         s_enable_7seg <= "11111111";
+            s_programSelected <= "0010";
+            s_enable_7seg <= "11110000";
 
-         s_hex7_bcd <= s_generalClock_hour_bcd1;
-         s_hex6_bcd <= s_generalClock_hour_bcd0;
-         s_hex5_bcd <= s_generalClock_minute_bcd1;
-         s_hex4_bcd <= s_generalClock_minute_bcd0;
+            s_hex7_bcd <= s_cookTime_hour_bcd1;
+            s_hex6_bcd <= s_cookTime_hour_bcd0;
+            s_hex5_bcd <= s_cookTime_minute_bcd1;
+            s_hex4_bcd <= s_cookTime_minute_bcd0;
 
-         s_hex3_bcd <= s_endTime_hour_bcd1;
-         s_hex2_bcd <= s_endTime_hour_bcd0;
-         s_hex1_bcd <= s_endTime_minute_bcd1;
-         s_hex0_bcd <= s_endTime_minute_bcd0;
 
-      else -- relógio
+         elsif (sync_sw(1) = '1' and sync_sw(0) = '0') then --hora terminal
 
-         -- GEN. CLOCK <
-         s_programSelected <= "1000";
-         s_enable_7seg <= "11110000";
+            -- GENERAL CLOCK < > END TIME
 
-			s_hex7_bcd <= s_generalClock_hour_bcd1;
-         s_hex6_bcd <= s_generalClock_hour_bcd0;
-         s_hex5_bcd <= s_generalClock_minute_bcd1;
-         s_hex4_bcd <= s_generalClock_minute_bcd0;
+            s_programSelected <= "0100";
+            s_enable_7seg <= "11111111";
+
+            s_hex7_bcd <= s_generalClock_hour_bcd1;
+            s_hex6_bcd <= s_generalClock_hour_bcd0;
+            s_hex5_bcd <= s_generalClock_minute_bcd1;
+            s_hex4_bcd <= s_generalClock_minute_bcd0;
+
+            s_hex3_bcd <= s_endTime_hour_bcd1;
+            s_hex2_bcd <= s_endTime_hour_bcd0;
+            s_hex1_bcd <= s_endTime_minute_bcd1;
+            s_hex0_bcd <= s_endTime_minute_bcd0;
+
+         else -- relógio
+
+            -- GEN. CLOCK <
+            s_programSelected <= "1000";
+            s_enable_7seg <= "11110000";
+
+            s_hex7_bcd <= s_generalClock_hour_bcd1;
+            s_hex6_bcd <= s_generalClock_hour_bcd0;
+            s_hex5_bcd <= s_generalClock_minute_bcd1;
+            s_hex4_bcd <= s_generalClock_minute_bcd0;
+         end if;
 		end if;
-
    end process;
    
    -- pulse's and blink's
@@ -234,8 +245,6 @@ begin
                    reset  => sync_sw(17),
                    blink  => s_blink_1hz);
 						 
-	s_blink_1hz_8bits <= (others => s_blink_1hz);
-
    -- mapping the registers
    general_clock : work.GeneralClock(Synchronous)
 			port 	map(clk		        => CLOCK_50,
@@ -285,17 +294,16 @@ begin
       port 	map(clk		               => CLOCK_50,
                 reset  			         => sync_sw(17),
                 startIn  		         => s_key3 and not sync_sw(1) and not sync_sw(0),
+					 switchMode             => s_key0,
                 adjustGeneralClock     => s_adjustGeneralClock,
                 adjustEndTimeRegister  => s_adjustEndTimeRegister,
                 actualTime  	         => s_actualTime,
                 cookDuration  	      => s_cookTime,
                 endTime  	            => s_endTime,
-                enableBlinkGreenFinish => s_en_blinks_finish,
                 resetBlocks            => s_resetBlocks,
                 heatOn                 => s_heatOn,
                 actualState            => s_actualFSMState);
 					 
-	s_en_leds_finish_8bits <= (others => s_en_blinks_finish);
    -- display and hour/minute manipulation 
 
    -- GENERAL WATCH
@@ -408,16 +416,19 @@ begin
                   enable      => s_pulse_4hz,
                   progressBar => s_progressBar);
 
+   -- Based on FSM state, LEDG program selection
    process(s_actualFSMState)
    begin
-      if (s_actualFSMState = "10") then
+      if (s_actualFSMState = "011") then
          s_ledg_program <= s_progressBar;
+      elsif (s_actualFSMState = "100") then
+         s_ledg_program <= (others => s_blink_1hz);
       else
-         s_ledg_program <= (s_blink_1hz_8bits and s_en_leds_finish_8bits);
+         s_ledg_program <= (others => '0');
 		end if;
    end process;
    
-   LEDR(1 downto 0) <= s_actualFSMState;
+   LEDR(2 downto 0) <= s_actualFSMState;
    LEDG(7 downto 0) <= s_ledg_program;
 
 end architecture Structural;

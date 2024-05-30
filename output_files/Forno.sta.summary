@@ -2,76 +2,76 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1200mV 85C Model Setup 'sync_sw[0]'
-Slack : -58.800
-TNS   : -720.386
+Type  : Slow 1200mV 85C Model Setup 'OvenFSM:oven_fsm|s_currentState.MANUAL'
+Slack : -59.161
+TNS   : -705.023
 
 Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
-Slack : -6.524
-TNS   : -1088.762
+Slack : -7.094
+TNS   : -1306.434
 
 Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
-Slack : 0.386
+Slack : 0.387
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Hold 'sync_sw[0]'
-Slack : 0.581
+Type  : Slow 1200mV 85C Model Hold 'OvenFSM:oven_fsm|s_currentState.MANUAL'
+Slack : 0.878
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -322.965
+TNS   : -357.660
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'sync_sw[0]'
-Slack : 0.408
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'OvenFSM:oven_fsm|s_currentState.MANUAL'
+Slack : 0.375
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Setup 'sync_sw[0]'
-Slack : -52.838
-TNS   : -648.837
+Type  : Slow 1200mV 0C Model Setup 'OvenFSM:oven_fsm|s_currentState.MANUAL'
+Slack : -53.330
+TNS   : -636.014
 
 Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -5.835
-TNS   : -970.610
+Slack : -6.456
+TNS   : -1174.425
 
 Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.338
+Slack : 0.339
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Hold 'sync_sw[0]'
-Slack : 0.444
+Type  : Slow 1200mV 0C Model Hold 'OvenFSM:oven_fsm|s_currentState.MANUAL'
+Slack : 0.795
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -322.965
+TNS   : -357.660
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'sync_sw[0]'
-Slack : 0.347
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'OvenFSM:oven_fsm|s_currentState.MANUAL'
+Slack : 0.384
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Setup 'sync_sw[0]'
-Slack : -28.886
-TNS   : -348.135
+Type  : Fast 1200mV 0C Model Setup 'OvenFSM:oven_fsm|s_currentState.MANUAL'
+Slack : -29.214
+TNS   : -341.076
 
 Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -2.817
-TNS   : -409.038
+Slack : -3.034
+TNS   : -514.246
 
 Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
 Slack : 0.174
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Hold 'sync_sw[0]'
-Slack : 0.400
+Type  : Fast 1200mV 0C Model Hold 'OvenFSM:oven_fsm|s_currentState.MANUAL'
+Slack : 0.340
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -267.116
+TNS   : -296.028
 
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'sync_sw[0]'
-Slack : 0.295
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'OvenFSM:oven_fsm|s_currentState.MANUAL'
+Slack : 0.263
 TNS   : 0.000
 
 ------------------------------------------------------------
