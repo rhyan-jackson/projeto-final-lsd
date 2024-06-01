@@ -58,7 +58,8 @@ begin
 			if (startIn = '1') then
 				s_nextState <= IDLE;
 			elsif (switchMode = '1') then
-				resetBlocks <= '1';
+				resetBlocks <= '1';			actualState <= "001";
+
 				s_nextState <= MANUAL;
 			else
 				s_nextState <= START;
@@ -66,8 +67,7 @@ begin
 		
 		when MANUAL =>
 			actualState <= "001";
-			adjustGeneralClock <= '1';
-			adjustEndTimeRegister <= '1';
+			heatOn <= '1';
 
 			if (switchMode = '1') then
 				resetBlocks <= '1';
