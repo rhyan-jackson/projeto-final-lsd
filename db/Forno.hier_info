@@ -96,6 +96,7 @@ HEX7[5] <= bin7segdecoder:bin7seg_hex7.decOut_n[5]
 HEX7[6] <= bin7segdecoder:bin7seg_hex7.decOut_n[6]
 LEDR[0] <= ovenfsm:oven_fsm.actualState[0]
 LEDR[1] <= ovenfsm:oven_fsm.actualState[1]
+LEDR[2] <= ovenfsm:oven_fsm.actualState[2]
 LEDG[0] <= s_ledg_program.DB_MAX_OUTPUT_PORT_TYPE
 LEDG[1] <= s_ledg_program.DB_MAX_OUTPUT_PORT_TYPE
 LEDG[2] <= s_ledg_program.DB_MAX_OUTPUT_PORT_TYPE
@@ -917,19 +918,36 @@ actualTemperature[15] <= s_actualTemperature[15].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |OvenTopLevel|OvenFSM:oven_fsm
-clk => s_previousState~5.DATAIN
+clk => s_previousState~6.DATAIN
 clk => s_currentState~1.DATAIN
 reset => s_currentState.OUTPUTSELECT
 reset => s_currentState.OUTPUTSELECT
 reset => s_currentState.OUTPUTSELECT
 reset => s_currentState.OUTPUTSELECT
+reset => s_currentState.OUTPUTSELECT
 reset => s_previousState.OUTPUTSELECT
 reset => s_previousState.OUTPUTSELECT
 reset => s_previousState.OUTPUTSELECT
 reset => s_previousState.OUTPUTSELECT
-startIn => Selector0.IN2
-startIn => s_nextState.START.DATAB
-startIn => Selector2.IN1
+reset => s_previousState.OUTPUTSELECT
+startIn => s_nextState.OUTPUTSELECT
+startIn => resetBlocks.OUTPUTSELECT
+startIn => s_nextState.DATAA
+startIn => Selector3.IN3
+startIn => s_nextState.DATAA
+switchMode => resetBlocks.DATAA
+switchMode => s_nextState.OUTPUTSELECT
+switchMode => s_nextState.OUTPUTSELECT
+switchMode => resetBlocks.OUTPUTSELECT
+switchMode => s_nextState.OUTPUTSELECT
+switchMode => s_nextState.OUTPUTSELECT
+switchMode => s_nextState.OUTPUTSELECT
+switchMode => s_nextState.OUTPUTSELECT
+switchMode => Selector1.IN3
+switchMode => Selector2.IN3
+switchMode => Selector6.IN3
+switchMode => s_nextState.DATAA
+switchMode => Selector2.IN0
 actualTime[0] => LessThan0.IN32
 actualTime[0] => LessThan1.IN32
 actualTime[1] => LessThan0.IN31
@@ -1010,13 +1028,13 @@ endTime[14] => Add0.IN18
 endTime[14] => LessThan1.IN2
 endTime[15] => Add0.IN17
 endTime[15] => LessThan1.IN1
-enableBlinkGreenFinish <= enableBlinkGreenFinish.DB_MAX_OUTPUT_PORT_TYPE
-resetBlocks <= resetBlocks.DB_MAX_OUTPUT_PORT_TYPE
+resetBlocks <= Selector6.DB_MAX_OUTPUT_PORT_TYPE
 heatOn <= heatOn.DB_MAX_OUTPUT_PORT_TYPE
 adjustGeneralClock <= adjustGeneralClock.DB_MAX_OUTPUT_PORT_TYPE
 adjustEndTimeRegister <= adjustEndTimeRegister.DB_MAX_OUTPUT_PORT_TYPE
-actualState[0] <= actualState.DB_MAX_OUTPUT_PORT_TYPE
+actualState[0] <= Selector0.DB_MAX_OUTPUT_PORT_TYPE
 actualState[1] <= actualState.DB_MAX_OUTPUT_PORT_TYPE
+actualState[2] <= actualState[2].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |OvenTopLevel|DisplayTime:display_time_general_clock
