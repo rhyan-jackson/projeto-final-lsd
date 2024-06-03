@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Forno
-Thu May 30 17:08:09 2024
+Mon Jun  3 08:53:56 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -88,7 +88,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu May 30 17:08:09 2024          ;
+; Analysis & Synthesis Status        ; Successful - Mon Jun  3 08:53:56 2024          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; Forno                                          ;
 ; Top-level Entity Name              ; OvenTopLevel                                   ;
@@ -262,9 +262,9 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                ;
 ; Total combinational functions               ; 7187           ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 1843           ;
-;     -- 3 input functions                    ; 2223           ;
-;     -- <=2 input functions                  ; 3121           ;
+;     -- 4 input functions                    ; 1873           ;
+;     -- 3 input functions                    ; 2194           ;
+;     -- <=2 input functions                  ; 3120           ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
 ;     -- normal mode                          ; 4704           ;
@@ -280,7 +280,7 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
 ; Maximum fan-out                             ; 276            ;
-; Total fan-out                               ; 20802          ;
+; Total fan-out                               ; 20832          ;
 ; Average fan-out                             ; 2.72           ;
 +---------------------------------------------+----------------+
 
@@ -290,7 +290,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
 ; Compilation Hierarchy Node                       ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                  ; Entity Name          ; Library Name ;
 +--------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
-; |OvenTopLevel                                    ; 7187 (112)          ; 276 (3)                   ; 0           ; 0            ; 0       ; 0         ; 90   ; 0            ; |OvenTopLevel                                                                                                                                        ; OvenTopLevel         ; work         ;
+; |OvenTopLevel                                    ; 7187 (114)          ; 276 (3)                   ; 0           ; 0            ; 0       ; 0         ; 90   ; 0            ; |OvenTopLevel                                                                                                                                        ; OvenTopLevel         ; work         ;
 ;    |Bin16ToBCD:bin16_to_bcd_actuaTemp|           ; 1359 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin16ToBCD:bin16_to_bcd_actuaTemp                                                                                                      ; Bin16ToBCD           ; work         ;
 ;       |lpm_divide:Div0|                          ; 358 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin16ToBCD:bin16_to_bcd_actuaTemp|lpm_divide:Div0                                                                                      ; lpm_divide           ; work         ;
 ;          |lpm_divide_lkm:auto_generated|         ; 358 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin16ToBCD:bin16_to_bcd_actuaTemp|lpm_divide:Div0|lpm_divide_lkm:auto_generated                                                        ; lpm_divide_lkm       ; work         ;
@@ -334,15 +334,15 @@ https://fpgasoftware.intel.com/eula.
 ;          |lpm_divide_m9m:auto_generated|         ; 36 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_cookTime|lpm_divide:Mod0|lpm_divide_m9m:auto_generated                                                      ; lpm_divide_m9m       ; work         ;
 ;             |sign_div_unsign_bkh:divider|        ; 36 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_cookTime|lpm_divide:Mod0|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider                          ; sign_div_unsign_bkh  ; work         ;
 ;                |alt_u_div_a4f:divider|           ; 36 (36)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_cookTime|lpm_divide:Mod0|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider    ; alt_u_div_a4f        ; work         ;
-;    |Bin6toBCD:bin6_to_bcd_hour_endTime|          ; 68 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_endTime                                                                                                     ; Bin6toBCD            ; work         ;
+;    |Bin6toBCD:bin6_to_bcd_hour_endTime|          ; 69 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_endTime                                                                                                     ; Bin6toBCD            ; work         ;
 ;       |lpm_divide:Div0|                          ; 33 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_endTime|lpm_divide:Div0                                                                                     ; lpm_divide           ; work         ;
 ;          |lpm_divide_jhm:auto_generated|         ; 33 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_endTime|lpm_divide:Div0|lpm_divide_jhm:auto_generated                                                       ; lpm_divide_jhm       ; work         ;
 ;             |sign_div_unsign_bkh:divider|        ; 33 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_endTime|lpm_divide:Div0|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider                           ; sign_div_unsign_bkh  ; work         ;
 ;                |alt_u_div_a4f:divider|           ; 33 (33)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_endTime|lpm_divide:Div0|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider     ; alt_u_div_a4f        ; work         ;
-;       |lpm_divide:Mod0|                          ; 35 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_endTime|lpm_divide:Mod0                                                                                     ; lpm_divide           ; work         ;
-;          |lpm_divide_m9m:auto_generated|         ; 35 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_endTime|lpm_divide:Mod0|lpm_divide_m9m:auto_generated                                                       ; lpm_divide_m9m       ; work         ;
-;             |sign_div_unsign_bkh:divider|        ; 35 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_endTime|lpm_divide:Mod0|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider                           ; sign_div_unsign_bkh  ; work         ;
-;                |alt_u_div_a4f:divider|           ; 35 (35)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_endTime|lpm_divide:Mod0|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider     ; alt_u_div_a4f        ; work         ;
+;       |lpm_divide:Mod0|                          ; 36 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_endTime|lpm_divide:Mod0                                                                                     ; lpm_divide           ; work         ;
+;          |lpm_divide_m9m:auto_generated|         ; 36 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_endTime|lpm_divide:Mod0|lpm_divide_m9m:auto_generated                                                       ; lpm_divide_m9m       ; work         ;
+;             |sign_div_unsign_bkh:divider|        ; 36 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_endTime|lpm_divide:Mod0|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider                           ; sign_div_unsign_bkh  ; work         ;
+;                |alt_u_div_a4f:divider|           ; 36 (36)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_endTime|lpm_divide:Mod0|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider     ; alt_u_div_a4f        ; work         ;
 ;    |Bin6toBCD:bin6_to_bcd_hour_gen_clock|        ; 69 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_gen_clock                                                                                                   ; Bin6toBCD            ; work         ;
 ;       |lpm_divide:Div0|                          ; 33 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_gen_clock|lpm_divide:Div0                                                                                   ; lpm_divide           ; work         ;
 ;          |lpm_divide_jhm:auto_generated|         ; 33 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin6toBCD:bin6_to_bcd_hour_gen_clock|lpm_divide:Div0|lpm_divide_jhm:auto_generated                                                     ; lpm_divide_jhm       ; work         ;
@@ -383,13 +383,13 @@ https://fpgasoftware.intel.com/eula.
 ;    |Bin7SegDecoder:bin7seg_hex1|                 ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin7SegDecoder:bin7seg_hex1                                                                                                            ; Bin7SegDecoder       ; work         ;
 ;    |Bin7SegDecoder:bin7seg_hex2|                 ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin7SegDecoder:bin7seg_hex2                                                                                                            ; Bin7SegDecoder       ; work         ;
 ;    |Bin7SegDecoder:bin7seg_hex3|                 ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin7SegDecoder:bin7seg_hex3                                                                                                            ; Bin7SegDecoder       ; work         ;
-;    |Bin7SegDecoder:bin7seg_hex4|                 ; 11 (11)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin7SegDecoder:bin7seg_hex4                                                                                                            ; Bin7SegDecoder       ; work         ;
+;    |Bin7SegDecoder:bin7seg_hex4|                 ; 10 (10)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin7SegDecoder:bin7seg_hex4                                                                                                            ; Bin7SegDecoder       ; work         ;
 ;    |Bin7SegDecoder:bin7seg_hex5|                 ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin7SegDecoder:bin7seg_hex5                                                                                                            ; Bin7SegDecoder       ; work         ;
-;    |Bin7SegDecoder:bin7seg_hex6|                 ; 11 (11)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin7SegDecoder:bin7seg_hex6                                                                                                            ; Bin7SegDecoder       ; work         ;
+;    |Bin7SegDecoder:bin7seg_hex6|                 ; 12 (12)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin7SegDecoder:bin7seg_hex6                                                                                                            ; Bin7SegDecoder       ; work         ;
 ;    |Bin7SegDecoder:bin7seg_hex7|                 ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Bin7SegDecoder:bin7seg_hex7                                                                                                            ; Bin7SegDecoder       ; work         ;
 ;    |BlinkGenerator:blink_1hz|                    ; 34 (34)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|BlinkGenerator:blink_1hz                                                                                                               ; BlinkGenerator       ; work         ;
-;    |CookDurationRegister:cook_duration_register| ; 64 (64)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|CookDurationRegister:cook_duration_register                                                                                            ; CookDurationRegister ; work         ;
-;    |DebounceUnit:debouncer_key0|                 ; 67 (67)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|DebounceUnit:debouncer_key0                                                                                                            ; DebounceUnit         ; work         ;
+;    |CookDurationRegister:cook_duration_register| ; 63 (63)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|CookDurationRegister:cook_duration_register                                                                                            ; CookDurationRegister ; work         ;
+;    |DebounceUnit:debouncer_key0|                 ; 68 (68)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|DebounceUnit:debouncer_key0                                                                                                            ; DebounceUnit         ; work         ;
 ;    |DebounceUnit:debouncer_key1|                 ; 67 (67)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|DebounceUnit:debouncer_key1                                                                                                            ; DebounceUnit         ; work         ;
 ;    |DebounceUnit:debouncer_key2|                 ; 67 (67)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|DebounceUnit:debouncer_key2                                                                                                            ; DebounceUnit         ; work         ;
 ;    |DebounceUnit:debouncer_key3|                 ; 67 (67)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|DebounceUnit:debouncer_key3                                                                                                            ; DebounceUnit         ; work         ;
@@ -420,14 +420,14 @@ https://fpgasoftware.intel.com/eula.
 ;          |lpm_divide_lcm:auto_generated|         ; 839 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|DisplayTime:display_time_general_clock|lpm_divide:Mod0|lpm_divide_lcm:auto_generated                                                   ; lpm_divide_lcm       ; work         ;
 ;             |sign_div_unsign_anh:divider|        ; 839 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|DisplayTime:display_time_general_clock|lpm_divide:Mod0|lpm_divide_lcm:auto_generated|sign_div_unsign_anh:divider                       ; sign_div_unsign_anh  ; work         ;
 ;                |alt_u_div_8af:divider|           ; 839 (839)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|DisplayTime:display_time_general_clock|lpm_divide:Mod0|lpm_divide_lcm:auto_generated|sign_div_unsign_anh:divider|alt_u_div_8af:divider ; alt_u_div_8af        ; work         ;
-;    |EndTimeRegister:end_time_register|           ; 86 (86)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|EndTimeRegister:end_time_register                                                                                                      ; EndTimeRegister      ; work         ;
+;    |EndTimeRegister:end_time_register|           ; 85 (85)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|EndTimeRegister:end_time_register                                                                                                      ; EndTimeRegister      ; work         ;
 ;    |GeneralClock:general_clock|                  ; 54 (54)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|GeneralClock:general_clock                                                                                                             ; GeneralClock         ; work         ;
 ;    |Heater:heater|                               ; 73 (73)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|Heater:heater                                                                                                                          ; Heater               ; work         ;
 ;    |OvenFSM:oven_fsm|                            ; 59 (59)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|OvenFSM:oven_fsm                                                                                                                       ; OvenFSM              ; work         ;
 ;    |ProgressLeds:progress_bar_control|           ; 11 (11)             ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|ProgressLeds:progress_bar_control                                                                                                      ; ProgressLeds         ; work         ;
 ;    |PulseGenerator:pulse_1hz|                    ; 37 (37)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|PulseGenerator:pulse_1hz                                                                                                               ; PulseGenerator       ; work         ;
 ;    |PulseGenerator:pulse_4hz|                    ; 33 (33)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|PulseGenerator:pulse_4hz                                                                                                               ; PulseGenerator       ; work         ;
-;    |RegisterTemperature:register_temperature|    ; 55 (55)             ; 15 (15)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|RegisterTemperature:register_temperature                                                                                               ; RegisterTemperature  ; work         ;
+;    |RegisterTemperature:register_temperature|    ; 53 (53)             ; 15 (15)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OvenTopLevel|RegisterTemperature:register_temperature                                                                                               ; RegisterTemperature  ; work         ;
 +--------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -529,34 +529,34 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------+---------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------+
-; 3:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |OvenTopLevel|PulseGenerator:pulse_1hz|s_cnt[1]                                 ;
-; 3:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |OvenTopLevel|PulseGenerator:pulse_4hz|s_cnt[14]                                ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |OvenTopLevel|ProgressLeds:progress_bar_control|s_progressBar[1]                ;
-; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |OvenTopLevel|DebounceUnit:debouncer_key3|s_debounceCnt[11]                     ;
-; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |OvenTopLevel|DebounceUnit:debouncer_key0|s_debounceCnt[9]                      ;
-; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |OvenTopLevel|DebounceUnit:debouncer_key2|s_debounceCnt[18]                     ;
-; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |OvenTopLevel|DebounceUnit:debouncer_key1|s_debounceCnt[16]                     ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |OvenTopLevel|CookDurationRegister:cook_duration_register|s_cookTime[11]        ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |OvenTopLevel|EndTimeRegister:end_time_register|s_endTime[8]                    ;
-; 5:1                ; 13 bits   ; 39 LEs        ; 26 LEs               ; 13 LEs                 ; Yes        ; |OvenTopLevel|Heater:heater|s_actualTemperature[1]                              ;
-; 6:1                ; 15 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |OvenTopLevel|RegisterTemperature:register_temperature|s_selectedTemperature[5] ;
-; 7:1                ; 16 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |OvenTopLevel|GeneralClock:general_clock|s_actualTime[3]                        ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |OvenTopLevel|Heater:heater|s_actualTemperature[2]                              ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |OvenTopLevel|s_hex4_bcd[1]                                                     ;
-; 16:1               ; 2 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |OvenTopLevel|Bin7SegDecoder:bin7seg_hex4|decOut_n                              ;
-; 16:1               ; 2 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |OvenTopLevel|Bin7SegDecoder:bin7seg_hex5|decOut_n                              ;
-; 16:1               ; 2 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |OvenTopLevel|Bin7SegDecoder:bin7seg_hex6|decOut_n                              ;
-; 17:1               ; 2 bits    ; 22 LEs        ; 16 LEs               ; 6 LEs                  ; No         ; |OvenTopLevel|Bin7SegDecoder:bin7seg_hex0|decOut_n[3]                           ;
-; 17:1               ; 2 bits    ; 22 LEs        ; 16 LEs               ; 6 LEs                  ; No         ; |OvenTopLevel|Bin7SegDecoder:bin7seg_hex1|decOut_n[6]                           ;
-; 17:1               ; 2 bits    ; 22 LEs        ; 16 LEs               ; 6 LEs                  ; No         ; |OvenTopLevel|Bin7SegDecoder:bin7seg_hex2|decOut_n[6]                           ;
-; 17:1               ; 2 bits    ; 22 LEs        ; 16 LEs               ; 6 LEs                  ; No         ; |OvenTopLevel|Bin7SegDecoder:bin7seg_hex3|decOut_n[6]                           ;
-; 17:1               ; 2 bits    ; 22 LEs        ; 16 LEs               ; 6 LEs                  ; No         ; |OvenTopLevel|Bin7SegDecoder:bin7seg_hex7|decOut_n[6]                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------+
+; 3:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |OvenTopLevel|PulseGenerator:pulse_1hz|s_cnt[21]                                 ;
+; 3:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |OvenTopLevel|PulseGenerator:pulse_4hz|s_cnt[3]                                  ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |OvenTopLevel|ProgressLeds:progress_bar_control|s_progressBar[3]                 ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |OvenTopLevel|DebounceUnit:debouncer_key0|s_debounceCnt[17]                      ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |OvenTopLevel|DebounceUnit:debouncer_key3|s_debounceCnt[15]                      ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |OvenTopLevel|DebounceUnit:debouncer_key2|s_debounceCnt[19]                      ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |OvenTopLevel|DebounceUnit:debouncer_key1|s_debounceCnt[21]                      ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |OvenTopLevel|CookDurationRegister:cook_duration_register|s_cookTime[0]          ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |OvenTopLevel|EndTimeRegister:end_time_register|s_endTime[12]                    ;
+; 5:1                ; 13 bits   ; 39 LEs        ; 26 LEs               ; 13 LEs                 ; Yes        ; |OvenTopLevel|Heater:heater|s_actualTemperature[8]                               ;
+; 6:1                ; 15 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |OvenTopLevel|RegisterTemperature:register_temperature|s_selectedTemperature[11] ;
+; 7:1                ; 16 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |OvenTopLevel|GeneralClock:general_clock|s_actualTime[10]                        ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |OvenTopLevel|Heater:heater|s_actualTemperature[2]                               ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |OvenTopLevel|s_hex4_bcd[0]                                                      ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |OvenTopLevel|Bin7SegDecoder:bin7seg_hex4|decOut_n                               ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |OvenTopLevel|Bin7SegDecoder:bin7seg_hex5|decOut_n                               ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |OvenTopLevel|Bin7SegDecoder:bin7seg_hex6|decOut_n                               ;
+; 17:1               ; 2 bits    ; 22 LEs        ; 16 LEs               ; 6 LEs                  ; No         ; |OvenTopLevel|Bin7SegDecoder:bin7seg_hex0|decOut_n[3]                            ;
+; 17:1               ; 2 bits    ; 22 LEs        ; 16 LEs               ; 6 LEs                  ; No         ; |OvenTopLevel|Bin7SegDecoder:bin7seg_hex1|decOut_n[6]                            ;
+; 17:1               ; 2 bits    ; 22 LEs        ; 16 LEs               ; 6 LEs                  ; No         ; |OvenTopLevel|Bin7SegDecoder:bin7seg_hex2|decOut_n[6]                            ;
+; 17:1               ; 2 bits    ; 22 LEs        ; 16 LEs               ; 6 LEs                  ; No         ; |OvenTopLevel|Bin7SegDecoder:bin7seg_hex3|decOut_n[6]                            ;
+; 17:1               ; 2 bits    ; 22 LEs        ; 16 LEs               ; 6 LEs                  ; No         ; |OvenTopLevel|Bin7SegDecoder:bin7seg_hex7|decOut_n[6]                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------+
@@ -1311,13 +1311,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         3 data inputs ; 2030                        ;
 ;     normal            ; 4706                        ;
 ;         0 data inputs ; 194                         ;
-;         1 data inputs ; 67                          ;
-;         2 data inputs ; 2409                        ;
-;         3 data inputs ; 193                         ;
-;         4 data inputs ; 1843                        ;
+;         1 data inputs ; 68                          ;
+;         2 data inputs ; 2407                        ;
+;         3 data inputs ; 164                         ;
+;         4 data inputs ; 1873                        ;
 ;                       ;                             ;
 ; Max LUT depth         ; 62.80                       ;
-; Average LUT depth     ; 41.67                       ;
+; Average LUT depth     ; 41.71                       ;
 +-----------------------+-----------------------------+
 
 
@@ -1326,7 +1326,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:16     ;
+; Top            ; 00:00:21     ;
 +----------------+--------------+
 
 
@@ -1336,7 +1336,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Thu May 30 17:07:43 2024
+    Info: Processing started: Mon Jun  3 08:53:23 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Forno -c Forno
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -1423,7 +1423,8 @@ Warning (10631): VHDL Process Statement warning at OvenTopLevel.vhd(153): inferr
 Warning (10631): VHDL Process Statement warning at OvenTopLevel.vhd(153): inferring latch(es) for signal or variable "s_hex7_bcd", which holds its previous value in one or more paths through the process File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 153
 Warning (10631): VHDL Process Statement warning at OvenTopLevel.vhd(153): inferring latch(es) for signal or variable "s_hex3_bcd", which holds its previous value in one or more paths through the process File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 153
 Warning (10492): VHDL Process Statement warning at OvenTopLevel.vhd(423): signal "s_progressBar" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 423
-Warning (10492): VHDL Process Statement warning at OvenTopLevel.vhd(425): signal "s_blink_1hz" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 425
+Warning (10492): VHDL Process Statement warning at OvenTopLevel.vhd(425): signal "s_progressBar" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 425
+Warning (10492): VHDL Process Statement warning at OvenTopLevel.vhd(427): signal "s_blink_1hz" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 427
 Info (10041): Inferred latch for "s_hex3_bcd[0]" at OvenTopLevel.vhd(153) File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 153
 Info (10041): Inferred latch for "s_hex3_bcd[1]" at OvenTopLevel.vhd(153) File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 153
 Info (10041): Inferred latch for "s_hex3_bcd[2]" at OvenTopLevel.vhd(153) File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 153
@@ -1457,15 +1458,15 @@ Info (12129): Elaborating entity "OvenFSM" using architecture "A:behavioral" for
 Warning (10036): Verilog HDL or VHDL warning at OvenFSM.vhd(24): object "s_previousState" assigned a value but never read File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 24
 Warning (10492): VHDL Process Statement warning at OvenFSM.vhd(58): signal "startIn" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 58
 Warning (10492): VHDL Process Statement warning at OvenFSM.vhd(60): signal "switchMode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 60
-Warning (10492): VHDL Process Statement warning at OvenFSM.vhd(72): signal "switchMode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 72
-Warning (10492): VHDL Process Statement warning at OvenFSM.vhd(82): signal "switchMode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 82
-Warning (10492): VHDL Process Statement warning at OvenFSM.vhd(85): signal "s_actualTime" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 85
-Warning (10492): VHDL Process Statement warning at OvenFSM.vhd(85): signal "s_cookHour" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 85
-Warning (10492): VHDL Process Statement warning at OvenFSM.vhd(95): signal "switchMode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 95
-Warning (10492): VHDL Process Statement warning at OvenFSM.vhd(98): signal "s_actualTime" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 98
-Warning (10492): VHDL Process Statement warning at OvenFSM.vhd(98): signal "s_finishHour" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 98
-Warning (10492): VHDL Process Statement warning at OvenFSM.vhd(109): signal "switchMode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 109
-Warning (10492): VHDL Process Statement warning at OvenFSM.vhd(112): signal "startIn" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 112
+Warning (10492): VHDL Process Statement warning at OvenFSM.vhd(73): signal "switchMode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 73
+Warning (10492): VHDL Process Statement warning at OvenFSM.vhd(83): signal "switchMode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 83
+Warning (10492): VHDL Process Statement warning at OvenFSM.vhd(86): signal "s_actualTime" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 86
+Warning (10492): VHDL Process Statement warning at OvenFSM.vhd(86): signal "s_cookHour" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 86
+Warning (10492): VHDL Process Statement warning at OvenFSM.vhd(96): signal "switchMode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 96
+Warning (10492): VHDL Process Statement warning at OvenFSM.vhd(99): signal "s_actualTime" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 99
+Warning (10492): VHDL Process Statement warning at OvenFSM.vhd(99): signal "s_finishHour" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 99
+Warning (10492): VHDL Process Statement warning at OvenFSM.vhd(110): signal "switchMode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 110
+Warning (10492): VHDL Process Statement warning at OvenFSM.vhd(113): signal "startIn" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 113
 Info (12129): Elaborating entity "DisplayTime" using architecture "A:shell" for hierarchy "DisplayTime:display_time_general_clock" File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 310
 Info (12129): Elaborating entity "Bin6toBCD" using architecture "A:behavioral" for hierarchy "Bin6toBCD:bin6_to_bcd_min_gen_clock" File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 315
 Info (12129): Elaborating entity "Bin16ToBCD" using architecture "A:behavioral" for hierarchy "Bin16ToBCD:bin16_to_bcd_actuaTemp" File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 358
@@ -1590,29 +1591,29 @@ Info (12133): Instantiated megafunction "Bin16ToBCD:bin16_to_bcd_averageTemp|lpm
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Warning (13012): Latch s_hex0_bcd[3] has unsafe behavior File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 153
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal OvenFSM:oven_fsm|s_currentState.MANUAL File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 24
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal OvenFSM:oven_fsm|actualState[1] File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 19
 Warning (13012): Latch s_hex0_bcd[1] has unsafe behavior File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 153
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal OvenFSM:oven_fsm|s_currentState.MANUAL File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 24
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal OvenFSM:oven_fsm|actualState[1] File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 19
 Warning (13012): Latch s_hex0_bcd[0] has unsafe behavior File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 153
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal OvenFSM:oven_fsm|s_currentState.MANUAL File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 24
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal OvenFSM:oven_fsm|actualState[1] File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 19
 Warning (13012): Latch s_hex0_bcd[2] has unsafe behavior File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 153
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal OvenFSM:oven_fsm|s_currentState.MANUAL File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 24
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal OvenFSM:oven_fsm|actualState[1] File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 19
 Warning (13012): Latch s_hex1_bcd[3] has unsafe behavior File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 153
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal OvenFSM:oven_fsm|s_currentState.MANUAL File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 24
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal OvenFSM:oven_fsm|actualState[1] File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 19
 Warning (13012): Latch s_hex1_bcd[1] has unsafe behavior File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 153
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal OvenFSM:oven_fsm|s_currentState.MANUAL File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 24
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal OvenFSM:oven_fsm|actualState[1] File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 19
 Warning (13012): Latch s_hex1_bcd[0] has unsafe behavior File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 153
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal OvenFSM:oven_fsm|s_currentState.MANUAL File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 24
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal OvenFSM:oven_fsm|actualState[1] File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 19
 Warning (13012): Latch s_hex1_bcd[2] has unsafe behavior File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 153
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal OvenFSM:oven_fsm|s_currentState.MANUAL File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 24
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal OvenFSM:oven_fsm|actualState[1] File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 19
 Warning (13012): Latch s_hex2_bcd[3] has unsafe behavior File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 153
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal OvenFSM:oven_fsm|s_currentState.MANUAL File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 24
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal OvenFSM:oven_fsm|actualState[1] File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 19
 Warning (13012): Latch s_hex2_bcd[1] has unsafe behavior File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 153
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal OvenFSM:oven_fsm|s_currentState.MANUAL File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 24
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal OvenFSM:oven_fsm|actualState[1] File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 19
 Warning (13012): Latch s_hex2_bcd[0] has unsafe behavior File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 153
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal OvenFSM:oven_fsm|s_currentState.MANUAL File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 24
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal OvenFSM:oven_fsm|actualState[1] File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 19
 Warning (13012): Latch s_hex2_bcd[2] has unsafe behavior File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 153
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal OvenFSM:oven_fsm|s_currentState.MANUAL File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 24
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal OvenFSM:oven_fsm|actualState[1] File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenFSM.vhd Line: 19
 Warning (13012): Latch s_hex7_bcd[1] has unsafe behavior File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 153
     Warning (13013): Ports D and ENA on the latch are fed by the same signal sync_sw[0] File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 110
 Warning (13012): Latch s_hex7_bcd[2] has unsafe behavior File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/OvenTopLevel.vhd Line: 153
@@ -1668,6 +1669,7 @@ Info (17016): Found the following redundant logic cells in design
     Info (17048): Logic cell "Bin16ToBCD:bin16_to_bcd_averageTemp|lpm_divide:Div1|lpm_divide_lkm:auto_generated|sign_div_unsign_dnh:divider|alt_u_div_eaf:divider|add_sub_11_result_int[0]~24" File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/db/alt_u_div_eaf.tdf Line: 42
     Info (17048): Logic cell "Bin16ToBCD:bin16_to_bcd_averageTemp|lpm_divide:Div1|lpm_divide_lkm:auto_generated|sign_div_unsign_dnh:divider|alt_u_div_eaf:divider|add_sub_12_result_int[0]~26" File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/db/alt_u_div_eaf.tdf Line: 47
     Info (17048): Logic cell "Bin16ToBCD:bin16_to_bcd_averageTemp|lpm_divide:Div1|lpm_divide_lkm:auto_generated|sign_div_unsign_dnh:divider|alt_u_div_eaf:divider|add_sub_13_result_int[0]~28" File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/db/alt_u_div_eaf.tdf Line: 52
+    Info (17048): Logic cell "Bin6toBCD:bin6_to_bcd_hour_endTime|lpm_divide:Mod0|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider|add_sub_5_result_int[0]~12" File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/db/alt_u_div_a4f.tdf Line: 52
     Info (17048): Logic cell "Bin16ToBCD:bin16_to_bcd_averageTemp|lpm_divide:Div1|lpm_divide_lkm:auto_generated|sign_div_unsign_dnh:divider|alt_u_div_eaf:divider|add_sub_14_result_int[0]~30" File: /home/rhyan/Documents/ua/1.2/LSD/projeto-final-lsd/db/alt_u_div_eaf.tdf Line: 57
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
@@ -1691,10 +1693,10 @@ Info (21057): Implemented 7286 device resources after synthesis - the final reso
     Info (21058): Implemented 23 input pins
     Info (21059): Implemented 67 output pins
     Info (21061): Implemented 7196 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 94 warnings
-    Info: Peak virtual memory: 513 megabytes
-    Info: Processing ended: Thu May 30 17:08:09 2024
-    Info: Elapsed time: 00:00:26
-    Info: Total CPU time (on all processors): 00:00:37
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 95 warnings
+    Info: Peak virtual memory: 519 megabytes
+    Info: Processing ended: Mon Jun  3 08:53:56 2024
+    Info: Elapsed time: 00:00:33
+    Info: Total CPU time (on all processors): 00:00:45
 
 

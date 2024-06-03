@@ -58,7 +58,8 @@ begin
 			if (startIn = '1') then
 				s_nextState <= IDLE;
 			elsif (switchMode = '1') then
-				resetBlocks <= '1';			actualState <= "001";
+				resetBlocks <= '1';
+				actualState <= "001";
 
 				s_nextState <= MANUAL;
 			else

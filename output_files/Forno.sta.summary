@@ -2,76 +2,76 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1200mV 85C Model Setup 'OvenFSM:oven_fsm|s_currentState.MANUAL'
-Slack : -59.161
-TNS   : -705.023
+Type  : Slow 1200mV 85C Model Setup 'DebounceUnit:debouncer_key0|s_pulsedOut'
+Slack : -57.846
+TNS   : -694.405
 
 Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
-Slack : -7.094
-TNS   : -1306.434
+Slack : -7.522
+TNS   : -1316.215
 
-Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
-Slack : 0.387
+Type  : Slow 1200mV 85C Model Hold 'DebounceUnit:debouncer_key0|s_pulsedOut'
+Slack : 0.293
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Hold 'OvenFSM:oven_fsm|s_currentState.MANUAL'
-Slack : 0.878
+Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
+Slack : 0.392
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
 TNS   : -357.660
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'OvenFSM:oven_fsm|s_currentState.MANUAL'
-Slack : 0.375
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'DebounceUnit:debouncer_key0|s_pulsedOut'
+Slack : 0.281
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Setup 'OvenFSM:oven_fsm|s_currentState.MANUAL'
-Slack : -53.330
-TNS   : -636.014
+Type  : Slow 1200mV 0C Model Setup 'DebounceUnit:debouncer_key0|s_pulsedOut'
+Slack : -52.207
+TNS   : -627.318
 
 Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -6.456
-TNS   : -1174.425
+Slack : -6.776
+TNS   : -1176.491
 
-Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.339
+Type  : Slow 1200mV 0C Model Hold 'DebounceUnit:debouncer_key0|s_pulsedOut'
+Slack : 0.338
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Hold 'OvenFSM:oven_fsm|s_currentState.MANUAL'
-Slack : 0.795
+Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.350
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
 TNS   : -357.660
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'OvenFSM:oven_fsm|s_currentState.MANUAL'
-Slack : 0.384
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'DebounceUnit:debouncer_key0|s_pulsedOut'
+Slack : 0.238
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Setup 'OvenFSM:oven_fsm|s_currentState.MANUAL'
-Slack : -29.214
-TNS   : -341.076
+Type  : Fast 1200mV 0C Model Setup 'DebounceUnit:debouncer_key0|s_pulsedOut'
+Slack : -28.349
+TNS   : -335.066
 
 Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -3.034
-TNS   : -514.246
+Slack : -3.304
+TNS   : -513.976
+
+Type  : Fast 1200mV 0C Model Hold 'DebounceUnit:debouncer_key0|s_pulsedOut'
+Slack : -0.032
+TNS   : -0.054
 
 Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.174
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Hold 'OvenFSM:oven_fsm|s_currentState.MANUAL'
-Slack : 0.340
+Slack : 0.181
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -296.028
+TNS   : -295.575
 
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'OvenFSM:oven_fsm|s_currentState.MANUAL'
-Slack : 0.263
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'DebounceUnit:debouncer_key0|s_pulsedOut'
+Slack : 0.205
 TNS   : 0.000
 
 ------------------------------------------------------------

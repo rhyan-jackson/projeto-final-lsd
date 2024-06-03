@@ -421,6 +421,8 @@ begin
    begin
       if (s_actualFSMState = "011") then
          s_ledg_program <= s_progressBar;
+		elsif (s_actualFSMState = "001") then
+         s_ledg_program <= s_progressBar;
       elsif (s_actualFSMState = "100") then
          s_ledg_program <= (others => s_blink_1hz);
       else
