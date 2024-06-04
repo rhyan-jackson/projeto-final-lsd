@@ -156,11 +156,12 @@ begin
          s_programSelected <= "0001";
          s_enable_7seg <= "01110111";
          -- ACTUAL TEMP < > AVERAGE TEMP 
-
+         
+         s_hex7_bcd <= (others => '0');
          s_hex6_bcd <= s_actualTemp_bcd2;
          s_hex5_bcd <= s_actualTemp_bcd1;
          s_hex4_bcd <= s_actualTemp_bcd0;
-
+         s_hex3_bcd <= (others => '0');
          s_hex2_bcd <= s_averageTemp_bcd2;
          s_hex1_bcd <= s_averageTemp_bcd1;
          s_hex0_bcd <= s_averageTemp_bcd0;
@@ -172,10 +173,11 @@ begin
             s_enable_7seg <= "01110111";
             -- ACTUAL TEMP < > AVERAGE TEMP 
 
+            s_hex7_bcd <= (others => '0');
             s_hex6_bcd <= s_actualTemp_bcd2;
             s_hex5_bcd <= s_actualTemp_bcd1;
             s_hex4_bcd <= s_actualTemp_bcd0;
-
+            s_hex3_bcd <= (others => '0');
             s_hex2_bcd <= s_averageTemp_bcd2;
             s_hex1_bcd <= s_averageTemp_bcd1;
             s_hex0_bcd <= s_averageTemp_bcd0;
@@ -192,6 +194,10 @@ begin
             s_hex6_bcd <= s_cookTime_hour_bcd0;
             s_hex5_bcd <= s_cookTime_minute_bcd1;
             s_hex4_bcd <= s_cookTime_minute_bcd0;
+            s_hex3_bcd <= (others => '0');
+            s_hex2_bcd <= (others => '0');
+            s_hex1_bcd <= (others => '0');
+            s_hex0_bcd <= (others => '0');
 
 
          elsif (sync_sw(1) = '1' and sync_sw(0) = '0') then --hora terminal
@@ -221,6 +227,10 @@ begin
             s_hex6_bcd <= s_generalClock_hour_bcd0;
             s_hex5_bcd <= s_generalClock_minute_bcd1;
             s_hex4_bcd <= s_generalClock_minute_bcd0;
+            s_hex3_bcd <= (others => '0');
+            s_hex2_bcd <= (others => '0');
+            s_hex1_bcd <= (others => '0');
+            s_hex0_bcd <= (others => '0');
          end if;
 		end if;
    end process;
